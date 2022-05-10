@@ -11,8 +11,16 @@ Let's look at pros/cons of these solutions.
 
 ## ASCOM
 TODO
+### Pros
+TODO
+### Cons
+TODO
 
 ## ASCOM/Alpaca
+TODO
+### Pros
+TODO
+### Cons
 TODO
 
 ## INDI
@@ -35,7 +43,13 @@ The protocol is stateless and it uses XML to encode data between client and serv
 
 
 # A perfect world
-TODO
+In a perfect world things would work more or less like this:
+- the server/client communication should use an easiest and lighter format, JSON
+- clients may be interested only in a subset of the data asked by another client
+- clients SHOULD never poll the server to ask for new data, the server should instead push data to clients, additionally it should push only the data the given client requested and not data asked by other clients
+- the server should be able to run on the 3 major platforms natively - Linux, MacOS, Windows -
+- the drivers should be able to run on the 3 major platforms natively - Linux, MacOS, Windows - this may actually mean doing some things differently on different platforms, but the API should be mantained.
+- communication server <=> drivers should offer the best from every platform (e.g. UNIX sockets on UNIX and Windows sockets on Windows) or alternatively they may be run as standalone processes served over TCP sockets, this would make the entire architecture even more flexible given that now client, server and drivers may run on 3 different machines.
 
 # Lightspeed, a new choice for the future?
 TODO
