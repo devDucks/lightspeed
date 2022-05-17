@@ -52,4 +52,30 @@ In a perfect world things would work more or less like this:
 - communication server <=> drivers should offer the best from every platform (e.g. UNIX sockets on UNIX and Windows sockets on Windows) or alternatively they may be run as standalone processes served over TCP sockets, this would make the entire architecture even more flexible given that now client, server and drivers may run on 3 different machines.
 
 # Lightspeed, a new choice for the future?
+The lightspeed protocol wants to be a new era in the inter device communication for astronomical purposes, it wants to be simple, concise, with a clean API and ultra fast.
+
+The protocol is divided into 2 different sections:
+1) client <=> server protocol
+2) device protocol
+
+### CLIENT <=> SERVER PROTOCOL
 TODO
+
+### DEVICE PROTOCOL
+This is probably the main difference with other softwares, on purpose there is no server <=> driver comunication, why?
+Lightspeed must be flexible, this means that drivers _may_ be hidden behind a server but that _should not_ be the only possibility; if a driver will be
+lightspeed compliant, it means that the driver itself may be used in multiple applications, **IN THE SAME WAY**
+
+Example: a driver for a camera will be used by an astrophotography application, what about another application which main goal is to do only planetary imaging? While on windows this can be achieved with ASCOM drivers, the same cannot be told on UNIX, there is no uniformity nor standards on UNIX and usually every app bakes again and again the SDKs delivered by manifacturers in their app. This creates even more fragmentation in the ecosystem.
+Wouldn't be wonderful to have 1 driver that can be used in the same way on all platforms, that will communicate the same way, that can be used in multiple app no matter the language/platform and for which we can provide a language agnostic interface?
+
+YES
+
+Welcome to protobuf, lightspeed compliant drivers will talk protocol buffers, if you don't know what are protobufs have a look [here](https://developers.google.com/protocol-buffers/) and this is why I opted for them:
+- declarative - you declare with an easy syntax the messaged that will be passed on the wire
+- portability - with protoc you define the messages and you will end up with **real code** in one of the supported language that can be immediately used to talk to whoever implements the same protocol
+- language agnostic - again, you can compile actually to a lot of languages, C#, Java, Python or even **Rust**
+- small format - the format is very small and it takes less space that other protocols like XML/JSON
+- fast - usually marshalling to/from messages is very very performant
+
+Thanks to protobuf either the server or the client can talk directly to devices (even in different languages), the spec will be mantained and communication drivers may be implemented in every possible way, UDS (Unix Domain Sockets), pipes, TCP sockets or even (PLEASE DON'T DO IT) HTTP API
