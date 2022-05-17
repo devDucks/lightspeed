@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package lightspeed.request;
+
+
+message GetPropertiesRequest {
+  string device_name = 1;
+}
+
+message GetPropertyRequest {
+  string device_name = 1;
+  string property_name = 2;
+}
+
+message SetPropertyRequest {
+  string device_name = 1;
+  string property_name = 2;
+  string property_value = 3;
+}
+
+message PropertyRequest {
+  oneof ask {
+    GetPropertyRequest property = 1;
+    GetPropertiesRequest properties = 2;
+  }
+}

@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package lightspeed.props;
+
+message Property {
+  string name = 1;
+  string value = 2;
+  string kind = 3;
+  string read_only = 4;
+}

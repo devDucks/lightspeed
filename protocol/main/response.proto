@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+import public "protocol/properties/props.proto";
+
+package lightspeed.response;
+
+message GetPropertiesResponse {
+  string device_name = 1;
+  repeated lightspeed.props.Property properties = 2;
+}
