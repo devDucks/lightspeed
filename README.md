@@ -54,15 +54,6 @@ In a perfect world things would work more or less like this:
 # Lightspeed, a new choice for the future?
 The lightspeed protocol wants to be a new era in the inter device communication for astronomical purposes, it wants to be simple, concise, with a clean API and ultra fast.
 
-The protocol is divided into 2 different sections:
-1) client <=> server protocol
-2) device protocol
-
-### CLIENT <=> SERVER PROTOCOL
-TODO
-
-### DEVICE PROTOCOL
-This is probably the main difference with other softwares, on purpose there is no server <=> driver comunication, why?
 Lightspeed must be flexible, this means that drivers _may_ be hidden behind a server but that _should not_ be the only possibility; if a driver will be
 lightspeed compliant, it means that the driver itself may be used in multiple applications, **IN THE SAME WAY**
 
