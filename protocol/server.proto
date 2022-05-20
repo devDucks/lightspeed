@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package lightspeed.server;
+
+import public "protocol/main/request.proto";
+import public "protocol/main/response.proto";
+
+
+service AstroService {
+  rpc Search(lightspeed.request.GetPropertiesRequest) returns (lightspeed.response.GetPropertiesResponse);
+}
