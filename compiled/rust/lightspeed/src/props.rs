@@ -35,8 +35,8 @@ pub struct Property {
     pub value: ::std::string::String,
     // @@protoc_insertion_point(field:lightspeed.props.Property.kind)
     pub kind: ::std::string::String,
-    // @@protoc_insertion_point(field:lightspeed.props.Property.read_only)
-    pub read_only: ::std::string::String,
+    // @@protoc_insertion_point(field:lightspeed.props.Property.permission)
+    pub permission: ::protobuf::EnumOrUnknown<Permission>,
     // special fields
     // @@protoc_insertion_point(special_field:lightspeed.props.Property.special_fields)
     pub special_fields: ::protobuf::SpecialFields,
@@ -72,9 +72,9 @@ impl Property {
             |m: &mut Property| { &mut m.kind },
         ));
         fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
-            "read_only",
-            |m: &Property| { &m.read_only },
-            |m: &mut Property| { &mut m.read_only },
+            "permission",
+            |m: &Property| { &m.permission },
+            |m: &mut Property| { &mut m.permission },
         ));
         ::protobuf::reflect::GeneratedMessageDescriptorData::new_2::<Property>(
             "Property",
@@ -103,8 +103,8 @@ impl ::protobuf::Message for Property {
                 26 => {
                     self.kind = is.read_string()?;
                 },
-                34 => {
-                    self.read_only = is.read_string()?;
+                32 => {
+                    self.permission = is.read_enum_or_unknown()?;
                 },
                 tag => {
                     ::protobuf::rt::read_unknown_or_skip_group(tag, is, self.special_fields.mut_unknown_fields())?;
@@ -127,8 +127,8 @@ impl ::protobuf::Message for Property {
         if !self.kind.is_empty() {
             my_size += ::protobuf::rt::string_size(3, &self.kind);
         }
-        if !self.read_only.is_empty() {
-            my_size += ::protobuf::rt::string_size(4, &self.read_only);
+        if self.permission != ::protobuf::EnumOrUnknown::new(Permission::ReadOnly) {
+            my_size += ::protobuf::rt::int32_size(4, self.permission.value());
         }
         my_size += ::protobuf::rt::unknown_fields_size(self.special_fields.unknown_fields());
         self.special_fields.cached_size().set(my_size as u32);
@@ -145,8 +145,8 @@ impl ::protobuf::Message for Property {
         if !self.kind.is_empty() {
             os.write_string(3, &self.kind)?;
         }
-        if !self.read_only.is_empty() {
-            os.write_string(4, &self.read_only)?;
+        if self.permission != ::protobuf::EnumOrUnknown::new(Permission::ReadOnly) {
+            os.write_enum(4, ::protobuf::EnumOrUnknown::value(&self.permission))?;
         }
         os.write_unknown_fields(self.special_fields.unknown_fields())?;
         ::std::result::Result::Ok(())
@@ -168,7 +168,7 @@ impl ::protobuf::Message for Property {
         self.name.clear();
         self.value.clear();
         self.kind.clear();
-        self.read_only.clear();
+        self.permission = ::protobuf::EnumOrUnknown::new(Permission::ReadOnly);
         self.special_fields.clear();
     }
 
@@ -177,7 +177,7 @@ impl ::protobuf::Message for Property {
             name: ::std::string::String::new(),
             value: ::std::string::String::new(),
             kind: ::std::string::String::new(),
-            read_only: ::std::string::String::new(),
+            permission: ::protobuf::EnumOrUnknown::from_i32(0),
             special_fields: ::protobuf::SpecialFields::new(),
         };
         &instance
@@ -201,11 +201,71 @@ impl ::protobuf::reflect::ProtobufValue for Property {
     type RuntimeType = ::protobuf::reflect::rt::RuntimeTypeMessage<Self>;
 }
 
+#[derive(Clone,Copy,PartialEq,Eq,Debug,Hash)]
+// @@protoc_insertion_point(enum:lightspeed.props.Permission)
+pub enum Permission {
+    // @@protoc_insertion_point(enum_value:lightspeed.props.Permission.ReadOnly)
+    ReadOnly = 0,
+    // @@protoc_insertion_point(enum_value:lightspeed.props.Permission.WriteOnly)
+    WriteOnly = 1,
+    // @@protoc_insertion_point(enum_value:lightspeed.props.Permission.ReadWrite)
+    ReadWrite = 2,
+}
+
+impl ::protobuf::Enum for Permission {
+    const NAME: &'static str = "Permission";
+
+    fn value(&self) -> i32 {
+        *self as i32
+    }
+
+    fn from_i32(value: i32) -> ::std::option::Option<Permission> {
+        match value {
+            0 => ::std::option::Option::Some(Permission::ReadOnly),
+            1 => ::std::option::Option::Some(Permission::WriteOnly),
+            2 => ::std::option::Option::Some(Permission::ReadWrite),
+            _ => ::std::option::Option::None
+        }
+    }
+
+    const VALUES: &'static [Permission] = &[
+        Permission::ReadOnly,
+        Permission::WriteOnly,
+        Permission::ReadWrite,
+    ];
+}
+
+impl ::protobuf::EnumFull for Permission {
+    fn enum_descriptor() -> ::protobuf::reflect::EnumDescriptor {
+        static descriptor: ::protobuf::rt::Lazy<::protobuf::reflect::EnumDescriptor> = ::protobuf::rt::Lazy::new();
+        descriptor.get(|| file_descriptor().enum_by_package_relative_name("Permission").unwrap()).clone()
+    }
+
+    fn descriptor(&self) -> ::protobuf::reflect::EnumValueDescriptor {
+        let index = *self as usize;
+        Self::enum_descriptor().value_by_index(index)
+    }
+}
+
+impl ::std::default::Default for Permission {
+    fn default() -> Self {
+        Permission::ReadOnly
+    }
+}
+
+impl Permission {
+    fn generated_enum_descriptor_data() -> ::protobuf::reflect::GeneratedEnumDescriptorData {
+        ::protobuf::reflect::GeneratedEnumDescriptorData::new::<Permission>("Permission")
+    }
+}
+
 static file_descriptor_proto_data: &'static [u8] = b"\
-    \n\x1fprotocol/properties/props.proto\x12\x10lightspeed.props\"e\n\x08Pr\
-    operty\x12\x12\n\x04name\x18\x01\x20\x01(\tR\x04name\x12\x14\n\x05value\
-    \x18\x02\x20\x01(\tR\x05value\x12\x12\n\x04kind\x18\x03\x20\x01(\tR\x04k\
-    ind\x12\x1b\n\tread_only\x18\x04\x20\x01(\tR\x08readOnlyb\x06proto3\
+    \n\x1fprotocol/properties/props.proto\x12\x10lightspeed.props\"\x86\x01\
+    \n\x08Property\x12\x12\n\x04name\x18\x01\x20\x01(\tR\x04name\x12\x14\n\
+    \x05value\x18\x02\x20\x01(\tR\x05value\x12\x12\n\x04kind\x18\x03\x20\x01\
+    (\tR\x04kind\x12<\n\npermission\x18\x04\x20\x01(\x0e2\x1c.lightspeed.pro\
+    ps.PermissionR\npermission*8\n\nPermission\x12\x0c\n\x08ReadOnly\x10\0\
+    \x12\r\n\tWriteOnly\x10\x01\x12\r\n\tReadWrite\x10\x02b\x06proto3\
 ";
 
 /// `FileDescriptorProto` object which was a source for this generated file
@@ -225,7 +285,8 @@ pub fn file_descriptor() -> &'static ::protobuf::reflect::FileDescriptor {
             let mut deps = ::std::vec::Vec::with_capacity(0);
             let mut messages = ::std::vec::Vec::with_capacity(1);
             messages.push(Property::generated_message_descriptor_data());
-            let mut enums = ::std::vec::Vec::with_capacity(0);
+            let mut enums = ::std::vec::Vec::with_capacity(1);
+            enums.push(Permission::generated_enum_descriptor_data());
             ::protobuf::reflect::GeneratedFileDescriptor::new_generated(
                 file_descriptor_proto(),
                 deps,
