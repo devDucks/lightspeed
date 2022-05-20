@@ -29,6 +29,7 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
@@ -57,6 +58,32 @@ PROTOBUF_NAMESPACE_CLOSE
 namespace lightspeed {
 namespace props {
 
+enum Permission : int {
+  ReadOnly = 0,
+  WriteOnly = 1,
+  ReadWrite = 2,
+  Permission_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  Permission_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool Permission_IsValid(int value);
+constexpr Permission Permission_MIN = ReadOnly;
+constexpr Permission Permission_MAX = ReadWrite;
+constexpr int Permission_ARRAYSIZE = Permission_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Permission_descriptor();
+template<typename T>
+inline const std::string& Permission_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, Permission>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function Permission_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    Permission_descriptor(), enum_t_value);
+}
+inline bool Permission_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, Permission* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<Permission>(
+    Permission_descriptor(), name, value);
+}
 // ===================================================================
 
 class Property final :
@@ -181,7 +208,7 @@ class Property final :
     kNameFieldNumber = 1,
     kValueFieldNumber = 2,
     kKindFieldNumber = 3,
-    kReadOnlyFieldNumber = 4,
+    kPermissionFieldNumber = 4,
   };
   // string name = 1;
   void clear_name();
@@ -225,18 +252,13 @@ class Property final :
   std::string* _internal_mutable_kind();
   public:
 
-  // string read_only = 4;
-  void clear_read_only();
-  const std::string& read_only() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_read_only(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_read_only();
-  PROTOBUF_NODISCARD std::string* release_read_only();
-  void set_allocated_read_only(std::string* read_only);
+  // .lightspeed.props.Permission permission = 4;
+  void clear_permission();
+  ::lightspeed::props::Permission permission() const;
+  void set_permission(::lightspeed::props::Permission value);
   private:
-  const std::string& _internal_read_only() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_read_only(const std::string& value);
-  std::string* _internal_mutable_read_only();
+  ::lightspeed::props::Permission _internal_permission() const;
+  void _internal_set_permission(::lightspeed::props::Permission value);
   public:
 
   // @@protoc_insertion_point(class_scope:lightspeed.props.Property)
@@ -249,7 +271,7 @@ class Property final :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr value_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr kind_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr read_only_;
+  int permission_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_protocol_2fproperties_2fprops_2eproto;
 };
@@ -414,54 +436,24 @@ inline void Property::set_allocated_kind(std::string* kind) {
   // @@protoc_insertion_point(field_set_allocated:lightspeed.props.Property.kind)
 }
 
-// string read_only = 4;
-inline void Property::clear_read_only() {
-  read_only_.ClearToEmpty();
+// .lightspeed.props.Permission permission = 4;
+inline void Property::clear_permission() {
+  permission_ = 0;
 }
-inline const std::string& Property::read_only() const {
-  // @@protoc_insertion_point(field_get:lightspeed.props.Property.read_only)
-  return _internal_read_only();
+inline ::lightspeed::props::Permission Property::_internal_permission() const {
+  return static_cast< ::lightspeed::props::Permission >(permission_);
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void Property::set_read_only(ArgT0&& arg0, ArgT... args) {
- 
- read_only_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:lightspeed.props.Property.read_only)
+inline ::lightspeed::props::Permission Property::permission() const {
+  // @@protoc_insertion_point(field_get:lightspeed.props.Property.permission)
+  return _internal_permission();
 }
-inline std::string* Property::mutable_read_only() {
-  std::string* _s = _internal_mutable_read_only();
-  // @@protoc_insertion_point(field_mutable:lightspeed.props.Property.read_only)
-  return _s;
-}
-inline const std::string& Property::_internal_read_only() const {
-  return read_only_.Get();
-}
-inline void Property::_internal_set_read_only(const std::string& value) {
+inline void Property::_internal_set_permission(::lightspeed::props::Permission value) {
   
-  read_only_.Set(value, GetArenaForAllocation());
+  permission_ = value;
 }
-inline std::string* Property::_internal_mutable_read_only() {
-  
-  return read_only_.Mutable(GetArenaForAllocation());
-}
-inline std::string* Property::release_read_only() {
-  // @@protoc_insertion_point(field_release:lightspeed.props.Property.read_only)
-  return read_only_.Release();
-}
-inline void Property::set_allocated_read_only(std::string* read_only) {
-  if (read_only != nullptr) {
-    
-  } else {
-    
-  }
-  read_only_.SetAllocated(read_only, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (read_only_.IsDefault()) {
-    read_only_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:lightspeed.props.Property.read_only)
+inline void Property::set_permission(::lightspeed::props::Permission value) {
+  _internal_set_permission(value);
+  // @@protoc_insertion_point(field_set:lightspeed.props.Property.permission)
 }
 
 #ifdef __GNUC__
@@ -472,6 +464,16 @@ inline void Property::set_allocated_read_only(std::string* read_only) {
 
 }  // namespace props
 }  // namespace lightspeed
+
+PROTOBUF_NAMESPACE_OPEN
+
+template <> struct is_proto_enum< ::lightspeed::props::Permission> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::lightspeed::props::Permission>() {
+  return ::lightspeed::props::Permission_descriptor();
+}
+
+PROTOBUF_NAMESPACE_CLOSE
 
 // @@protoc_insertion_point(global_scope)
 

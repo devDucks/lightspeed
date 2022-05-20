@@ -27,7 +27,8 @@ PROTOBUF_CONSTEXPR Property::Property(
   : name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
   , value_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
   , kind_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
-  , read_only_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}){}
+  , permission_(0)
+{}
 struct PropertyDefaultTypeInternal {
   PROTOBUF_CONSTEXPR PropertyDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -40,7 +41,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 }  // namespace props
 }  // namespace lightspeed
 static ::_pb::Metadata file_level_metadata_protocol_2fproperties_2fprops_2eproto[1];
-static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_protocol_2fproperties_2fprops_2eproto = nullptr;
+static const ::_pb::EnumDescriptor* file_level_enum_descriptors_protocol_2fproperties_2fprops_2eproto[1];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_protocol_2fproperties_2fprops_2eproto = nullptr;
 
 const uint32_t TableStruct_protocol_2fproperties_2fprops_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -53,7 +54,7 @@ const uint32_t TableStruct_protocol_2fproperties_2fprops_2eproto::offsets[] PROT
   PROTOBUF_FIELD_OFFSET(::lightspeed::props::Property, name_),
   PROTOBUF_FIELD_OFFSET(::lightspeed::props::Property, value_),
   PROTOBUF_FIELD_OFFSET(::lightspeed::props::Property, kind_),
-  PROTOBUF_FIELD_OFFSET(::lightspeed::props::Property, read_only_),
+  PROTOBUF_FIELD_OFFSET(::lightspeed::props::Property, permission_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::lightspeed::props::Property)},
@@ -65,13 +66,15 @@ static const ::_pb::Message* const file_default_instances[] = {
 
 const char descriptor_table_protodef_protocol_2fproperties_2fprops_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\037protocol/properties/props.proto\022\020light"
-  "speed.props\"H\n\010Property\022\014\n\004name\030\001 \001(\t\022\r\n"
-  "\005value\030\002 \001(\t\022\014\n\004kind\030\003 \001(\t\022\021\n\tread_only\030"
-  "\004 \001(\tb\006proto3"
+  "speed.props\"g\n\010Property\022\014\n\004name\030\001 \001(\t\022\r\n"
+  "\005value\030\002 \001(\t\022\014\n\004kind\030\003 \001(\t\0220\n\npermission"
+  "\030\004 \001(\0162\034.lightspeed.props.Permission*8\n\n"
+  "Permission\022\014\n\010ReadOnly\020\000\022\r\n\tWriteOnly\020\001\022"
+  "\r\n\tReadWrite\020\002b\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_protocol_2fproperties_2fprops_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_protocol_2fproperties_2fprops_2eproto = {
-    false, false, 133, descriptor_table_protodef_protocol_2fproperties_2fprops_2eproto,
+    false, false, 222, descriptor_table_protodef_protocol_2fproperties_2fprops_2eproto,
     "protocol/properties/props.proto",
     &descriptor_table_protocol_2fproperties_2fprops_2eproto_once, nullptr, 0, 1,
     schemas, file_default_instances, TableStruct_protocol_2fproperties_2fprops_2eproto::offsets,
@@ -86,6 +89,21 @@ PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_protocol
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_protocol_2fproperties_2fprops_2eproto(&descriptor_table_protocol_2fproperties_2fprops_2eproto);
 namespace lightspeed {
 namespace props {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Permission_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_protocol_2fproperties_2fprops_2eproto);
+  return file_level_enum_descriptors_protocol_2fproperties_2fprops_2eproto[0];
+}
+bool Permission_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
 
 // ===================================================================
 
@@ -126,14 +144,7 @@ Property::Property(const Property& from)
     kind_.Set(from._internal_kind(), 
       GetArenaForAllocation());
   }
-  read_only_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    read_only_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_read_only().empty()) {
-    read_only_.Set(from._internal_read_only(), 
-      GetArenaForAllocation());
-  }
+  permission_ = from.permission_;
   // @@protoc_insertion_point(copy_constructor:lightspeed.props.Property)
 }
 
@@ -150,10 +161,7 @@ kind_.InitDefault();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   kind_.Set("", GetArenaForAllocation());
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-read_only_.InitDefault();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  read_only_.Set("", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+permission_ = 0;
 }
 
 Property::~Property() {
@@ -170,7 +178,6 @@ inline void Property::SharedDtor() {
   name_.Destroy();
   value_.Destroy();
   kind_.Destroy();
-  read_only_.Destroy();
 }
 
 void Property::SetCachedSize(int size) const {
@@ -186,7 +193,7 @@ void Property::Clear() {
   name_.ClearToEmpty();
   value_.ClearToEmpty();
   kind_.ClearToEmpty();
-  read_only_.ClearToEmpty();
+  permission_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -226,13 +233,12 @@ const char* Property::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx)
         } else
           goto handle_unusual;
         continue;
-      // string read_only = 4;
+      // .lightspeed.props.Permission permission = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
-          auto str = _internal_mutable_read_only();
-          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-          CHK_(::_pbi::VerifyUTF8(str, "lightspeed.props.Property.read_only"));
+          _internal_set_permission(static_cast<::lightspeed::props::Permission>(val));
         } else
           goto handle_unusual;
         continue;
@@ -295,14 +301,11 @@ uint8_t* Property::_InternalSerialize(
         3, this->_internal_kind(), target);
   }
 
-  // string read_only = 4;
-  if (!this->_internal_read_only().empty()) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_read_only().data(), static_cast<int>(this->_internal_read_only().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "lightspeed.props.Property.read_only");
-    target = stream->WriteStringMaybeAliased(
-        4, this->_internal_read_only(), target);
+  // .lightspeed.props.Permission permission = 4;
+  if (this->_internal_permission() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      4, this->_internal_permission(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -342,11 +345,10 @@ size_t Property::ByteSizeLong() const {
         this->_internal_kind());
   }
 
-  // string read_only = 4;
-  if (!this->_internal_read_only().empty()) {
+  // .lightspeed.props.Permission permission = 4;
+  if (this->_internal_permission() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_read_only());
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_permission());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -380,8 +382,8 @@ void Property::MergeFrom(const Property& from) {
   if (!from._internal_kind().empty()) {
     _internal_set_kind(from._internal_kind());
   }
-  if (!from._internal_read_only().empty()) {
-    _internal_set_read_only(from._internal_read_only());
+  if (from._internal_permission() != 0) {
+    _internal_set_permission(from._internal_permission());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -414,10 +416,7 @@ void Property::InternalSwap(Property* other) {
       &kind_, lhs_arena,
       &other->kind_, rhs_arena
   );
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &read_only_, lhs_arena,
-      &other->read_only_, rhs_arena
-  );
+  swap(permission_, other->permission_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Property::GetMetadata() const {

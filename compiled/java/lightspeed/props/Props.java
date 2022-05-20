@@ -14,6 +14,123 @@ public final class Props {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
+  /**
+   * Protobuf enum {@code lightspeed.props.Permission}
+   */
+  public enum Permission
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>ReadOnly = 0;</code>
+     */
+    ReadOnly(0),
+    /**
+     * <code>WriteOnly = 1;</code>
+     */
+    WriteOnly(1),
+    /**
+     * <code>ReadWrite = 2;</code>
+     */
+    ReadWrite(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>ReadOnly = 0;</code>
+     */
+    public static final int ReadOnly_VALUE = 0;
+    /**
+     * <code>WriteOnly = 1;</code>
+     */
+    public static final int WriteOnly_VALUE = 1;
+    /**
+     * <code>ReadWrite = 2;</code>
+     */
+    public static final int ReadWrite_VALUE = 2;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static Permission valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static Permission forNumber(int value) {
+      switch (value) {
+        case 0: return ReadOnly;
+        case 1: return WriteOnly;
+        case 2: return ReadWrite;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<Permission>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        Permission> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<Permission>() {
+            public Permission findValueByNumber(int number) {
+              return Permission.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return lightspeed.props.Props.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final Permission[] VALUES = values();
+
+    public static Permission valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private Permission(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:lightspeed.props.Permission)
+  }
+
   public interface PropertyOrBuilder extends
       // @@protoc_insertion_point(interface_extends:lightspeed.props.Property)
       com.google.protobuf.MessageOrBuilder {
@@ -55,16 +172,15 @@ public final class Props {
         getKindBytes();
 
     /**
-     * <code>string read_only = 4;</code>
-     * @return The readOnly.
+     * <code>.lightspeed.props.Permission permission = 4;</code>
+     * @return The enum numeric value on the wire for permission.
      */
-    java.lang.String getReadOnly();
+    int getPermissionValue();
     /**
-     * <code>string read_only = 4;</code>
-     * @return The bytes for readOnly.
+     * <code>.lightspeed.props.Permission permission = 4;</code>
+     * @return The permission.
      */
-    com.google.protobuf.ByteString
-        getReadOnlyBytes();
+    lightspeed.props.Props.Permission getPermission();
   }
   /**
    * Protobuf type {@code lightspeed.props.Property}
@@ -82,7 +198,7 @@ public final class Props {
       name_ = "";
       value_ = "";
       kind_ = "";
-      readOnly_ = "";
+      permission_ = 0;
     }
 
     @java.lang.Override
@@ -133,10 +249,10 @@ public final class Props {
               kind_ = s;
               break;
             }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 32: {
+              int rawValue = input.readEnum();
 
-              readOnly_ = s;
+              permission_ = rawValue;
               break;
             }
             default: {
@@ -287,42 +403,23 @@ public final class Props {
       }
     }
 
-    public static final int READ_ONLY_FIELD_NUMBER = 4;
-    private volatile java.lang.Object readOnly_;
+    public static final int PERMISSION_FIELD_NUMBER = 4;
+    private int permission_;
     /**
-     * <code>string read_only = 4;</code>
-     * @return The readOnly.
+     * <code>.lightspeed.props.Permission permission = 4;</code>
+     * @return The enum numeric value on the wire for permission.
      */
-    @java.lang.Override
-    public java.lang.String getReadOnly() {
-      java.lang.Object ref = readOnly_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        readOnly_ = s;
-        return s;
-      }
+    @java.lang.Override public int getPermissionValue() {
+      return permission_;
     }
     /**
-     * <code>string read_only = 4;</code>
-     * @return The bytes for readOnly.
+     * <code>.lightspeed.props.Permission permission = 4;</code>
+     * @return The permission.
      */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getReadOnlyBytes() {
-      java.lang.Object ref = readOnly_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        readOnly_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    @java.lang.Override public lightspeed.props.Props.Permission getPermission() {
+      @SuppressWarnings("deprecation")
+      lightspeed.props.Props.Permission result = lightspeed.props.Props.Permission.valueOf(permission_);
+      return result == null ? lightspeed.props.Props.Permission.UNRECOGNIZED : result;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -348,8 +445,8 @@ public final class Props {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(kind_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, kind_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(readOnly_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, readOnly_);
+      if (permission_ != lightspeed.props.Props.Permission.ReadOnly.getNumber()) {
+        output.writeEnum(4, permission_);
       }
       unknownFields.writeTo(output);
     }
@@ -369,8 +466,9 @@ public final class Props {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(kind_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, kind_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(readOnly_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, readOnly_);
+      if (permission_ != lightspeed.props.Props.Permission.ReadOnly.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(4, permission_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -393,8 +491,7 @@ public final class Props {
           .equals(other.getValue())) return false;
       if (!getKind()
           .equals(other.getKind())) return false;
-      if (!getReadOnly()
-          .equals(other.getReadOnly())) return false;
+      if (permission_ != other.permission_) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -412,8 +509,8 @@ public final class Props {
       hash = (53 * hash) + getValue().hashCode();
       hash = (37 * hash) + KIND_FIELD_NUMBER;
       hash = (53 * hash) + getKind().hashCode();
-      hash = (37 * hash) + READ_ONLY_FIELD_NUMBER;
-      hash = (53 * hash) + getReadOnly().hashCode();
+      hash = (37 * hash) + PERMISSION_FIELD_NUMBER;
+      hash = (53 * hash) + permission_;
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -553,7 +650,7 @@ public final class Props {
 
         kind_ = "";
 
-        readOnly_ = "";
+        permission_ = 0;
 
         return this;
       }
@@ -584,7 +681,7 @@ public final class Props {
         result.name_ = name_;
         result.value_ = value_;
         result.kind_ = kind_;
-        result.readOnly_ = readOnly_;
+        result.permission_ = permission_;
         onBuilt();
         return result;
       }
@@ -645,9 +742,8 @@ public final class Props {
           kind_ = other.kind_;
           onChanged();
         }
-        if (!other.getReadOnly().isEmpty()) {
-          readOnly_ = other.readOnly_;
-          onChanged();
+        if (other.permission_ != 0) {
+          setPermissionValue(other.getPermissionValue());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -906,78 +1002,56 @@ public final class Props {
         return this;
       }
 
-      private java.lang.Object readOnly_ = "";
+      private int permission_ = 0;
       /**
-       * <code>string read_only = 4;</code>
-       * @return The readOnly.
+       * <code>.lightspeed.props.Permission permission = 4;</code>
+       * @return The enum numeric value on the wire for permission.
        */
-      public java.lang.String getReadOnly() {
-        java.lang.Object ref = readOnly_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          readOnly_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      @java.lang.Override public int getPermissionValue() {
+        return permission_;
       }
       /**
-       * <code>string read_only = 4;</code>
-       * @return The bytes for readOnly.
-       */
-      public com.google.protobuf.ByteString
-          getReadOnlyBytes() {
-        java.lang.Object ref = readOnly_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          readOnly_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string read_only = 4;</code>
-       * @param value The readOnly to set.
+       * <code>.lightspeed.props.Permission permission = 4;</code>
+       * @param value The enum numeric value on the wire for permission to set.
        * @return This builder for chaining.
        */
-      public Builder setReadOnly(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        readOnly_ = value;
+      public Builder setPermissionValue(int value) {
+        
+        permission_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string read_only = 4;</code>
+       * <code>.lightspeed.props.Permission permission = 4;</code>
+       * @return The permission.
+       */
+      @java.lang.Override
+      public lightspeed.props.Props.Permission getPermission() {
+        @SuppressWarnings("deprecation")
+        lightspeed.props.Props.Permission result = lightspeed.props.Props.Permission.valueOf(permission_);
+        return result == null ? lightspeed.props.Props.Permission.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.lightspeed.props.Permission permission = 4;</code>
+       * @param value The permission to set.
        * @return This builder for chaining.
        */
-      public Builder clearReadOnly() {
+      public Builder setPermission(lightspeed.props.Props.Permission value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
         
-        readOnly_ = getDefaultInstance().getReadOnly();
+        permission_ = value.getNumber();
         onChanged();
         return this;
       }
       /**
-       * <code>string read_only = 4;</code>
-       * @param value The bytes for readOnly to set.
+       * <code>.lightspeed.props.Permission permission = 4;</code>
        * @return This builder for chaining.
        */
-      public Builder setReadOnlyBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      public Builder clearPermission() {
         
-        readOnly_ = value;
+        permission_ = 0;
         onChanged();
         return this;
       }
@@ -1049,9 +1123,11 @@ public final class Props {
   static {
     java.lang.String[] descriptorData = {
       "\n\037protocol/properties/props.proto\022\020light" +
-      "speed.props\"H\n\010Property\022\014\n\004name\030\001 \001(\t\022\r\n" +
-      "\005value\030\002 \001(\t\022\014\n\004kind\030\003 \001(\t\022\021\n\tread_only\030" +
-      "\004 \001(\tb\006proto3"
+      "speed.props\"g\n\010Property\022\014\n\004name\030\001 \001(\t\022\r\n" +
+      "\005value\030\002 \001(\t\022\014\n\004kind\030\003 \001(\t\0220\n\npermission" +
+      "\030\004 \001(\0162\034.lightspeed.props.Permission*8\n\n" +
+      "Permission\022\014\n\010ReadOnly\020\000\022\r\n\tWriteOnly\020\001\022" +
+      "\r\n\tReadWrite\020\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1062,7 +1138,7 @@ public final class Props {
     internal_static_lightspeed_props_Property_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_lightspeed_props_Property_descriptor,
-        new java.lang.String[] { "Name", "Value", "Kind", "ReadOnly", });
+        new java.lang.String[] { "Name", "Value", "Kind", "Permission", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

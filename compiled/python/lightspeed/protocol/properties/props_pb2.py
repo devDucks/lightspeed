@@ -13,13 +13,15 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1fprotocol/properties/props.proto\x12\x10lightspeed.props\"H\n\x08Property\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\x12\x0c\n\x04kind\x18\x03 \x01(\t\x12\x11\n\tread_only\x18\x04 \x01(\tb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1fprotocol/properties/props.proto\x12\x10lightspeed.props\"g\n\x08Property\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\x12\x0c\n\x04kind\x18\x03 \x01(\t\x12\x30\n\npermission\x18\x04 \x01(\x0e\x32\x1c.lightspeed.props.Permission*8\n\nPermission\x12\x0c\n\x08ReadOnly\x10\x00\x12\r\n\tWriteOnly\x10\x01\x12\r\n\tReadWrite\x10\x02\x62\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'protocol.properties.props_pb2', globals())
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
+  _PERMISSION._serialized_start=158
+  _PERMISSION._serialized_end=214
   _PROPERTY._serialized_start=53
-  _PROPERTY._serialized_end=125
+  _PROPERTY._serialized_end=156
 # @@protoc_insertion_point(module_scope)
