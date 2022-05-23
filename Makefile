@@ -13,6 +13,9 @@ generate-cpp:
 generate-python:
 	@protoc --python_out compiled/python/lightspeed protocol/*/*.proto protocol/*.proto
 
+generate-rust:
+	@cd compiled/rust/lightspeed && cargo build
+
 .PHONY = generate-all
 
-generate-all: generate-java generate-python generate-cpp
+generate-all: generate-java generate-python generate-cpp generate-rust
