@@ -1,6 +1,6 @@
 [package]
 name = "lightspeed"
-version = "0.1.0"
+version = "0.3.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
@@ -10,11 +10,12 @@ name = "lightspeed"
 path = "src/lib.rs"
 
 [dependencies]
-protoc-bin-vendored = "3"
-protobuf-codegen = "3.0.2"
-protobuf = "3.0.2"
+protobuf = "3.0"
+prost = "0.10"
+tonic = "0.7"
 
 [build-dependencies]
 protoc-bin-vendored = "3"
-protobuf-codegen = "3.0.2"
-protobuf = "3.0.2"
+protobuf-codegen = "3.0"
+protobuf = "3.0"
+tonic-build = "0.7"

@@ -25,10 +25,10 @@ public final class Server {
     java.lang.String[] descriptorData = {
       "\n\025protocol/server.proto\022\021lightspeed.serv" +
       "er\032\033protocol/main/request.proto\032\034protoco" +
-      "l/main/response.proto2n\n\014AstroService\022^\n" +
-      "\006Search\022(.lightspeed.request.GetProperti" +
-      "esRequest\032*.lightspeed.response.GetPrope" +
-      "rtiesResponseP\000P\001b\006proto3"
+      "l/main/response.proto2r\n\014AstroService\022b\n" +
+      "\nQueryProps\022(.lightspeed.request.GetProp" +
+      "ertiesRequest\032*.lightspeed.response.GetP" +
+      "ropertiesResponseP\000P\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

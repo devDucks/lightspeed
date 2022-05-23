@@ -21,7 +21,7 @@ except AttributeError:
 from protocol.main.request_pb2 import *
 from protocol.main.response_pb2 import *
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x15protocol/server.proto\x12\x11lightspeed.server\x1a\x1bprotocol/main/request.proto\x1a\x1cprotocol/main/response.proto2n\n\x0c\x41stroService\x12^\n\x06Search\x12(.lightspeed.request.GetPropertiesRequest\x1a*.lightspeed.response.GetPropertiesResponseP\x00P\x01\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x15protocol/server.proto\x12\x11lightspeed.server\x1a\x1bprotocol/main/request.proto\x1a\x1cprotocol/main/response.proto2r\n\x0c\x41stroService\x12\x62\n\nQueryProps\x12(.lightspeed.request.GetPropertiesRequest\x1a*.lightspeed.response.GetPropertiesResponseP\x00P\x01\x62\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'protocol.server_pb2', globals())
@@ -29,5 +29,5 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   _ASTROSERVICE._serialized_start=103
-  _ASTROSERVICE._serialized_end=213
+  _ASTROSERVICE._serialized_end=217
 # @@protoc_insertion_point(module_scope)

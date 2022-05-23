@@ -1,5 +1,19 @@
-pub mod device;
-pub mod props;
-pub mod request;
-pub mod response;
-pub mod server;
+pub mod props {
+    include!("lightspeed.props.rs");
+}
+
+pub mod device {
+    include!("lightspeed.devices.rs");
+}
+
+pub mod request {
+    include!("lightspeed.request.rs");
+}
+
+pub mod response {
+    include!("lightspeed.response.rs");
+}
+
+pub mod server {
+    include!("lightspeed.server.rs");
+}
