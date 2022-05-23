@@ -1,10 +1,19 @@
 syntax = "proto3";
 
 import public "protocol/properties/props.proto";
+import public "protocol/devices/device.proto";
 
 package lightspeed.response;
 
 message GetPropertiesResponse {
   string device_name = 1;
   repeated lightspeed.props.Property properties = 2;
+}
+
+message GetDeviceResponse {
+  lightspeed.devices.ProtoDevice device = 1;
+}
+
+message GetDevicesResponse {
+  repeated lightspeed.devices.ProtoDevice devices = 1;
 }

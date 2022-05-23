@@ -5,11 +5,11 @@ pub mod astro_service_server {
     ///Generated trait containing gRPC methods that should be implemented for use with AstroServiceServer.
     #[async_trait]
     pub trait AstroService: Send + Sync + 'static {
-        async fn query_props(
+        async fn get_devices(
             &self,
-            request: tonic::Request<super::super::request::GetPropertiesRequest>,
+            request: tonic::Request<super::super::request::GetDevicesRequest>,
         ) -> Result<
-                tonic::Response<super::super::response::GetPropertiesResponse>,
+                tonic::Response<super::super::response::GetDevicesResponse>,
                 tonic::Status,
             >;
     }
@@ -60,15 +60,15 @@ pub mod astro_service_server {
         fn call(&mut self, req: http::Request<B>) -> Self::Future {
             let inner = self.inner.clone();
             match req.uri().path() {
-                "/lightspeed.server.AstroService/QueryProps" => {
+                "/lightspeed.server.AstroService/GetDevices" => {
                     #[allow(non_camel_case_types)]
-                    struct QueryPropsSvc<T: AstroService>(pub Arc<T>);
+                    struct GetDevicesSvc<T: AstroService>(pub Arc<T>);
                     impl<
                         T: AstroService,
                     > tonic::server::UnaryService<
-                        super::super::request::GetPropertiesRequest,
-                    > for QueryPropsSvc<T> {
-                        type Response = super::super::response::GetPropertiesResponse;
+                        super::super::request::GetDevicesRequest,
+                    > for GetDevicesSvc<T> {
+                        type Response = super::super::response::GetDevicesResponse;
                         type Future = BoxFuture<
                             tonic::Response<Self::Response>,
                             tonic::Status,
@@ -76,11 +76,11 @@ pub mod astro_service_server {
                         fn call(
                             &mut self,
                             request: tonic::Request<
-                                super::super::request::GetPropertiesRequest,
+                                super::super::request::GetDevicesRequest,
                             >,
                         ) -> Self::Future {
                             let inner = self.0.clone();
-                            let fut = async move { (*inner).query_props(request).await };
+                            let fut = async move { (*inner).get_devices(request).await };
                             Box::pin(fut)
                         }
                     }
@@ -89,7 +89,7 @@ pub mod astro_service_server {
                     let inner = self.inner.clone();
                     let fut = async move {
                         let inner = inner.0;
-                        let method = QueryPropsSvc(inner);
+                        let method = GetDevicesSvc(inner);
                         let codec = tonic::codec::ProstCodec::default();
                         let mut grpc = tonic::server::Grpc::new(codec)
                             .apply_compression_config(

@@ -25,11 +25,19 @@ try:
   protocol_dot_properties_dot_props__pb2 = protocol_dot_main_dot_response__pb2.protocol_dot_properties_dot_props__pb2
 except AttributeError:
   protocol_dot_properties_dot_props__pb2 = protocol_dot_main_dot_response__pb2.protocol.properties.props_pb2
+try:
+  protocol_dot_devices_dot_device__pb2 = protocol_dot_main_dot_response__pb2.protocol_dot_devices_dot_device__pb2
+except AttributeError:
+  protocol_dot_devices_dot_device__pb2 = protocol_dot_main_dot_response__pb2.protocol.devices.device_pb2
+try:
+  protocol_dot_properties_dot_props__pb2 = protocol_dot_main_dot_response__pb2.protocol_dot_properties_dot_props__pb2
+except AttributeError:
+  protocol_dot_properties_dot_props__pb2 = protocol_dot_main_dot_response__pb2.protocol.properties.props_pb2
 
 from protocol.main.request_pb2 import *
 from protocol.main.response_pb2 import *
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x15protocol/server.proto\x12\x11lightspeed.server\x1a\x1bprotocol/main/request.proto\x1a\x1cprotocol/main/response.proto2r\n\x0c\x41stroService\x12\x62\n\nQueryProps\x12(.lightspeed.request.GetPropertiesRequest\x1a*.lightspeed.response.GetPropertiesResponseP\x00P\x01\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x15protocol/server.proto\x12\x11lightspeed.server\x1a\x1bprotocol/main/request.proto\x1a\x1cprotocol/main/response.proto2l\n\x0c\x41stroService\x12\\\n\nGetDevices\x12%.lightspeed.request.GetDevicesRequest\x1a\'.lightspeed.response.GetDevicesResponseP\x00P\x01\x62\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'protocol.server_pb2', globals())
@@ -37,5 +45,5 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   _ASTROSERVICE._serialized_start=103
-  _ASTROSERVICE._serialized_end=217
+  _ASTROSERVICE._serialized_end=211
 # @@protoc_insertion_point(module_scope)

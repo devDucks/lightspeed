@@ -959,11 +959,1439 @@ public final class Response {
 
   }
 
+  public interface GetDeviceResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:lightspeed.response.GetDeviceResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.lightspeed.devices.ProtoDevice device = 1;</code>
+     * @return Whether the device field is set.
+     */
+    boolean hasDevice();
+    /**
+     * <code>.lightspeed.devices.ProtoDevice device = 1;</code>
+     * @return The device.
+     */
+    lightspeed.devices.Device.ProtoDevice getDevice();
+    /**
+     * <code>.lightspeed.devices.ProtoDevice device = 1;</code>
+     */
+    lightspeed.devices.Device.ProtoDeviceOrBuilder getDeviceOrBuilder();
+  }
+  /**
+   * Protobuf type {@code lightspeed.response.GetDeviceResponse}
+   */
+  public static final class GetDeviceResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:lightspeed.response.GetDeviceResponse)
+      GetDeviceResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GetDeviceResponse.newBuilder() to construct.
+    private GetDeviceResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GetDeviceResponse() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetDeviceResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GetDeviceResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              lightspeed.devices.Device.ProtoDevice.Builder subBuilder = null;
+              if (device_ != null) {
+                subBuilder = device_.toBuilder();
+              }
+              device_ = input.readMessage(lightspeed.devices.Device.ProtoDevice.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(device_);
+                device_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return lightspeed.response.Response.internal_static_lightspeed_response_GetDeviceResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return lightspeed.response.Response.internal_static_lightspeed_response_GetDeviceResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              lightspeed.response.Response.GetDeviceResponse.class, lightspeed.response.Response.GetDeviceResponse.Builder.class);
+    }
+
+    public static final int DEVICE_FIELD_NUMBER = 1;
+    private lightspeed.devices.Device.ProtoDevice device_;
+    /**
+     * <code>.lightspeed.devices.ProtoDevice device = 1;</code>
+     * @return Whether the device field is set.
+     */
+    @java.lang.Override
+    public boolean hasDevice() {
+      return device_ != null;
+    }
+    /**
+     * <code>.lightspeed.devices.ProtoDevice device = 1;</code>
+     * @return The device.
+     */
+    @java.lang.Override
+    public lightspeed.devices.Device.ProtoDevice getDevice() {
+      return device_ == null ? lightspeed.devices.Device.ProtoDevice.getDefaultInstance() : device_;
+    }
+    /**
+     * <code>.lightspeed.devices.ProtoDevice device = 1;</code>
+     */
+    @java.lang.Override
+    public lightspeed.devices.Device.ProtoDeviceOrBuilder getDeviceOrBuilder() {
+      return getDevice();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (device_ != null) {
+        output.writeMessage(1, getDevice());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (device_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getDevice());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof lightspeed.response.Response.GetDeviceResponse)) {
+        return super.equals(obj);
+      }
+      lightspeed.response.Response.GetDeviceResponse other = (lightspeed.response.Response.GetDeviceResponse) obj;
+
+      if (hasDevice() != other.hasDevice()) return false;
+      if (hasDevice()) {
+        if (!getDevice()
+            .equals(other.getDevice())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasDevice()) {
+        hash = (37 * hash) + DEVICE_FIELD_NUMBER;
+        hash = (53 * hash) + getDevice().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static lightspeed.response.Response.GetDeviceResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static lightspeed.response.Response.GetDeviceResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static lightspeed.response.Response.GetDeviceResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static lightspeed.response.Response.GetDeviceResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static lightspeed.response.Response.GetDeviceResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static lightspeed.response.Response.GetDeviceResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static lightspeed.response.Response.GetDeviceResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static lightspeed.response.Response.GetDeviceResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static lightspeed.response.Response.GetDeviceResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static lightspeed.response.Response.GetDeviceResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static lightspeed.response.Response.GetDeviceResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static lightspeed.response.Response.GetDeviceResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(lightspeed.response.Response.GetDeviceResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code lightspeed.response.GetDeviceResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:lightspeed.response.GetDeviceResponse)
+        lightspeed.response.Response.GetDeviceResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return lightspeed.response.Response.internal_static_lightspeed_response_GetDeviceResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return lightspeed.response.Response.internal_static_lightspeed_response_GetDeviceResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                lightspeed.response.Response.GetDeviceResponse.class, lightspeed.response.Response.GetDeviceResponse.Builder.class);
+      }
+
+      // Construct using lightspeed.response.Response.GetDeviceResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (deviceBuilder_ == null) {
+          device_ = null;
+        } else {
+          device_ = null;
+          deviceBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return lightspeed.response.Response.internal_static_lightspeed_response_GetDeviceResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public lightspeed.response.Response.GetDeviceResponse getDefaultInstanceForType() {
+        return lightspeed.response.Response.GetDeviceResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public lightspeed.response.Response.GetDeviceResponse build() {
+        lightspeed.response.Response.GetDeviceResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public lightspeed.response.Response.GetDeviceResponse buildPartial() {
+        lightspeed.response.Response.GetDeviceResponse result = new lightspeed.response.Response.GetDeviceResponse(this);
+        if (deviceBuilder_ == null) {
+          result.device_ = device_;
+        } else {
+          result.device_ = deviceBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof lightspeed.response.Response.GetDeviceResponse) {
+          return mergeFrom((lightspeed.response.Response.GetDeviceResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(lightspeed.response.Response.GetDeviceResponse other) {
+        if (other == lightspeed.response.Response.GetDeviceResponse.getDefaultInstance()) return this;
+        if (other.hasDevice()) {
+          mergeDevice(other.getDevice());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        lightspeed.response.Response.GetDeviceResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (lightspeed.response.Response.GetDeviceResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private lightspeed.devices.Device.ProtoDevice device_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          lightspeed.devices.Device.ProtoDevice, lightspeed.devices.Device.ProtoDevice.Builder, lightspeed.devices.Device.ProtoDeviceOrBuilder> deviceBuilder_;
+      /**
+       * <code>.lightspeed.devices.ProtoDevice device = 1;</code>
+       * @return Whether the device field is set.
+       */
+      public boolean hasDevice() {
+        return deviceBuilder_ != null || device_ != null;
+      }
+      /**
+       * <code>.lightspeed.devices.ProtoDevice device = 1;</code>
+       * @return The device.
+       */
+      public lightspeed.devices.Device.ProtoDevice getDevice() {
+        if (deviceBuilder_ == null) {
+          return device_ == null ? lightspeed.devices.Device.ProtoDevice.getDefaultInstance() : device_;
+        } else {
+          return deviceBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.lightspeed.devices.ProtoDevice device = 1;</code>
+       */
+      public Builder setDevice(lightspeed.devices.Device.ProtoDevice value) {
+        if (deviceBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          device_ = value;
+          onChanged();
+        } else {
+          deviceBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.lightspeed.devices.ProtoDevice device = 1;</code>
+       */
+      public Builder setDevice(
+          lightspeed.devices.Device.ProtoDevice.Builder builderForValue) {
+        if (deviceBuilder_ == null) {
+          device_ = builderForValue.build();
+          onChanged();
+        } else {
+          deviceBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.lightspeed.devices.ProtoDevice device = 1;</code>
+       */
+      public Builder mergeDevice(lightspeed.devices.Device.ProtoDevice value) {
+        if (deviceBuilder_ == null) {
+          if (device_ != null) {
+            device_ =
+              lightspeed.devices.Device.ProtoDevice.newBuilder(device_).mergeFrom(value).buildPartial();
+          } else {
+            device_ = value;
+          }
+          onChanged();
+        } else {
+          deviceBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.lightspeed.devices.ProtoDevice device = 1;</code>
+       */
+      public Builder clearDevice() {
+        if (deviceBuilder_ == null) {
+          device_ = null;
+          onChanged();
+        } else {
+          device_ = null;
+          deviceBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.lightspeed.devices.ProtoDevice device = 1;</code>
+       */
+      public lightspeed.devices.Device.ProtoDevice.Builder getDeviceBuilder() {
+        
+        onChanged();
+        return getDeviceFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.lightspeed.devices.ProtoDevice device = 1;</code>
+       */
+      public lightspeed.devices.Device.ProtoDeviceOrBuilder getDeviceOrBuilder() {
+        if (deviceBuilder_ != null) {
+          return deviceBuilder_.getMessageOrBuilder();
+        } else {
+          return device_ == null ?
+              lightspeed.devices.Device.ProtoDevice.getDefaultInstance() : device_;
+        }
+      }
+      /**
+       * <code>.lightspeed.devices.ProtoDevice device = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          lightspeed.devices.Device.ProtoDevice, lightspeed.devices.Device.ProtoDevice.Builder, lightspeed.devices.Device.ProtoDeviceOrBuilder> 
+          getDeviceFieldBuilder() {
+        if (deviceBuilder_ == null) {
+          deviceBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              lightspeed.devices.Device.ProtoDevice, lightspeed.devices.Device.ProtoDevice.Builder, lightspeed.devices.Device.ProtoDeviceOrBuilder>(
+                  getDevice(),
+                  getParentForChildren(),
+                  isClean());
+          device_ = null;
+        }
+        return deviceBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:lightspeed.response.GetDeviceResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:lightspeed.response.GetDeviceResponse)
+    private static final lightspeed.response.Response.GetDeviceResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new lightspeed.response.Response.GetDeviceResponse();
+    }
+
+    public static lightspeed.response.Response.GetDeviceResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GetDeviceResponse>
+        PARSER = new com.google.protobuf.AbstractParser<GetDeviceResponse>() {
+      @java.lang.Override
+      public GetDeviceResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GetDeviceResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GetDeviceResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetDeviceResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public lightspeed.response.Response.GetDeviceResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface GetDevicesResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:lightspeed.response.GetDevicesResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .lightspeed.devices.ProtoDevice devices = 1;</code>
+     */
+    java.util.List<lightspeed.devices.Device.ProtoDevice> 
+        getDevicesList();
+    /**
+     * <code>repeated .lightspeed.devices.ProtoDevice devices = 1;</code>
+     */
+    lightspeed.devices.Device.ProtoDevice getDevices(int index);
+    /**
+     * <code>repeated .lightspeed.devices.ProtoDevice devices = 1;</code>
+     */
+    int getDevicesCount();
+    /**
+     * <code>repeated .lightspeed.devices.ProtoDevice devices = 1;</code>
+     */
+    java.util.List<? extends lightspeed.devices.Device.ProtoDeviceOrBuilder> 
+        getDevicesOrBuilderList();
+    /**
+     * <code>repeated .lightspeed.devices.ProtoDevice devices = 1;</code>
+     */
+    lightspeed.devices.Device.ProtoDeviceOrBuilder getDevicesOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code lightspeed.response.GetDevicesResponse}
+   */
+  public static final class GetDevicesResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:lightspeed.response.GetDevicesResponse)
+      GetDevicesResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GetDevicesResponse.newBuilder() to construct.
+    private GetDevicesResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GetDevicesResponse() {
+      devices_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetDevicesResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GetDevicesResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                devices_ = new java.util.ArrayList<lightspeed.devices.Device.ProtoDevice>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              devices_.add(
+                  input.readMessage(lightspeed.devices.Device.ProtoDevice.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          devices_ = java.util.Collections.unmodifiableList(devices_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return lightspeed.response.Response.internal_static_lightspeed_response_GetDevicesResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return lightspeed.response.Response.internal_static_lightspeed_response_GetDevicesResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              lightspeed.response.Response.GetDevicesResponse.class, lightspeed.response.Response.GetDevicesResponse.Builder.class);
+    }
+
+    public static final int DEVICES_FIELD_NUMBER = 1;
+    private java.util.List<lightspeed.devices.Device.ProtoDevice> devices_;
+    /**
+     * <code>repeated .lightspeed.devices.ProtoDevice devices = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<lightspeed.devices.Device.ProtoDevice> getDevicesList() {
+      return devices_;
+    }
+    /**
+     * <code>repeated .lightspeed.devices.ProtoDevice devices = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends lightspeed.devices.Device.ProtoDeviceOrBuilder> 
+        getDevicesOrBuilderList() {
+      return devices_;
+    }
+    /**
+     * <code>repeated .lightspeed.devices.ProtoDevice devices = 1;</code>
+     */
+    @java.lang.Override
+    public int getDevicesCount() {
+      return devices_.size();
+    }
+    /**
+     * <code>repeated .lightspeed.devices.ProtoDevice devices = 1;</code>
+     */
+    @java.lang.Override
+    public lightspeed.devices.Device.ProtoDevice getDevices(int index) {
+      return devices_.get(index);
+    }
+    /**
+     * <code>repeated .lightspeed.devices.ProtoDevice devices = 1;</code>
+     */
+    @java.lang.Override
+    public lightspeed.devices.Device.ProtoDeviceOrBuilder getDevicesOrBuilder(
+        int index) {
+      return devices_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < devices_.size(); i++) {
+        output.writeMessage(1, devices_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < devices_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, devices_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof lightspeed.response.Response.GetDevicesResponse)) {
+        return super.equals(obj);
+      }
+      lightspeed.response.Response.GetDevicesResponse other = (lightspeed.response.Response.GetDevicesResponse) obj;
+
+      if (!getDevicesList()
+          .equals(other.getDevicesList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getDevicesCount() > 0) {
+        hash = (37 * hash) + DEVICES_FIELD_NUMBER;
+        hash = (53 * hash) + getDevicesList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static lightspeed.response.Response.GetDevicesResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static lightspeed.response.Response.GetDevicesResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static lightspeed.response.Response.GetDevicesResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static lightspeed.response.Response.GetDevicesResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static lightspeed.response.Response.GetDevicesResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static lightspeed.response.Response.GetDevicesResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static lightspeed.response.Response.GetDevicesResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static lightspeed.response.Response.GetDevicesResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static lightspeed.response.Response.GetDevicesResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static lightspeed.response.Response.GetDevicesResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static lightspeed.response.Response.GetDevicesResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static lightspeed.response.Response.GetDevicesResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(lightspeed.response.Response.GetDevicesResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code lightspeed.response.GetDevicesResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:lightspeed.response.GetDevicesResponse)
+        lightspeed.response.Response.GetDevicesResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return lightspeed.response.Response.internal_static_lightspeed_response_GetDevicesResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return lightspeed.response.Response.internal_static_lightspeed_response_GetDevicesResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                lightspeed.response.Response.GetDevicesResponse.class, lightspeed.response.Response.GetDevicesResponse.Builder.class);
+      }
+
+      // Construct using lightspeed.response.Response.GetDevicesResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getDevicesFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (devicesBuilder_ == null) {
+          devices_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          devicesBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return lightspeed.response.Response.internal_static_lightspeed_response_GetDevicesResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public lightspeed.response.Response.GetDevicesResponse getDefaultInstanceForType() {
+        return lightspeed.response.Response.GetDevicesResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public lightspeed.response.Response.GetDevicesResponse build() {
+        lightspeed.response.Response.GetDevicesResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public lightspeed.response.Response.GetDevicesResponse buildPartial() {
+        lightspeed.response.Response.GetDevicesResponse result = new lightspeed.response.Response.GetDevicesResponse(this);
+        int from_bitField0_ = bitField0_;
+        if (devicesBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            devices_ = java.util.Collections.unmodifiableList(devices_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.devices_ = devices_;
+        } else {
+          result.devices_ = devicesBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof lightspeed.response.Response.GetDevicesResponse) {
+          return mergeFrom((lightspeed.response.Response.GetDevicesResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(lightspeed.response.Response.GetDevicesResponse other) {
+        if (other == lightspeed.response.Response.GetDevicesResponse.getDefaultInstance()) return this;
+        if (devicesBuilder_ == null) {
+          if (!other.devices_.isEmpty()) {
+            if (devices_.isEmpty()) {
+              devices_ = other.devices_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureDevicesIsMutable();
+              devices_.addAll(other.devices_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.devices_.isEmpty()) {
+            if (devicesBuilder_.isEmpty()) {
+              devicesBuilder_.dispose();
+              devicesBuilder_ = null;
+              devices_ = other.devices_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              devicesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getDevicesFieldBuilder() : null;
+            } else {
+              devicesBuilder_.addAllMessages(other.devices_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        lightspeed.response.Response.GetDevicesResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (lightspeed.response.Response.GetDevicesResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<lightspeed.devices.Device.ProtoDevice> devices_ =
+        java.util.Collections.emptyList();
+      private void ensureDevicesIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          devices_ = new java.util.ArrayList<lightspeed.devices.Device.ProtoDevice>(devices_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          lightspeed.devices.Device.ProtoDevice, lightspeed.devices.Device.ProtoDevice.Builder, lightspeed.devices.Device.ProtoDeviceOrBuilder> devicesBuilder_;
+
+      /**
+       * <code>repeated .lightspeed.devices.ProtoDevice devices = 1;</code>
+       */
+      public java.util.List<lightspeed.devices.Device.ProtoDevice> getDevicesList() {
+        if (devicesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(devices_);
+        } else {
+          return devicesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .lightspeed.devices.ProtoDevice devices = 1;</code>
+       */
+      public int getDevicesCount() {
+        if (devicesBuilder_ == null) {
+          return devices_.size();
+        } else {
+          return devicesBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .lightspeed.devices.ProtoDevice devices = 1;</code>
+       */
+      public lightspeed.devices.Device.ProtoDevice getDevices(int index) {
+        if (devicesBuilder_ == null) {
+          return devices_.get(index);
+        } else {
+          return devicesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .lightspeed.devices.ProtoDevice devices = 1;</code>
+       */
+      public Builder setDevices(
+          int index, lightspeed.devices.Device.ProtoDevice value) {
+        if (devicesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDevicesIsMutable();
+          devices_.set(index, value);
+          onChanged();
+        } else {
+          devicesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .lightspeed.devices.ProtoDevice devices = 1;</code>
+       */
+      public Builder setDevices(
+          int index, lightspeed.devices.Device.ProtoDevice.Builder builderForValue) {
+        if (devicesBuilder_ == null) {
+          ensureDevicesIsMutable();
+          devices_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          devicesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .lightspeed.devices.ProtoDevice devices = 1;</code>
+       */
+      public Builder addDevices(lightspeed.devices.Device.ProtoDevice value) {
+        if (devicesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDevicesIsMutable();
+          devices_.add(value);
+          onChanged();
+        } else {
+          devicesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .lightspeed.devices.ProtoDevice devices = 1;</code>
+       */
+      public Builder addDevices(
+          int index, lightspeed.devices.Device.ProtoDevice value) {
+        if (devicesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDevicesIsMutable();
+          devices_.add(index, value);
+          onChanged();
+        } else {
+          devicesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .lightspeed.devices.ProtoDevice devices = 1;</code>
+       */
+      public Builder addDevices(
+          lightspeed.devices.Device.ProtoDevice.Builder builderForValue) {
+        if (devicesBuilder_ == null) {
+          ensureDevicesIsMutable();
+          devices_.add(builderForValue.build());
+          onChanged();
+        } else {
+          devicesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .lightspeed.devices.ProtoDevice devices = 1;</code>
+       */
+      public Builder addDevices(
+          int index, lightspeed.devices.Device.ProtoDevice.Builder builderForValue) {
+        if (devicesBuilder_ == null) {
+          ensureDevicesIsMutable();
+          devices_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          devicesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .lightspeed.devices.ProtoDevice devices = 1;</code>
+       */
+      public Builder addAllDevices(
+          java.lang.Iterable<? extends lightspeed.devices.Device.ProtoDevice> values) {
+        if (devicesBuilder_ == null) {
+          ensureDevicesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, devices_);
+          onChanged();
+        } else {
+          devicesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .lightspeed.devices.ProtoDevice devices = 1;</code>
+       */
+      public Builder clearDevices() {
+        if (devicesBuilder_ == null) {
+          devices_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          devicesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .lightspeed.devices.ProtoDevice devices = 1;</code>
+       */
+      public Builder removeDevices(int index) {
+        if (devicesBuilder_ == null) {
+          ensureDevicesIsMutable();
+          devices_.remove(index);
+          onChanged();
+        } else {
+          devicesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .lightspeed.devices.ProtoDevice devices = 1;</code>
+       */
+      public lightspeed.devices.Device.ProtoDevice.Builder getDevicesBuilder(
+          int index) {
+        return getDevicesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .lightspeed.devices.ProtoDevice devices = 1;</code>
+       */
+      public lightspeed.devices.Device.ProtoDeviceOrBuilder getDevicesOrBuilder(
+          int index) {
+        if (devicesBuilder_ == null) {
+          return devices_.get(index);  } else {
+          return devicesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .lightspeed.devices.ProtoDevice devices = 1;</code>
+       */
+      public java.util.List<? extends lightspeed.devices.Device.ProtoDeviceOrBuilder> 
+           getDevicesOrBuilderList() {
+        if (devicesBuilder_ != null) {
+          return devicesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(devices_);
+        }
+      }
+      /**
+       * <code>repeated .lightspeed.devices.ProtoDevice devices = 1;</code>
+       */
+      public lightspeed.devices.Device.ProtoDevice.Builder addDevicesBuilder() {
+        return getDevicesFieldBuilder().addBuilder(
+            lightspeed.devices.Device.ProtoDevice.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .lightspeed.devices.ProtoDevice devices = 1;</code>
+       */
+      public lightspeed.devices.Device.ProtoDevice.Builder addDevicesBuilder(
+          int index) {
+        return getDevicesFieldBuilder().addBuilder(
+            index, lightspeed.devices.Device.ProtoDevice.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .lightspeed.devices.ProtoDevice devices = 1;</code>
+       */
+      public java.util.List<lightspeed.devices.Device.ProtoDevice.Builder> 
+           getDevicesBuilderList() {
+        return getDevicesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          lightspeed.devices.Device.ProtoDevice, lightspeed.devices.Device.ProtoDevice.Builder, lightspeed.devices.Device.ProtoDeviceOrBuilder> 
+          getDevicesFieldBuilder() {
+        if (devicesBuilder_ == null) {
+          devicesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              lightspeed.devices.Device.ProtoDevice, lightspeed.devices.Device.ProtoDevice.Builder, lightspeed.devices.Device.ProtoDeviceOrBuilder>(
+                  devices_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          devices_ = null;
+        }
+        return devicesBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:lightspeed.response.GetDevicesResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:lightspeed.response.GetDevicesResponse)
+    private static final lightspeed.response.Response.GetDevicesResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new lightspeed.response.Response.GetDevicesResponse();
+    }
+
+    public static lightspeed.response.Response.GetDevicesResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GetDevicesResponse>
+        PARSER = new com.google.protobuf.AbstractParser<GetDevicesResponse>() {
+      @java.lang.Override
+      public GetDevicesResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GetDevicesResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GetDevicesResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetDevicesResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public lightspeed.response.Response.GetDevicesResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_lightspeed_response_GetPropertiesResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_lightspeed_response_GetPropertiesResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_lightspeed_response_GetDeviceResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_lightspeed_response_GetDeviceResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_lightspeed_response_GetDevicesResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_lightspeed_response_GetDevicesResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -975,14 +2403,20 @@ public final class Response {
     java.lang.String[] descriptorData = {
       "\n\034protocol/main/response.proto\022\023lightspe" +
       "ed.response\032\037protocol/properties/props.p" +
-      "roto\"\\\n\025GetPropertiesResponse\022\023\n\013device_" +
-      "name\030\001 \001(\t\022.\n\nproperties\030\002 \003(\0132\032.lightsp" +
-      "eed.props.PropertyP\000b\006proto3"
+      "roto\032\035protocol/devices/device.proto\"\\\n\025G" +
+      "etPropertiesResponse\022\023\n\013device_name\030\001 \001(" +
+      "\t\022.\n\nproperties\030\002 \003(\0132\032.lightspeed.props" +
+      ".Property\"D\n\021GetDeviceResponse\022/\n\006device" +
+      "\030\001 \001(\0132\037.lightspeed.devices.ProtoDevice\"" +
+      "F\n\022GetDevicesResponse\0220\n\007devices\030\001 \003(\0132\037" +
+      ".lightspeed.devices.ProtoDeviceP\000P\001b\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           lightspeed.props.Props.getDescriptor(),
+          lightspeed.devices.Device.getDescriptor(),
         });
     internal_static_lightspeed_response_GetPropertiesResponse_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -990,7 +2424,20 @@ public final class Response {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_lightspeed_response_GetPropertiesResponse_descriptor,
         new java.lang.String[] { "DeviceName", "Properties", });
+    internal_static_lightspeed_response_GetDeviceResponse_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_lightspeed_response_GetDeviceResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_lightspeed_response_GetDeviceResponse_descriptor,
+        new java.lang.String[] { "Device", });
+    internal_static_lightspeed_response_GetDevicesResponse_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_lightspeed_response_GetDevicesResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_lightspeed_response_GetDevicesResponse_descriptor,
+        new java.lang.String[] { "Devices", });
     lightspeed.props.Props.getDescriptor();
+    lightspeed.devices.Device.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

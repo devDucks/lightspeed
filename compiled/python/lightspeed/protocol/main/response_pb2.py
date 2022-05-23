@@ -12,16 +12,26 @@ _sym_db = _symbol_database.Default()
 
 
 from protocol.properties import props_pb2 as protocol_dot_properties_dot_props__pb2
+from protocol.devices import device_pb2 as protocol_dot_devices_dot_device__pb2
+try:
+  protocol_dot_properties_dot_props__pb2 = protocol_dot_devices_dot_device__pb2.protocol_dot_properties_dot_props__pb2
+except AttributeError:
+  protocol_dot_properties_dot_props__pb2 = protocol_dot_devices_dot_device__pb2.protocol.properties.props_pb2
 
 from protocol.properties.props_pb2 import *
+from protocol.devices.device_pb2 import *
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1cprotocol/main/response.proto\x12\x13lightspeed.response\x1a\x1fprotocol/properties/props.proto\"\\\n\x15GetPropertiesResponse\x12\x13\n\x0b\x64\x65vice_name\x18\x01 \x01(\t\x12.\n\nproperties\x18\x02 \x03(\x0b\x32\x1a.lightspeed.props.PropertyP\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1cprotocol/main/response.proto\x12\x13lightspeed.response\x1a\x1fprotocol/properties/props.proto\x1a\x1dprotocol/devices/device.proto\"\\\n\x15GetPropertiesResponse\x12\x13\n\x0b\x64\x65vice_name\x18\x01 \x01(\t\x12.\n\nproperties\x18\x02 \x03(\x0b\x32\x1a.lightspeed.props.Property\"D\n\x11GetDeviceResponse\x12/\n\x06\x64\x65vice\x18\x01 \x01(\x0b\x32\x1f.lightspeed.devices.ProtoDevice\"F\n\x12GetDevicesResponse\x12\x30\n\x07\x64\x65vices\x18\x01 \x03(\x0b\x32\x1f.lightspeed.devices.ProtoDeviceP\x00P\x01\x62\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'protocol.main.response_pb2', globals())
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
-  _GETPROPERTIESRESPONSE._serialized_start=86
-  _GETPROPERTIESRESPONSE._serialized_end=178
+  _GETPROPERTIESRESPONSE._serialized_start=117
+  _GETPROPERTIESRESPONSE._serialized_end=209
+  _GETDEVICERESPONSE._serialized_start=211
+  _GETDEVICERESPONSE._serialized_end=279
+  _GETDEVICESRESPONSE._serialized_start=281
+  _GETDEVICESRESPONSE._serialized_end=351
 # @@protoc_insertion_point(module_scope)

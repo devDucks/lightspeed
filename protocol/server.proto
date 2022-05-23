@@ -6,5 +6,5 @@ import public "protocol/main/request.proto";
 import public "protocol/main/response.proto";
 
 service AstroService {
-  rpc QueryProps(lightspeed.request.GetPropertiesRequest) returns (lightspeed.response.GetPropertiesResponse);
+  rpc GetDevices(lightspeed.request.GetDevicesRequest) returns (lightspeed.response.GetDevicesResponse);
 }
