@@ -23,6 +23,7 @@
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/arena.h>
 #include <google/protobuf/arenastring.h>
+#include <google/protobuf/generated_message_bases.h>
 #include <google/protobuf/generated_message_util.h>
 #include <google/protobuf/metadata_lite.h>
 #include <google/protobuf/generated_message_reflection.h>
@@ -30,6 +31,7 @@
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
 #include <google/protobuf/unknown_field_set.h>
+#include "protocol/devices/device.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_protocol_2fmain_2frequest_2eproto
@@ -46,6 +48,18 @@ struct TableStruct_protocol_2fmain_2frequest_2eproto {
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_protocol_2fmain_2frequest_2eproto;
 namespace lightspeed {
 namespace request {
+class GetDeviceRequest;
+struct GetDeviceRequestDefaultTypeInternal;
+extern GetDeviceRequestDefaultTypeInternal _GetDeviceRequest_default_instance_;
+class GetDeviceResponse;
+struct GetDeviceResponseDefaultTypeInternal;
+extern GetDeviceResponseDefaultTypeInternal _GetDeviceResponse_default_instance_;
+class GetDevicesRequest;
+struct GetDevicesRequestDefaultTypeInternal;
+extern GetDevicesRequestDefaultTypeInternal _GetDevicesRequest_default_instance_;
+class GetDevicesResponse;
+struct GetDevicesResponseDefaultTypeInternal;
+extern GetDevicesResponseDefaultTypeInternal _GetDevicesResponse_default_instance_;
 class GetPropertiesRequest;
 struct GetPropertiesRequestDefaultTypeInternal;
 extern GetPropertiesRequestDefaultTypeInternal _GetPropertiesRequest_default_instance_;
@@ -61,6 +75,10 @@ extern SetPropertyRequestDefaultTypeInternal _SetPropertyRequest_default_instanc
 }  // namespace request
 }  // namespace lightspeed
 PROTOBUF_NAMESPACE_OPEN
+template<> ::lightspeed::request::GetDeviceRequest* Arena::CreateMaybeMessage<::lightspeed::request::GetDeviceRequest>(Arena*);
+template<> ::lightspeed::request::GetDeviceResponse* Arena::CreateMaybeMessage<::lightspeed::request::GetDeviceResponse>(Arena*);
+template<> ::lightspeed::request::GetDevicesRequest* Arena::CreateMaybeMessage<::lightspeed::request::GetDevicesRequest>(Arena*);
+template<> ::lightspeed::request::GetDevicesResponse* Arena::CreateMaybeMessage<::lightspeed::request::GetDevicesResponse>(Arena*);
 template<> ::lightspeed::request::GetPropertiesRequest* Arena::CreateMaybeMessage<::lightspeed::request::GetPropertiesRequest>(Arena*);
 template<> ::lightspeed::request::GetPropertyRequest* Arena::CreateMaybeMessage<::lightspeed::request::GetPropertyRequest>(Arena*);
 template<> ::lightspeed::request::PropertyRequest* Arena::CreateMaybeMessage<::lightspeed::request::PropertyRequest>(Arena*);
@@ -70,6 +88,574 @@ namespace lightspeed {
 namespace request {
 
 // ===================================================================
+
+class GetDevicesRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:lightspeed.request.GetDevicesRequest) */ {
+ public:
+  inline GetDevicesRequest() : GetDevicesRequest(nullptr) {}
+  explicit PROTOBUF_CONSTEXPR GetDevicesRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  GetDevicesRequest(const GetDevicesRequest& from);
+  GetDevicesRequest(GetDevicesRequest&& from) noexcept
+    : GetDevicesRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline GetDevicesRequest& operator=(const GetDevicesRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GetDevicesRequest& operator=(GetDevicesRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const GetDevicesRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const GetDevicesRequest* internal_default_instance() {
+    return reinterpret_cast<const GetDevicesRequest*>(
+               &_GetDevicesRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    0;
+
+  friend void swap(GetDevicesRequest& a, GetDevicesRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(GetDevicesRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GetDevicesRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  GetDevicesRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<GetDevicesRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyFrom;
+  inline void CopyFrom(const GetDevicesRequest& from) {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl(this, from);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeFrom;
+  void MergeFrom(const GetDevicesRequest& from) {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl(this, from);
+  }
+  public:
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "lightspeed.request.GetDevicesRequest";
+  }
+  protected:
+  explicit GetDevicesRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:lightspeed.request.GetDevicesRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  friend struct ::TableStruct_protocol_2fmain_2frequest_2eproto;
+};
+// -------------------------------------------------------------------
+
+class GetDevicesResponse final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:lightspeed.request.GetDevicesResponse) */ {
+ public:
+  inline GetDevicesResponse() : GetDevicesResponse(nullptr) {}
+  ~GetDevicesResponse() override;
+  explicit PROTOBUF_CONSTEXPR GetDevicesResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  GetDevicesResponse(const GetDevicesResponse& from);
+  GetDevicesResponse(GetDevicesResponse&& from) noexcept
+    : GetDevicesResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline GetDevicesResponse& operator=(const GetDevicesResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GetDevicesResponse& operator=(GetDevicesResponse&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const GetDevicesResponse& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const GetDevicesResponse* internal_default_instance() {
+    return reinterpret_cast<const GetDevicesResponse*>(
+               &_GetDevicesResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  friend void swap(GetDevicesResponse& a, GetDevicesResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(GetDevicesResponse* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GetDevicesResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  GetDevicesResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<GetDevicesResponse>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const GetDevicesResponse& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const GetDevicesResponse& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(GetDevicesResponse* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "lightspeed.request.GetDevicesResponse";
+  }
+  protected:
+  explicit GetDevicesResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kDevicesFieldNumber = 1,
+  };
+  // repeated .lightspeed.devices.ProtoDevice devices = 1;
+  int devices_size() const;
+  private:
+  int _internal_devices_size() const;
+  public:
+  void clear_devices();
+  ::lightspeed::devices::ProtoDevice* mutable_devices(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::lightspeed::devices::ProtoDevice >*
+      mutable_devices();
+  private:
+  const ::lightspeed::devices::ProtoDevice& _internal_devices(int index) const;
+  ::lightspeed::devices::ProtoDevice* _internal_add_devices();
+  public:
+  const ::lightspeed::devices::ProtoDevice& devices(int index) const;
+  ::lightspeed::devices::ProtoDevice* add_devices();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::lightspeed::devices::ProtoDevice >&
+      devices() const;
+
+  // @@protoc_insertion_point(class_scope:lightspeed.request.GetDevicesResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::lightspeed::devices::ProtoDevice > devices_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_protocol_2fmain_2frequest_2eproto;
+};
+// -------------------------------------------------------------------
+
+class GetDeviceRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:lightspeed.request.GetDeviceRequest) */ {
+ public:
+  inline GetDeviceRequest() : GetDeviceRequest(nullptr) {}
+  ~GetDeviceRequest() override;
+  explicit PROTOBUF_CONSTEXPR GetDeviceRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  GetDeviceRequest(const GetDeviceRequest& from);
+  GetDeviceRequest(GetDeviceRequest&& from) noexcept
+    : GetDeviceRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline GetDeviceRequest& operator=(const GetDeviceRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GetDeviceRequest& operator=(GetDeviceRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const GetDeviceRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const GetDeviceRequest* internal_default_instance() {
+    return reinterpret_cast<const GetDeviceRequest*>(
+               &_GetDeviceRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(GetDeviceRequest& a, GetDeviceRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(GetDeviceRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GetDeviceRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  GetDeviceRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<GetDeviceRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const GetDeviceRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const GetDeviceRequest& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(GetDeviceRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "lightspeed.request.GetDeviceRequest";
+  }
+  protected:
+  explicit GetDeviceRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kDeviceIdFieldNumber = 1,
+  };
+  // string device_id = 1;
+  void clear_device_id();
+  const std::string& device_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_device_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_device_id();
+  PROTOBUF_NODISCARD std::string* release_device_id();
+  void set_allocated_device_id(std::string* device_id);
+  private:
+  const std::string& _internal_device_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_device_id(const std::string& value);
+  std::string* _internal_mutable_device_id();
+  public:
+
+  // @@protoc_insertion_point(class_scope:lightspeed.request.GetDeviceRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr device_id_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_protocol_2fmain_2frequest_2eproto;
+};
+// -------------------------------------------------------------------
+
+class GetDeviceResponse final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:lightspeed.request.GetDeviceResponse) */ {
+ public:
+  inline GetDeviceResponse() : GetDeviceResponse(nullptr) {}
+  ~GetDeviceResponse() override;
+  explicit PROTOBUF_CONSTEXPR GetDeviceResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  GetDeviceResponse(const GetDeviceResponse& from);
+  GetDeviceResponse(GetDeviceResponse&& from) noexcept
+    : GetDeviceResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline GetDeviceResponse& operator=(const GetDeviceResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GetDeviceResponse& operator=(GetDeviceResponse&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const GetDeviceResponse& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const GetDeviceResponse* internal_default_instance() {
+    return reinterpret_cast<const GetDeviceResponse*>(
+               &_GetDeviceResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(GetDeviceResponse& a, GetDeviceResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(GetDeviceResponse* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GetDeviceResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  GetDeviceResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<GetDeviceResponse>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const GetDeviceResponse& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const GetDeviceResponse& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(GetDeviceResponse* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "lightspeed.request.GetDeviceResponse";
+  }
+  protected:
+  explicit GetDeviceResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kDeviceFieldNumber = 1,
+  };
+  // .lightspeed.devices.ProtoDevice device = 1;
+  bool has_device() const;
+  private:
+  bool _internal_has_device() const;
+  public:
+  void clear_device();
+  const ::lightspeed::devices::ProtoDevice& device() const;
+  PROTOBUF_NODISCARD ::lightspeed::devices::ProtoDevice* release_device();
+  ::lightspeed::devices::ProtoDevice* mutable_device();
+  void set_allocated_device(::lightspeed::devices::ProtoDevice* device);
+  private:
+  const ::lightspeed::devices::ProtoDevice& _internal_device() const;
+  ::lightspeed::devices::ProtoDevice* _internal_mutable_device();
+  public:
+  void unsafe_arena_set_allocated_device(
+      ::lightspeed::devices::ProtoDevice* device);
+  ::lightspeed::devices::ProtoDevice* unsafe_arena_release_device();
+
+  // @@protoc_insertion_point(class_scope:lightspeed.request.GetDeviceResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::lightspeed::devices::ProtoDevice* device_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_protocol_2fmain_2frequest_2eproto;
+};
+// -------------------------------------------------------------------
 
 class GetPropertiesRequest final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:lightspeed.request.GetPropertiesRequest) */ {
@@ -119,7 +705,7 @@ class GetPropertiesRequest final :
                &_GetPropertiesRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    0;
+    4;
 
   friend void swap(GetPropertiesRequest& a, GetPropertiesRequest& b) {
     a.Swap(&b);
@@ -267,7 +853,7 @@ class GetPropertyRequest final :
                &_GetPropertyRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    5;
 
   friend void swap(GetPropertyRequest& a, GetPropertyRequest& b) {
     a.Swap(&b);
@@ -431,7 +1017,7 @@ class SetPropertyRequest final :
                &_SetPropertyRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    6;
 
   friend void swap(SetPropertyRequest& a, SetPropertyRequest& b) {
     a.Swap(&b);
@@ -617,7 +1203,7 @@ class PropertyRequest final :
                &_PropertyRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    7;
 
   friend void swap(PropertyRequest& a, PropertyRequest& b) {
     a.Swap(&b);
@@ -761,6 +1347,194 @@ class PropertyRequest final :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
+// GetDevicesRequest
+
+// -------------------------------------------------------------------
+
+// GetDevicesResponse
+
+// repeated .lightspeed.devices.ProtoDevice devices = 1;
+inline int GetDevicesResponse::_internal_devices_size() const {
+  return devices_.size();
+}
+inline int GetDevicesResponse::devices_size() const {
+  return _internal_devices_size();
+}
+inline ::lightspeed::devices::ProtoDevice* GetDevicesResponse::mutable_devices(int index) {
+  // @@protoc_insertion_point(field_mutable:lightspeed.request.GetDevicesResponse.devices)
+  return devices_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::lightspeed::devices::ProtoDevice >*
+GetDevicesResponse::mutable_devices() {
+  // @@protoc_insertion_point(field_mutable_list:lightspeed.request.GetDevicesResponse.devices)
+  return &devices_;
+}
+inline const ::lightspeed::devices::ProtoDevice& GetDevicesResponse::_internal_devices(int index) const {
+  return devices_.Get(index);
+}
+inline const ::lightspeed::devices::ProtoDevice& GetDevicesResponse::devices(int index) const {
+  // @@protoc_insertion_point(field_get:lightspeed.request.GetDevicesResponse.devices)
+  return _internal_devices(index);
+}
+inline ::lightspeed::devices::ProtoDevice* GetDevicesResponse::_internal_add_devices() {
+  return devices_.Add();
+}
+inline ::lightspeed::devices::ProtoDevice* GetDevicesResponse::add_devices() {
+  ::lightspeed::devices::ProtoDevice* _add = _internal_add_devices();
+  // @@protoc_insertion_point(field_add:lightspeed.request.GetDevicesResponse.devices)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::lightspeed::devices::ProtoDevice >&
+GetDevicesResponse::devices() const {
+  // @@protoc_insertion_point(field_list:lightspeed.request.GetDevicesResponse.devices)
+  return devices_;
+}
+
+// -------------------------------------------------------------------
+
+// GetDeviceRequest
+
+// string device_id = 1;
+inline void GetDeviceRequest::clear_device_id() {
+  device_id_.ClearToEmpty();
+}
+inline const std::string& GetDeviceRequest::device_id() const {
+  // @@protoc_insertion_point(field_get:lightspeed.request.GetDeviceRequest.device_id)
+  return _internal_device_id();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void GetDeviceRequest::set_device_id(ArgT0&& arg0, ArgT... args) {
+ 
+ device_id_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:lightspeed.request.GetDeviceRequest.device_id)
+}
+inline std::string* GetDeviceRequest::mutable_device_id() {
+  std::string* _s = _internal_mutable_device_id();
+  // @@protoc_insertion_point(field_mutable:lightspeed.request.GetDeviceRequest.device_id)
+  return _s;
+}
+inline const std::string& GetDeviceRequest::_internal_device_id() const {
+  return device_id_.Get();
+}
+inline void GetDeviceRequest::_internal_set_device_id(const std::string& value) {
+  
+  device_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* GetDeviceRequest::_internal_mutable_device_id() {
+  
+  return device_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* GetDeviceRequest::release_device_id() {
+  // @@protoc_insertion_point(field_release:lightspeed.request.GetDeviceRequest.device_id)
+  return device_id_.Release();
+}
+inline void GetDeviceRequest::set_allocated_device_id(std::string* device_id) {
+  if (device_id != nullptr) {
+    
+  } else {
+    
+  }
+  device_id_.SetAllocated(device_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (device_id_.IsDefault()) {
+    device_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:lightspeed.request.GetDeviceRequest.device_id)
+}
+
+// -------------------------------------------------------------------
+
+// GetDeviceResponse
+
+// .lightspeed.devices.ProtoDevice device = 1;
+inline bool GetDeviceResponse::_internal_has_device() const {
+  return this != internal_default_instance() && device_ != nullptr;
+}
+inline bool GetDeviceResponse::has_device() const {
+  return _internal_has_device();
+}
+inline const ::lightspeed::devices::ProtoDevice& GetDeviceResponse::_internal_device() const {
+  const ::lightspeed::devices::ProtoDevice* p = device_;
+  return p != nullptr ? *p : reinterpret_cast<const ::lightspeed::devices::ProtoDevice&>(
+      ::lightspeed::devices::_ProtoDevice_default_instance_);
+}
+inline const ::lightspeed::devices::ProtoDevice& GetDeviceResponse::device() const {
+  // @@protoc_insertion_point(field_get:lightspeed.request.GetDeviceResponse.device)
+  return _internal_device();
+}
+inline void GetDeviceResponse::unsafe_arena_set_allocated_device(
+    ::lightspeed::devices::ProtoDevice* device) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(device_);
+  }
+  device_ = device;
+  if (device) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:lightspeed.request.GetDeviceResponse.device)
+}
+inline ::lightspeed::devices::ProtoDevice* GetDeviceResponse::release_device() {
+  
+  ::lightspeed::devices::ProtoDevice* temp = device_;
+  device_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::lightspeed::devices::ProtoDevice* GetDeviceResponse::unsafe_arena_release_device() {
+  // @@protoc_insertion_point(field_release:lightspeed.request.GetDeviceResponse.device)
+  
+  ::lightspeed::devices::ProtoDevice* temp = device_;
+  device_ = nullptr;
+  return temp;
+}
+inline ::lightspeed::devices::ProtoDevice* GetDeviceResponse::_internal_mutable_device() {
+  
+  if (device_ == nullptr) {
+    auto* p = CreateMaybeMessage<::lightspeed::devices::ProtoDevice>(GetArenaForAllocation());
+    device_ = p;
+  }
+  return device_;
+}
+inline ::lightspeed::devices::ProtoDevice* GetDeviceResponse::mutable_device() {
+  ::lightspeed::devices::ProtoDevice* _msg = _internal_mutable_device();
+  // @@protoc_insertion_point(field_mutable:lightspeed.request.GetDeviceResponse.device)
+  return _msg;
+}
+inline void GetDeviceResponse::set_allocated_device(::lightspeed::devices::ProtoDevice* device) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(device_);
+  }
+  if (device) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(device));
+    if (message_arena != submessage_arena) {
+      device = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, device, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  device_ = device;
+  // @@protoc_insertion_point(field_set_allocated:lightspeed.request.GetDeviceResponse.device)
+}
+
+// -------------------------------------------------------------------
+
 // GetPropertiesRequest
 
 // string device_name = 1;
@@ -1235,6 +2009,14 @@ inline PropertyRequest::AskCase PropertyRequest::ask_case() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

@@ -12,6 +12,14 @@ _sym_db = _symbol_database.Default()
 
 
 from protocol.main import request_pb2 as protocol_dot_main_dot_request__pb2
+try:
+  protocol_dot_devices_dot_device__pb2 = protocol_dot_main_dot_request__pb2.protocol_dot_devices_dot_device__pb2
+except AttributeError:
+  protocol_dot_devices_dot_device__pb2 = protocol_dot_main_dot_request__pb2.protocol.devices.device_pb2
+try:
+  protocol_dot_properties_dot_props__pb2 = protocol_dot_main_dot_request__pb2.protocol_dot_properties_dot_props__pb2
+except AttributeError:
+  protocol_dot_properties_dot_props__pb2 = protocol_dot_main_dot_request__pb2.protocol.properties.props_pb2
 from protocol.main import response_pb2 as protocol_dot_main_dot_response__pb2
 try:
   protocol_dot_properties_dot_props__pb2 = protocol_dot_main_dot_response__pb2.protocol_dot_properties_dot_props__pb2

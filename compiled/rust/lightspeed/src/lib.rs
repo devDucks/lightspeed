@@ -2,7 +2,7 @@ pub mod props {
     include!("lightspeed.props.rs");
 }
 
-pub mod device {
+pub mod devices {
     include!("lightspeed.devices.rs");
 }
 

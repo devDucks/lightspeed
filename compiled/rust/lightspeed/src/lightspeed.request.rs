@@ -1,4 +1,22 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetDevicesRequest {
+}
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetDevicesResponse {
+    #[prost(message, repeated, tag="1")]
+    pub devices: ::prost::alloc::vec::Vec<super::devices::ProtoDevice>,
+}
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetDeviceRequest {
+    #[prost(string, tag="1")]
+    pub device_id: ::prost::alloc::string::String,
+}
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetDeviceResponse {
+    #[prost(message, optional, tag="1")]
+    pub device: ::core::option::Option<super::devices::ProtoDevice>,
+}
+#[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetPropertiesRequest {
     #[prost(string, tag="1")]
     pub device_name: ::prost::alloc::string::String,

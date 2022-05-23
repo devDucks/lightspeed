@@ -11,21 +11,35 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from protocol.devices import device_pb2 as protocol_dot_devices_dot_device__pb2
+try:
+  protocol_dot_properties_dot_props__pb2 = protocol_dot_devices_dot_device__pb2.protocol_dot_properties_dot_props__pb2
+except AttributeError:
+  protocol_dot_properties_dot_props__pb2 = protocol_dot_devices_dot_device__pb2.protocol.properties.props_pb2
 
+from protocol.devices.device_pb2 import *
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1bprotocol/main/request.proto\x12\x12lightspeed.request\"+\n\x14GetPropertiesRequest\x12\x13\n\x0b\x64\x65vice_name\x18\x01 \x01(\t\"@\n\x12GetPropertyRequest\x12\x13\n\x0b\x64\x65vice_name\x18\x01 \x01(\t\x12\x15\n\rproperty_name\x18\x02 \x01(\t\"X\n\x12SetPropertyRequest\x12\x13\n\x0b\x64\x65vice_name\x18\x01 \x01(\t\x12\x15\n\rproperty_name\x18\x02 \x01(\t\x12\x16\n\x0eproperty_value\x18\x03 \x01(\t\"\x94\x01\n\x0fPropertyRequest\x12:\n\x08property\x18\x01 \x01(\x0b\x32&.lightspeed.request.GetPropertyRequestH\x00\x12>\n\nproperties\x18\x02 \x01(\x0b\x32(.lightspeed.request.GetPropertiesRequestH\x00\x42\x05\n\x03\x61skb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1bprotocol/main/request.proto\x12\x12lightspeed.request\x1a\x1dprotocol/devices/device.proto\"\x13\n\x11GetDevicesRequest\"F\n\x12GetDevicesResponse\x12\x30\n\x07\x64\x65vices\x18\x01 \x03(\x0b\x32\x1f.lightspeed.devices.ProtoDevice\"%\n\x10GetDeviceRequest\x12\x11\n\tdevice_id\x18\x01 \x01(\t\"D\n\x11GetDeviceResponse\x12/\n\x06\x64\x65vice\x18\x01 \x01(\x0b\x32\x1f.lightspeed.devices.ProtoDevice\"+\n\x14GetPropertiesRequest\x12\x13\n\x0b\x64\x65vice_name\x18\x01 \x01(\t\"@\n\x12GetPropertyRequest\x12\x13\n\x0b\x64\x65vice_name\x18\x01 \x01(\t\x12\x15\n\rproperty_name\x18\x02 \x01(\t\"X\n\x12SetPropertyRequest\x12\x13\n\x0b\x64\x65vice_name\x18\x01 \x01(\t\x12\x15\n\rproperty_name\x18\x02 \x01(\t\x12\x16\n\x0eproperty_value\x18\x03 \x01(\t\"\x94\x01\n\x0fPropertyRequest\x12:\n\x08property\x18\x01 \x01(\x0b\x32&.lightspeed.request.GetPropertyRequestH\x00\x12>\n\nproperties\x18\x02 \x01(\x0b\x32(.lightspeed.request.GetPropertiesRequestH\x00\x42\x05\n\x03\x61skP\x00\x62\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'protocol.main.request_pb2', globals())
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
-  _GETPROPERTIESREQUEST._serialized_start=51
-  _GETPROPERTIESREQUEST._serialized_end=94
-  _GETPROPERTYREQUEST._serialized_start=96
-  _GETPROPERTYREQUEST._serialized_end=160
-  _SETPROPERTYREQUEST._serialized_start=162
-  _SETPROPERTYREQUEST._serialized_end=250
-  _PROPERTYREQUEST._serialized_start=253
-  _PROPERTYREQUEST._serialized_end=401
+  _GETDEVICESREQUEST._serialized_start=82
+  _GETDEVICESREQUEST._serialized_end=101
+  _GETDEVICESRESPONSE._serialized_start=103
+  _GETDEVICESRESPONSE._serialized_end=173
+  _GETDEVICEREQUEST._serialized_start=175
+  _GETDEVICEREQUEST._serialized_end=212
+  _GETDEVICERESPONSE._serialized_start=214
+  _GETDEVICERESPONSE._serialized_end=282
+  _GETPROPERTIESREQUEST._serialized_start=284
+  _GETPROPERTIESREQUEST._serialized_end=327
+  _GETPROPERTYREQUEST._serialized_start=329
+  _GETPROPERTYREQUEST._serialized_end=393
+  _SETPROPERTYREQUEST._serialized_start=395
+  _SETPROPERTYREQUEST._serialized_end=483
+  _PROPERTYREQUEST._serialized_start=486
+  _PROPERTYREQUEST._serialized_end=634
 # @@protoc_insertion_point(module_scope)

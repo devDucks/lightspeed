@@ -1,7 +1,23 @@
 syntax = "proto3";
 
+import public "protocol/devices/device.proto";
+
 package lightspeed.request;
 
+
+message GetDevicesRequest {}
+
+message GetDevicesResponse {
+  repeated lightspeed.devices.ProtoDevice devices = 1;
+}
+
+message GetDeviceRequest {
+  string device_id = 1;
+}
+
+message GetDeviceResponse {
+  lightspeed.devices.ProtoDevice device = 1;
+}
 
 message GetPropertiesRequest {
   string device_name = 1;
