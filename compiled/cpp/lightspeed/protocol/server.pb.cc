@@ -33,20 +33,24 @@ static constexpr ::_pb::Message* const* file_default_instances = nullptr;
 const char descriptor_table_protodef_protocol_2fserver_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\025protocol/server.proto\022\021lightspeed.serv"
   "er\032\033protocol/main/request.proto\032\034protoco"
-  "l/main/response.proto2l\n\014AstroService\022\\\n"
-  "\nGetDevices\022%.lightspeed.request.GetDevi"
-  "cesRequest\032\'.lightspeed.response.GetDevi"
-  "cesResponseP\000P\001b\006proto3"
+  "l/main/response.proto\032\037protocol/properti"
+  "es/props.proto2\310\001\n\014AstroService\022\\\n\nGetDe"
+  "vices\022%.lightspeed.request.GetDevicesReq"
+  "uest\032\'.lightspeed.response.GetDevicesRes"
+  "ponse\022Z\n\013SetProperty\022$.lightspeed.props."
+  "SetPropertyRequest\032%.lightspeed.props.Se"
+  "tPropertyResponseP\000P\001P\002b\006proto3"
   ;
-static const ::_pbi::DescriptorTable* const descriptor_table_protocol_2fserver_2eproto_deps[2] = {
+static const ::_pbi::DescriptorTable* const descriptor_table_protocol_2fserver_2eproto_deps[3] = {
   &::descriptor_table_protocol_2fmain_2frequest_2eproto,
   &::descriptor_table_protocol_2fmain_2fresponse_2eproto,
+  &::descriptor_table_protocol_2fproperties_2fprops_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_protocol_2fserver_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_protocol_2fserver_2eproto = {
-    false, false, 223, descriptor_table_protodef_protocol_2fserver_2eproto,
+    false, false, 351, descriptor_table_protodef_protocol_2fserver_2eproto,
     "protocol/server.proto",
-    &descriptor_table_protocol_2fserver_2eproto_once, descriptor_table_protocol_2fserver_2eproto_deps, 2, 0,
+    &descriptor_table_protocol_2fserver_2eproto_once, descriptor_table_protocol_2fserver_2eproto_deps, 3, 0,
     schemas, file_default_instances, TableStruct_protocol_2fserver_2eproto::offsets,
     nullptr, file_level_enum_descriptors_protocol_2fserver_2eproto,
     file_level_service_descriptors_protocol_2fserver_2eproto,

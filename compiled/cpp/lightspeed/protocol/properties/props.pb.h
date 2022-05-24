@@ -31,6 +31,7 @@
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
+#include "protocol/devices/actions.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_protocol_2fproperties_2fprops_2eproto
@@ -50,10 +51,18 @@ namespace props {
 class Property;
 struct PropertyDefaultTypeInternal;
 extern PropertyDefaultTypeInternal _Property_default_instance_;
+class SetPropertyRequest;
+struct SetPropertyRequestDefaultTypeInternal;
+extern SetPropertyRequestDefaultTypeInternal _SetPropertyRequest_default_instance_;
+class SetPropertyResponse;
+struct SetPropertyResponseDefaultTypeInternal;
+extern SetPropertyResponseDefaultTypeInternal _SetPropertyResponse_default_instance_;
 }  // namespace props
 }  // namespace lightspeed
 PROTOBUF_NAMESPACE_OPEN
 template<> ::lightspeed::props::Property* Arena::CreateMaybeMessage<::lightspeed::props::Property>(Arena*);
+template<> ::lightspeed::props::SetPropertyRequest* Arena::CreateMaybeMessage<::lightspeed::props::SetPropertyRequest>(Arena*);
+template<> ::lightspeed::props::SetPropertyResponse* Arena::CreateMaybeMessage<::lightspeed::props::SetPropertyResponse>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace lightspeed {
 namespace props {
@@ -275,6 +284,329 @@ class Property final :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_protocol_2fproperties_2fprops_2eproto;
 };
+// -------------------------------------------------------------------
+
+class SetPropertyRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:lightspeed.props.SetPropertyRequest) */ {
+ public:
+  inline SetPropertyRequest() : SetPropertyRequest(nullptr) {}
+  ~SetPropertyRequest() override;
+  explicit PROTOBUF_CONSTEXPR SetPropertyRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SetPropertyRequest(const SetPropertyRequest& from);
+  SetPropertyRequest(SetPropertyRequest&& from) noexcept
+    : SetPropertyRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline SetPropertyRequest& operator=(const SetPropertyRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SetPropertyRequest& operator=(SetPropertyRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SetPropertyRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SetPropertyRequest* internal_default_instance() {
+    return reinterpret_cast<const SetPropertyRequest*>(
+               &_SetPropertyRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  friend void swap(SetPropertyRequest& a, SetPropertyRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SetPropertyRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SetPropertyRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SetPropertyRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SetPropertyRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SetPropertyRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const SetPropertyRequest& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SetPropertyRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "lightspeed.props.SetPropertyRequest";
+  }
+  protected:
+  explicit SetPropertyRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kDeviceIdFieldNumber = 1,
+    kPropertyNameFieldNumber = 2,
+    kPropertyValueFieldNumber = 3,
+  };
+  // string device_id = 1;
+  void clear_device_id();
+  const std::string& device_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_device_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_device_id();
+  PROTOBUF_NODISCARD std::string* release_device_id();
+  void set_allocated_device_id(std::string* device_id);
+  private:
+  const std::string& _internal_device_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_device_id(const std::string& value);
+  std::string* _internal_mutable_device_id();
+  public:
+
+  // string property_name = 2;
+  void clear_property_name();
+  const std::string& property_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_property_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_property_name();
+  PROTOBUF_NODISCARD std::string* release_property_name();
+  void set_allocated_property_name(std::string* property_name);
+  private:
+  const std::string& _internal_property_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_property_name(const std::string& value);
+  std::string* _internal_mutable_property_name();
+  public:
+
+  // string property_value = 3;
+  void clear_property_value();
+  const std::string& property_value() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_property_value(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_property_value();
+  PROTOBUF_NODISCARD std::string* release_property_value();
+  void set_allocated_property_value(std::string* property_value);
+  private:
+  const std::string& _internal_property_value() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_property_value(const std::string& value);
+  std::string* _internal_mutable_property_value();
+  public:
+
+  // @@protoc_insertion_point(class_scope:lightspeed.props.SetPropertyRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr device_id_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr property_name_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr property_value_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_protocol_2fproperties_2fprops_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SetPropertyResponse final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:lightspeed.props.SetPropertyResponse) */ {
+ public:
+  inline SetPropertyResponse() : SetPropertyResponse(nullptr) {}
+  ~SetPropertyResponse() override;
+  explicit PROTOBUF_CONSTEXPR SetPropertyResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SetPropertyResponse(const SetPropertyResponse& from);
+  SetPropertyResponse(SetPropertyResponse&& from) noexcept
+    : SetPropertyResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline SetPropertyResponse& operator=(const SetPropertyResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SetPropertyResponse& operator=(SetPropertyResponse&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SetPropertyResponse& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SetPropertyResponse* internal_default_instance() {
+    return reinterpret_cast<const SetPropertyResponse*>(
+               &_SetPropertyResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(SetPropertyResponse& a, SetPropertyResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SetPropertyResponse* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SetPropertyResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SetPropertyResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SetPropertyResponse>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SetPropertyResponse& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const SetPropertyResponse& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SetPropertyResponse* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "lightspeed.props.SetPropertyResponse";
+  }
+  protected:
+  explicit SetPropertyResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kStatusFieldNumber = 1,
+  };
+  // .lightspeed.devices.actions.DeviceActions status = 1;
+  void clear_status();
+  ::lightspeed::devices::actions::DeviceActions status() const;
+  void set_status(::lightspeed::devices::actions::DeviceActions value);
+  private:
+  ::lightspeed::devices::actions::DeviceActions _internal_status() const;
+  void _internal_set_status(::lightspeed::devices::actions::DeviceActions value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:lightspeed.props.SetPropertyResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  int status_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_protocol_2fproperties_2fprops_2eproto;
+};
 // ===================================================================
 
 
@@ -456,9 +788,191 @@ inline void Property::set_permission(::lightspeed::props::Permission value) {
   // @@protoc_insertion_point(field_set:lightspeed.props.Property.permission)
 }
 
+// -------------------------------------------------------------------
+
+// SetPropertyRequest
+
+// string device_id = 1;
+inline void SetPropertyRequest::clear_device_id() {
+  device_id_.ClearToEmpty();
+}
+inline const std::string& SetPropertyRequest::device_id() const {
+  // @@protoc_insertion_point(field_get:lightspeed.props.SetPropertyRequest.device_id)
+  return _internal_device_id();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void SetPropertyRequest::set_device_id(ArgT0&& arg0, ArgT... args) {
+ 
+ device_id_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:lightspeed.props.SetPropertyRequest.device_id)
+}
+inline std::string* SetPropertyRequest::mutable_device_id() {
+  std::string* _s = _internal_mutable_device_id();
+  // @@protoc_insertion_point(field_mutable:lightspeed.props.SetPropertyRequest.device_id)
+  return _s;
+}
+inline const std::string& SetPropertyRequest::_internal_device_id() const {
+  return device_id_.Get();
+}
+inline void SetPropertyRequest::_internal_set_device_id(const std::string& value) {
+  
+  device_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* SetPropertyRequest::_internal_mutable_device_id() {
+  
+  return device_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* SetPropertyRequest::release_device_id() {
+  // @@protoc_insertion_point(field_release:lightspeed.props.SetPropertyRequest.device_id)
+  return device_id_.Release();
+}
+inline void SetPropertyRequest::set_allocated_device_id(std::string* device_id) {
+  if (device_id != nullptr) {
+    
+  } else {
+    
+  }
+  device_id_.SetAllocated(device_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (device_id_.IsDefault()) {
+    device_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:lightspeed.props.SetPropertyRequest.device_id)
+}
+
+// string property_name = 2;
+inline void SetPropertyRequest::clear_property_name() {
+  property_name_.ClearToEmpty();
+}
+inline const std::string& SetPropertyRequest::property_name() const {
+  // @@protoc_insertion_point(field_get:lightspeed.props.SetPropertyRequest.property_name)
+  return _internal_property_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void SetPropertyRequest::set_property_name(ArgT0&& arg0, ArgT... args) {
+ 
+ property_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:lightspeed.props.SetPropertyRequest.property_name)
+}
+inline std::string* SetPropertyRequest::mutable_property_name() {
+  std::string* _s = _internal_mutable_property_name();
+  // @@protoc_insertion_point(field_mutable:lightspeed.props.SetPropertyRequest.property_name)
+  return _s;
+}
+inline const std::string& SetPropertyRequest::_internal_property_name() const {
+  return property_name_.Get();
+}
+inline void SetPropertyRequest::_internal_set_property_name(const std::string& value) {
+  
+  property_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* SetPropertyRequest::_internal_mutable_property_name() {
+  
+  return property_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* SetPropertyRequest::release_property_name() {
+  // @@protoc_insertion_point(field_release:lightspeed.props.SetPropertyRequest.property_name)
+  return property_name_.Release();
+}
+inline void SetPropertyRequest::set_allocated_property_name(std::string* property_name) {
+  if (property_name != nullptr) {
+    
+  } else {
+    
+  }
+  property_name_.SetAllocated(property_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (property_name_.IsDefault()) {
+    property_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:lightspeed.props.SetPropertyRequest.property_name)
+}
+
+// string property_value = 3;
+inline void SetPropertyRequest::clear_property_value() {
+  property_value_.ClearToEmpty();
+}
+inline const std::string& SetPropertyRequest::property_value() const {
+  // @@protoc_insertion_point(field_get:lightspeed.props.SetPropertyRequest.property_value)
+  return _internal_property_value();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void SetPropertyRequest::set_property_value(ArgT0&& arg0, ArgT... args) {
+ 
+ property_value_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:lightspeed.props.SetPropertyRequest.property_value)
+}
+inline std::string* SetPropertyRequest::mutable_property_value() {
+  std::string* _s = _internal_mutable_property_value();
+  // @@protoc_insertion_point(field_mutable:lightspeed.props.SetPropertyRequest.property_value)
+  return _s;
+}
+inline const std::string& SetPropertyRequest::_internal_property_value() const {
+  return property_value_.Get();
+}
+inline void SetPropertyRequest::_internal_set_property_value(const std::string& value) {
+  
+  property_value_.Set(value, GetArenaForAllocation());
+}
+inline std::string* SetPropertyRequest::_internal_mutable_property_value() {
+  
+  return property_value_.Mutable(GetArenaForAllocation());
+}
+inline std::string* SetPropertyRequest::release_property_value() {
+  // @@protoc_insertion_point(field_release:lightspeed.props.SetPropertyRequest.property_value)
+  return property_value_.Release();
+}
+inline void SetPropertyRequest::set_allocated_property_value(std::string* property_value) {
+  if (property_value != nullptr) {
+    
+  } else {
+    
+  }
+  property_value_.SetAllocated(property_value, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (property_value_.IsDefault()) {
+    property_value_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:lightspeed.props.SetPropertyRequest.property_value)
+}
+
+// -------------------------------------------------------------------
+
+// SetPropertyResponse
+
+// .lightspeed.devices.actions.DeviceActions status = 1;
+inline void SetPropertyResponse::clear_status() {
+  status_ = 0;
+}
+inline ::lightspeed::devices::actions::DeviceActions SetPropertyResponse::_internal_status() const {
+  return static_cast< ::lightspeed::devices::actions::DeviceActions >(status_);
+}
+inline ::lightspeed::devices::actions::DeviceActions SetPropertyResponse::status() const {
+  // @@protoc_insertion_point(field_get:lightspeed.props.SetPropertyResponse.status)
+  return _internal_status();
+}
+inline void SetPropertyResponse::_internal_set_status(::lightspeed::devices::actions::DeviceActions value) {
+  
+  status_ = value;
+}
+inline void SetPropertyResponse::set_status(::lightspeed::devices::actions::DeviceActions value) {
+  _internal_set_status(value);
+  // @@protoc_insertion_point(field_set:lightspeed.props.SetPropertyResponse.status)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 

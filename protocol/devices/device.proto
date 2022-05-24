@@ -4,6 +4,7 @@ import public "protocol/properties/props.proto";
 
 package lightspeed.devices;
 
+
 message ProtoDevice {
   string id = 1;
   string name = 2;

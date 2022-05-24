@@ -4,6 +4,9 @@ pub mod props {
 
 pub mod devices {
     include!("lightspeed.devices.rs");
+    pub mod actions {
+	include!("lightspeed.devices.actions.rs");
+    }
 }
 
 pub mod request {

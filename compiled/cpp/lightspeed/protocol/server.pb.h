@@ -30,6 +30,7 @@
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
 #include "protocol/main/request.pb.h"
 #include "protocol/main/response.pb.h"
+#include "protocol/properties/props.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_protocol_2fserver_2eproto

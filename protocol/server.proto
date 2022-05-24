@@ -4,7 +4,9 @@ package lightspeed.server;
 
 import public "protocol/main/request.proto";
 import public "protocol/main/response.proto";
+import public "protocol/properties/props.proto";
 
 service AstroService {
   rpc GetDevices(lightspeed.request.GetDevicesRequest) returns (lightspeed.response.GetDevicesResponse);
+  rpc SetProperty(lightspeed.props.SetPropertyRequest) returns (lightspeed.props.SetPropertyResponse);
 }

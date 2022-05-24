@@ -4155,23 +4155,21 @@ public final class Request {
   static {
     java.lang.String[] descriptorData = {
       "\n\033protocol/main/request.proto\022\022lightspee" +
-      "d.request\032\035protocol/devices/device.proto" +
-      "\"\023\n\021GetDevicesRequest\"%\n\020GetDeviceReques" +
-      "t\022\021\n\tdevice_id\030\001 \001(\t\"+\n\024GetPropertiesReq" +
-      "uest\022\023\n\013device_name\030\001 \001(\t\"@\n\022GetProperty" +
-      "Request\022\023\n\013device_name\030\001 \001(\t\022\025\n\rproperty" +
-      "_name\030\002 \001(\t\"X\n\022SetPropertyRequest\022\023\n\013dev" +
-      "ice_name\030\001 \001(\t\022\025\n\rproperty_name\030\002 \001(\t\022\026\n" +
-      "\016property_value\030\003 \001(\t\"\224\001\n\017PropertyReques" +
-      "t\022:\n\010property\030\001 \001(\0132&.lightspeed.request" +
-      ".GetPropertyRequestH\000\022>\n\nproperties\030\002 \001(" +
-      "\0132(.lightspeed.request.GetPropertiesRequ" +
-      "estH\000B\005\n\003askP\000b\006proto3"
+      "d.request\"\023\n\021GetDevicesRequest\"%\n\020GetDev" +
+      "iceRequest\022\021\n\tdevice_id\030\001 \001(\t\"+\n\024GetProp" +
+      "ertiesRequest\022\023\n\013device_name\030\001 \001(\t\"@\n\022Ge" +
+      "tPropertyRequest\022\023\n\013device_name\030\001 \001(\t\022\025\n" +
+      "\rproperty_name\030\002 \001(\t\"X\n\022SetPropertyReque" +
+      "st\022\023\n\013device_name\030\001 \001(\t\022\025\n\rproperty_name" +
+      "\030\002 \001(\t\022\026\n\016property_value\030\003 \001(\t\"\224\001\n\017Prope" +
+      "rtyRequest\022:\n\010property\030\001 \001(\0132&.lightspee" +
+      "d.request.GetPropertyRequestH\000\022>\n\nproper" +
+      "ties\030\002 \001(\0132(.lightspeed.request.GetPrope" +
+      "rtiesRequestH\000B\005\n\003askb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          lightspeed.devices.Device.getDescriptor(),
         });
     internal_static_lightspeed_request_GetDevicesRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -4209,7 +4207,6 @@ public final class Request {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_lightspeed_request_PropertyRequest_descriptor,
         new java.lang.String[] { "Property", "Properties", "Ask", });
-    lightspeed.devices.Device.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

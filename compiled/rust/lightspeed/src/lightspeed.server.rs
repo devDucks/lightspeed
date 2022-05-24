@@ -12,6 +12,13 @@ pub mod astro_service_server {
                 tonic::Response<super::super::response::GetDevicesResponse>,
                 tonic::Status,
             >;
+        async fn set_property(
+            &self,
+            request: tonic::Request<super::super::props::SetPropertyRequest>,
+        ) -> Result<
+                tonic::Response<super::super::props::SetPropertyResponse>,
+                tonic::Status,
+            >;
     }
     #[derive(Debug)]
     pub struct AstroServiceServer<T: AstroService> {
@@ -90,6 +97,49 @@ pub mod astro_service_server {
                     let fut = async move {
                         let inner = inner.0;
                         let method = GetDevicesSvc(inner);
+                        let codec = tonic::codec::ProstCodec::default();
+                        let mut grpc = tonic::server::Grpc::new(codec)
+                            .apply_compression_config(
+                                accept_compression_encodings,
+                                send_compression_encodings,
+                            );
+                        let res = grpc.unary(method, req).await;
+                        Ok(res)
+                    };
+                    Box::pin(fut)
+                }
+                "/lightspeed.server.AstroService/SetProperty" => {
+                    #[allow(non_camel_case_types)]
+                    struct SetPropertySvc<T: AstroService>(pub Arc<T>);
+                    impl<
+                        T: AstroService,
+                    > tonic::server::UnaryService<
+                        super::super::props::SetPropertyRequest,
+                    > for SetPropertySvc<T> {
+                        type Response = super::super::props::SetPropertyResponse;
+                        type Future = BoxFuture<
+                            tonic::Response<Self::Response>,
+                            tonic::Status,
+                        >;
+                        fn call(
+                            &mut self,
+                            request: tonic::Request<
+                                super::super::props::SetPropertyRequest,
+                            >,
+                        ) -> Self::Future {
+                            let inner = self.0.clone();
+                            let fut = async move {
+                                (*inner).set_property(request).await
+                            };
+                            Box::pin(fut)
+                        }
+                    }
+                    let accept_compression_encodings = self.accept_compression_encodings;
+                    let send_compression_encodings = self.send_compression_encodings;
+                    let inner = self.inner.clone();
+                    let fut = async move {
+                        let inner = inner.0;
+                        let method = SetPropertySvc(inner);
                         let codec = tonic::codec::ProstCodec::default();
                         let mut grpc = tonic::server::Grpc::new(codec)
                             .apply_compression_config(
