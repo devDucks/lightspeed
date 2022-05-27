@@ -9,16 +9,16 @@ pub mod astro_service_server {
             &self,
             request: tonic::Request<super::super::request::GetDevicesRequest>,
         ) -> Result<
-                tonic::Response<super::super::response::GetDevicesResponse>,
-                tonic::Status,
-            >;
+            tonic::Response<super::super::response::GetDevicesResponse>,
+            tonic::Status,
+        >;
         async fn set_property(
             &self,
             request: tonic::Request<super::super::props::SetPropertyRequest>,
         ) -> Result<
-                tonic::Response<super::super::props::SetPropertyResponse>,
-                tonic::Status,
-            >;
+            tonic::Response<super::super::props::SetPropertyResponse>,
+            tonic::Status,
+        >;
     }
     #[derive(Debug)]
     pub struct AstroServiceServer<T: AstroService> {

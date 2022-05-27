@@ -5,7 +5,7 @@ pub mod props {
 pub mod devices {
     include!("lightspeed.devices.rs");
     pub mod actions {
-	include!("lightspeed.devices.actions.rs");
+        include!("lightspeed.devices.actions.rs");
     }
 }
 
@@ -22,5 +22,5 @@ pub mod server {
 }
 
 pub mod proto {
-     pub const FD_DESCRIPTOR_SET: &[u8] = include_bytes!("lightspeed.bin");
+    pub const FD_DESCRIPTOR_SET: &[u8] = include_bytes!("lightspeed.bin");
 }
