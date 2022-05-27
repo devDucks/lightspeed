@@ -20,3 +20,7 @@ pub mod response {
 pub mod server {
     include!("lightspeed.server.rs");
 }
+
+pub mod proto {
+     pub const FD_DESCRIPTOR_SET: &[u8] = include_bytes!("lightspeed.bin");
+}
