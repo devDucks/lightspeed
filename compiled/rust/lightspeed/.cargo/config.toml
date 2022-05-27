@@ -1,0 +1,2 @@
+[env]
+PROTO_ROOT = { value = "../../../", relative = true }
