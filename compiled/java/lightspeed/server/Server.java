@@ -26,12 +26,15 @@ public final class Server {
       "\n\025protocol/server.proto\022\021lightspeed.serv" +
       "er\032\033protocol/main/request.proto\032\034protoco" +
       "l/main/response.proto\032\037protocol/properti" +
-      "es/props.proto2\310\001\n\014AstroService\022\\\n\nGetDe" +
+      "es/props.proto2\243\002\n\014AstroService\022\\\n\nGetDe" +
       "vices\022%.lightspeed.request.GetDevicesReq" +
       "uest\032\'.lightspeed.response.GetDevicesRes" +
       "ponse\022Z\n\013SetProperty\022$.lightspeed.props." +
       "SetPropertyRequest\032%.lightspeed.props.Se" +
-      "tPropertyResponseP\000P\001P\002b\006proto3"
+      "tPropertyResponse\022Y\n\006expose\022&.lightspeed" +
+      ".request.CcdExposureRequest\032\'.lightspeed" +
+      ".request.CcdExposureResponseP\000P\001P\002b\006prot" +
+      "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

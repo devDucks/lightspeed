@@ -9,4 +9,5 @@ import public "protocol/properties/props.proto";
 service AstroService {
   rpc GetDevices(lightspeed.request.GetDevicesRequest) returns (lightspeed.response.GetDevicesResponse);
   rpc SetProperty(lightspeed.props.SetPropertyRequest) returns (lightspeed.props.SetPropertyResponse);
+  rpc expose(lightspeed.request.CcdExposureRequest) returns (lightspeed.request.CcdExposureResponse);
 }

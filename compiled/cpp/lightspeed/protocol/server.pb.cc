@@ -34,12 +34,15 @@ const char descriptor_table_protodef_protocol_2fserver_2eproto[] PROTOBUF_SECTIO
   "\n\025protocol/server.proto\022\021lightspeed.serv"
   "er\032\033protocol/main/request.proto\032\034protoco"
   "l/main/response.proto\032\037protocol/properti"
-  "es/props.proto2\310\001\n\014AstroService\022\\\n\nGetDe"
+  "es/props.proto2\243\002\n\014AstroService\022\\\n\nGetDe"
   "vices\022%.lightspeed.request.GetDevicesReq"
   "uest\032\'.lightspeed.response.GetDevicesRes"
   "ponse\022Z\n\013SetProperty\022$.lightspeed.props."
   "SetPropertyRequest\032%.lightspeed.props.Se"
-  "tPropertyResponseP\000P\001P\002b\006proto3"
+  "tPropertyResponse\022Y\n\006expose\022&.lightspeed"
+  ".request.CcdExposureRequest\032\'.lightspeed"
+  ".request.CcdExposureResponseP\000P\001P\002b\006prot"
+  "o3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_protocol_2fserver_2eproto_deps[3] = {
   &::descriptor_table_protocol_2fmain_2frequest_2eproto,
@@ -48,7 +51,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_protocol_2fserver_2
 };
 static ::_pbi::once_flag descriptor_table_protocol_2fserver_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_protocol_2fserver_2eproto = {
-    false, false, 351, descriptor_table_protodef_protocol_2fserver_2eproto,
+    false, false, 442, descriptor_table_protodef_protocol_2fserver_2eproto,
     "protocol/server.proto",
     &descriptor_table_protocol_2fserver_2eproto_once, descriptor_table_protocol_2fserver_2eproto_deps, 3, 0,
     schemas, file_default_instances, TableStruct_protocol_2fserver_2eproto::offsets,
