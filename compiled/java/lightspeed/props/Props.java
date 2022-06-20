@@ -24,13 +24,13 @@ public final class Props {
      */
     ReadOnly(0),
     /**
-     * <code>WriteOnly = 1;</code>
+     * <code>ReadWrite = 1;</code>
      */
-    WriteOnly(1),
+    ReadWrite(1),
     /**
-     * <code>ReadWrite = 2;</code>
+     * <code>WriteOnly = 2;</code>
      */
-    ReadWrite(2),
+    WriteOnly(2),
     UNRECOGNIZED(-1),
     ;
 
@@ -39,13 +39,13 @@ public final class Props {
      */
     public static final int ReadOnly_VALUE = 0;
     /**
-     * <code>WriteOnly = 1;</code>
+     * <code>ReadWrite = 1;</code>
      */
-    public static final int WriteOnly_VALUE = 1;
+    public static final int ReadWrite_VALUE = 1;
     /**
-     * <code>ReadWrite = 2;</code>
+     * <code>WriteOnly = 2;</code>
      */
-    public static final int ReadWrite_VALUE = 2;
+    public static final int WriteOnly_VALUE = 2;
 
 
     public final int getNumber() {
@@ -73,8 +73,8 @@ public final class Props {
     public static Permission forNumber(int value) {
       switch (value) {
         case 0: return ReadOnly;
-        case 1: return WriteOnly;
-        case 2: return ReadWrite;
+        case 1: return ReadWrite;
+        case 2: return WriteOnly;
         default: return null;
       }
     }
@@ -2538,8 +2538,8 @@ public final class Props {
       "y_name\030\002 \001(\t\022\026\n\016property_value\030\003 \001(\t\"P\n\023" +
       "SetPropertyResponse\0229\n\006status\030\001 \001(\0162).li" +
       "ghtspeed.devices.actions.DeviceActions*8" +
-      "\n\nPermission\022\014\n\010ReadOnly\020\000\022\r\n\tWriteOnly\020" +
-      "\001\022\r\n\tReadWrite\020\002P\000b\006proto3"
+      "\n\nPermission\022\014\n\010ReadOnly\020\000\022\r\n\tReadWrite\020" +
+      "\001\022\r\n\tWriteOnly\020\002P\000b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

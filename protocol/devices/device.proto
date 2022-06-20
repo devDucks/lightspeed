@@ -5,12 +5,26 @@ import public "protocol/properties/props.proto";
 package lightspeed.devices;
 
 
-message ProtoDevice {
+message ProtoSerialDevice {
   string id = 1;
   string name = 2;
   repeated lightspeed.props.Property properties = 3;
   string address = 4;
   int32 baud = 5;
+  enum Family {
+    CCD = 0;
+    MOUNT = 1;
+    FOCUSER = 2;
+    FILTER_WHEEL = 3;
+    POWER_BOX = 4;
+  }
+  Family family = 6;
+}
+
+message ProtoDevice {
+  string id = 1;
+  string name = 2;
+  repeated lightspeed.props.Property properties = 3;
   enum Family {
     CCD = 0;
     MOUNT = 1;

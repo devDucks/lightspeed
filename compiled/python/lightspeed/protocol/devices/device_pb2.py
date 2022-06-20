@@ -19,15 +19,19 @@ except AttributeError:
 
 from protocol.properties.props_pb2 import *
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1dprotocol/devices/device.proto\x12\x12lightspeed.devices\x1a\x1fprotocol/properties/props.proto\"\xfa\x01\n\x0bProtoDevice\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12.\n\nproperties\x18\x03 \x03(\x0b\x32\x1a.lightspeed.props.Property\x12\x0f\n\x07\x61\x64\x64ress\x18\x04 \x01(\t\x12\x0c\n\x04\x62\x61ud\x18\x05 \x01(\x05\x12\x36\n\x06\x66\x61mily\x18\x06 \x01(\x0e\x32&.lightspeed.devices.ProtoDevice.Family\"J\n\x06\x46\x61mily\x12\x07\n\x03\x43\x43\x44\x10\x00\x12\t\n\x05MOUNT\x10\x01\x12\x0b\n\x07\x46OCUSER\x10\x02\x12\x10\n\x0c\x46ILTER_WHEEL\x10\x03\x12\r\n\tPOWER_BOX\x10\x04P\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1dprotocol/devices/device.proto\x12\x12lightspeed.devices\x1a\x1fprotocol/properties/props.proto\"\x86\x02\n\x11ProtoSerialDevice\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12.\n\nproperties\x18\x03 \x03(\x0b\x32\x1a.lightspeed.props.Property\x12\x0f\n\x07\x61\x64\x64ress\x18\x04 \x01(\t\x12\x0c\n\x04\x62\x61ud\x18\x05 \x01(\x05\x12<\n\x06\x66\x61mily\x18\x06 \x01(\x0e\x32,.lightspeed.devices.ProtoSerialDevice.Family\"J\n\x06\x46\x61mily\x12\x07\n\x03\x43\x43\x44\x10\x00\x12\t\n\x05MOUNT\x10\x01\x12\x0b\n\x07\x46OCUSER\x10\x02\x12\x10\n\x0c\x46ILTER_WHEEL\x10\x03\x12\r\n\tPOWER_BOX\x10\x04\"\xdb\x01\n\x0bProtoDevice\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12.\n\nproperties\x18\x03 \x03(\x0b\x32\x1a.lightspeed.props.Property\x12\x36\n\x06\x66\x61mily\x18\x06 \x01(\x0e\x32&.lightspeed.devices.ProtoDevice.Family\"J\n\x06\x46\x61mily\x12\x07\n\x03\x43\x43\x44\x10\x00\x12\t\n\x05MOUNT\x10\x01\x12\x0b\n\x07\x46OCUSER\x10\x02\x12\x10\n\x0c\x46ILTER_WHEEL\x10\x03\x12\r\n\tPOWER_BOX\x10\x04P\x00\x62\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'protocol.devices.device_pb2', globals())
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
-  _PROTODEVICE._serialized_start=87
-  _PROTODEVICE._serialized_end=337
-  _PROTODEVICE_FAMILY._serialized_start=263
-  _PROTODEVICE_FAMILY._serialized_end=337
+  _PROTOSERIALDEVICE._serialized_start=87
+  _PROTOSERIALDEVICE._serialized_end=349
+  _PROTOSERIALDEVICE_FAMILY._serialized_start=275
+  _PROTOSERIALDEVICE_FAMILY._serialized_end=349
+  _PROTODEVICE._serialized_start=352
+  _PROTODEVICE._serialized_end=571
+  _PROTODEVICE_FAMILY._serialized_start=275
+  _PROTODEVICE_FAMILY._serialized_end=349
 # @@protoc_insertion_point(module_scope)

@@ -23,9 +23,10 @@ namespace _pbi = _pb::internal;
 namespace lightspeed {
 namespace response {
 PROTOBUF_CONSTEXPR GetPropertiesResponse::GetPropertiesResponse(
-    ::_pbi::ConstantInitialized)
-  : properties_()
-  , device_name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}){}
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.properties_)*/{}
+  , /*decltype(_impl_.device_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct GetPropertiesResponseDefaultTypeInternal {
   PROTOBUF_CONSTEXPR GetPropertiesResponseDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -36,8 +37,9 @@ struct GetPropertiesResponseDefaultTypeInternal {
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GetPropertiesResponseDefaultTypeInternal _GetPropertiesResponse_default_instance_;
 PROTOBUF_CONSTEXPR GetDeviceResponse::GetDeviceResponse(
-    ::_pbi::ConstantInitialized)
-  : device_(nullptr){}
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.device_)*/nullptr
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct GetDeviceResponseDefaultTypeInternal {
   PROTOBUF_CONSTEXPR GetDeviceResponseDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -48,8 +50,9 @@ struct GetDeviceResponseDefaultTypeInternal {
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GetDeviceResponseDefaultTypeInternal _GetDeviceResponse_default_instance_;
 PROTOBUF_CONSTEXPR GetDevicesResponse::GetDevicesResponse(
-    ::_pbi::ConstantInitialized)
-  : devices_(){}
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.devices_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct GetDevicesResponseDefaultTypeInternal {
   PROTOBUF_CONSTEXPR GetDevicesResponseDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -72,22 +75,22 @@ const uint32_t TableStruct_protocol_2fmain_2fresponse_2eproto::offsets[] PROTOBU
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::lightspeed::response::GetPropertiesResponse, device_name_),
-  PROTOBUF_FIELD_OFFSET(::lightspeed::response::GetPropertiesResponse, properties_),
+  PROTOBUF_FIELD_OFFSET(::lightspeed::response::GetPropertiesResponse, _impl_.device_name_),
+  PROTOBUF_FIELD_OFFSET(::lightspeed::response::GetPropertiesResponse, _impl_.properties_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::lightspeed::response::GetDeviceResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::lightspeed::response::GetDeviceResponse, device_),
+  PROTOBUF_FIELD_OFFSET(::lightspeed::response::GetDeviceResponse, _impl_.device_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::lightspeed::response::GetDevicesResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::lightspeed::response::GetDevicesResponse, devices_),
+  PROTOBUF_FIELD_OFFSET(::lightspeed::response::GetDevicesResponse, _impl_.devices_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::lightspeed::response::GetPropertiesResponse)},
@@ -142,35 +145,47 @@ class GetPropertiesResponse::_Internal {
 };
 
 void GetPropertiesResponse::clear_properties() {
-  properties_.Clear();
+  _impl_.properties_.Clear();
 }
 GetPropertiesResponse::GetPropertiesResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
-  properties_(arena) {
-  SharedCtor();
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:lightspeed.response.GetPropertiesResponse)
 }
 GetPropertiesResponse::GetPropertiesResponse(const GetPropertiesResponse& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      properties_(from.properties_) {
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  GetPropertiesResponse* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.properties_){from._impl_.properties_}
+    , decltype(_impl_.device_name_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  device_name_.InitDefault();
+  _impl_.device_name_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    device_name_.Set("", GetArenaForAllocation());
+    _impl_.device_name_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_device_name().empty()) {
-    device_name_.Set(from._internal_device_name(), 
-      GetArenaForAllocation());
+    _this->_impl_.device_name_.Set(from._internal_device_name(), 
+      _this->GetArenaForAllocation());
   }
   // @@protoc_insertion_point(copy_constructor:lightspeed.response.GetPropertiesResponse)
 }
 
-inline void GetPropertiesResponse::SharedCtor() {
-device_name_.InitDefault();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  device_name_.Set("", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+inline void GetPropertiesResponse::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.properties_){arena}
+    , decltype(_impl_.device_name_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.device_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.device_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 GetPropertiesResponse::~GetPropertiesResponse() {
@@ -184,11 +199,12 @@ GetPropertiesResponse::~GetPropertiesResponse() {
 
 inline void GetPropertiesResponse::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  device_name_.Destroy();
+  _impl_.properties_.~RepeatedPtrField();
+  _impl_.device_name_.Destroy();
 }
 
 void GetPropertiesResponse::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void GetPropertiesResponse::Clear() {
@@ -197,8 +213,8 @@ void GetPropertiesResponse::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  properties_.Clear();
-  device_name_.ClearToEmpty();
+  _impl_.properties_.Clear();
+  _impl_.device_name_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -296,7 +312,7 @@ size_t GetPropertiesResponse::ByteSizeLong() const {
 
   // repeated .lightspeed.props.Property properties = 2;
   total_size += 1UL * this->_internal_properties_size();
-  for (const auto& msg : this->properties_) {
+  for (const auto& msg : this->_impl_.properties_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
@@ -308,33 +324,29 @@ size_t GetPropertiesResponse::ByteSizeLong() const {
         this->_internal_device_name());
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData GetPropertiesResponse::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     GetPropertiesResponse::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetPropertiesResponse::GetClassData() const { return &_class_data_; }
 
-void GetPropertiesResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<GetPropertiesResponse *>(to)->MergeFrom(
-      static_cast<const GetPropertiesResponse &>(from));
-}
 
-
-void GetPropertiesResponse::MergeFrom(const GetPropertiesResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:lightspeed.response.GetPropertiesResponse)
-  GOOGLE_DCHECK_NE(&from, this);
+void GetPropertiesResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<GetPropertiesResponse*>(&to_msg);
+  auto& from = static_cast<const GetPropertiesResponse&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:lightspeed.response.GetPropertiesResponse)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  properties_.MergeFrom(from.properties_);
+  _this->_impl_.properties_.MergeFrom(from._impl_.properties_);
   if (!from._internal_device_name().empty()) {
-    _internal_set_device_name(from._internal_device_name());
+    _this->_internal_set_device_name(from._internal_device_name());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void GetPropertiesResponse::CopyFrom(const GetPropertiesResponse& from) {
@@ -353,10 +365,10 @@ void GetPropertiesResponse::InternalSwap(GetPropertiesResponse* other) {
   auto* lhs_arena = GetArenaForAllocation();
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  properties_.InternalSwap(&other->properties_);
+  _impl_.properties_.InternalSwap(&other->_impl_.properties_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &device_name_, lhs_arena,
-      &other->device_name_, rhs_arena
+      &_impl_.device_name_, lhs_arena,
+      &other->_impl_.device_name_, rhs_arena
   );
 }
 
@@ -375,33 +387,42 @@ class GetDeviceResponse::_Internal {
 
 const ::lightspeed::devices::ProtoDevice&
 GetDeviceResponse::_Internal::device(const GetDeviceResponse* msg) {
-  return *msg->device_;
+  return *msg->_impl_.device_;
 }
 void GetDeviceResponse::clear_device() {
-  if (GetArenaForAllocation() == nullptr && device_ != nullptr) {
-    delete device_;
+  if (GetArenaForAllocation() == nullptr && _impl_.device_ != nullptr) {
+    delete _impl_.device_;
   }
-  device_ = nullptr;
+  _impl_.device_ = nullptr;
 }
 GetDeviceResponse::GetDeviceResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:lightspeed.response.GetDeviceResponse)
 }
 GetDeviceResponse::GetDeviceResponse(const GetDeviceResponse& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  GetDeviceResponse* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.device_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_device()) {
-    device_ = new ::lightspeed::devices::ProtoDevice(*from.device_);
-  } else {
-    device_ = nullptr;
+    _this->_impl_.device_ = new ::lightspeed::devices::ProtoDevice(*from._impl_.device_);
   }
   // @@protoc_insertion_point(copy_constructor:lightspeed.response.GetDeviceResponse)
 }
 
-inline void GetDeviceResponse::SharedCtor() {
-device_ = nullptr;
+inline void GetDeviceResponse::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.device_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 GetDeviceResponse::~GetDeviceResponse() {
@@ -415,11 +436,11 @@ GetDeviceResponse::~GetDeviceResponse() {
 
 inline void GetDeviceResponse::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  if (this != internal_default_instance()) delete device_;
+  if (this != internal_default_instance()) delete _impl_.device_;
 }
 
 void GetDeviceResponse::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void GetDeviceResponse::Clear() {
@@ -428,10 +449,10 @@ void GetDeviceResponse::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArenaForAllocation() == nullptr && device_ != nullptr) {
-    delete device_;
+  if (GetArenaForAllocation() == nullptr && _impl_.device_ != nullptr) {
+    delete _impl_.device_;
   }
-  device_ = nullptr;
+  _impl_.device_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -505,35 +526,32 @@ size_t GetDeviceResponse::ByteSizeLong() const {
   if (this->_internal_has_device()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *device_);
+        *_impl_.device_);
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData GetDeviceResponse::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     GetDeviceResponse::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetDeviceResponse::GetClassData() const { return &_class_data_; }
 
-void GetDeviceResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<GetDeviceResponse *>(to)->MergeFrom(
-      static_cast<const GetDeviceResponse &>(from));
-}
 
-
-void GetDeviceResponse::MergeFrom(const GetDeviceResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:lightspeed.response.GetDeviceResponse)
-  GOOGLE_DCHECK_NE(&from, this);
+void GetDeviceResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<GetDeviceResponse*>(&to_msg);
+  auto& from = static_cast<const GetDeviceResponse&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:lightspeed.response.GetDeviceResponse)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_has_device()) {
-    _internal_mutable_device()->::lightspeed::devices::ProtoDevice::MergeFrom(from._internal_device());
+    _this->_internal_mutable_device()->::lightspeed::devices::ProtoDevice::MergeFrom(
+        from._internal_device());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void GetDeviceResponse::CopyFrom(const GetDeviceResponse& from) {
@@ -550,7 +568,7 @@ bool GetDeviceResponse::IsInitialized() const {
 void GetDeviceResponse::InternalSwap(GetDeviceResponse* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(device_, other->device_);
+  swap(_impl_.device_, other->_impl_.device_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata GetDeviceResponse::GetMetadata() const {
@@ -566,23 +584,33 @@ class GetDevicesResponse::_Internal {
 };
 
 void GetDevicesResponse::clear_devices() {
-  devices_.Clear();
+  _impl_.devices_.Clear();
 }
 GetDevicesResponse::GetDevicesResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
-  devices_(arena) {
-  SharedCtor();
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:lightspeed.response.GetDevicesResponse)
 }
 GetDevicesResponse::GetDevicesResponse(const GetDevicesResponse& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      devices_(from.devices_) {
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  GetDevicesResponse* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.devices_){from._impl_.devices_}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:lightspeed.response.GetDevicesResponse)
 }
 
-inline void GetDevicesResponse::SharedCtor() {
+inline void GetDevicesResponse::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.devices_){arena}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 GetDevicesResponse::~GetDevicesResponse() {
@@ -596,10 +624,11 @@ GetDevicesResponse::~GetDevicesResponse() {
 
 inline void GetDevicesResponse::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.devices_.~RepeatedPtrField();
 }
 
 void GetDevicesResponse::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void GetDevicesResponse::Clear() {
@@ -608,7 +637,7 @@ void GetDevicesResponse::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  devices_.Clear();
+  _impl_.devices_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -686,35 +715,31 @@ size_t GetDevicesResponse::ByteSizeLong() const {
 
   // repeated .lightspeed.devices.ProtoDevice devices = 1;
   total_size += 1UL * this->_internal_devices_size();
-  for (const auto& msg : this->devices_) {
+  for (const auto& msg : this->_impl_.devices_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData GetDevicesResponse::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     GetDevicesResponse::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetDevicesResponse::GetClassData() const { return &_class_data_; }
 
-void GetDevicesResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<GetDevicesResponse *>(to)->MergeFrom(
-      static_cast<const GetDevicesResponse &>(from));
-}
 
-
-void GetDevicesResponse::MergeFrom(const GetDevicesResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:lightspeed.response.GetDevicesResponse)
-  GOOGLE_DCHECK_NE(&from, this);
+void GetDevicesResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<GetDevicesResponse*>(&to_msg);
+  auto& from = static_cast<const GetDevicesResponse&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:lightspeed.response.GetDevicesResponse)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  devices_.MergeFrom(from.devices_);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.devices_.MergeFrom(from._impl_.devices_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void GetDevicesResponse::CopyFrom(const GetDevicesResponse& from) {
@@ -731,7 +756,7 @@ bool GetDevicesResponse::IsInitialized() const {
 void GetDevicesResponse::InternalSwap(GetDevicesResponse* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  devices_.InternalSwap(&other->devices_);
+  _impl_.devices_.InternalSwap(&other->_impl_.devices_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata GetDevicesResponse::GetMetadata() const {
