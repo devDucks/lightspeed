@@ -15,5 +15,5 @@ service AstroService {
 service AstroEfwService {
   rpc GetDevices(lightspeed.request.GetDevicesRequest) returns (lightspeed.response.GetDevicesResponse);
   rpc SetProperty(lightspeed.props.SetPropertyRequest) returns (lightspeed.props.SetPropertyResponse);
-  rpc Calibrate(lightspeed.request.EfwCalibrationRequest) returns (lightspeed.request.EfwCalibrationResponse);
+  rpc Calibrate(lightspeed.request.EfwCalibrationRequest) returns (lightspeed.response.EfwCalibrationResponse);
 }

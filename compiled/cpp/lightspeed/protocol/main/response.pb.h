@@ -48,6 +48,9 @@ struct TableStruct_protocol_2fmain_2fresponse_2eproto {
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_protocol_2fmain_2fresponse_2eproto;
 namespace lightspeed {
 namespace response {
+class EfwCalibrationResponse;
+struct EfwCalibrationResponseDefaultTypeInternal;
+extern EfwCalibrationResponseDefaultTypeInternal _EfwCalibrationResponse_default_instance_;
 class GetDeviceResponse;
 struct GetDeviceResponseDefaultTypeInternal;
 extern GetDeviceResponseDefaultTypeInternal _GetDeviceResponse_default_instance_;
@@ -60,6 +63,7 @@ extern GetPropertiesResponseDefaultTypeInternal _GetPropertiesResponse_default_i
 }  // namespace response
 }  // namespace lightspeed
 PROTOBUF_NAMESPACE_OPEN
+template<> ::lightspeed::response::EfwCalibrationResponse* Arena::CreateMaybeMessage<::lightspeed::response::EfwCalibrationResponse>(Arena*);
 template<> ::lightspeed::response::GetDeviceResponse* Arena::CreateMaybeMessage<::lightspeed::response::GetDeviceResponse>(Arena*);
 template<> ::lightspeed::response::GetDevicesResponse* Arena::CreateMaybeMessage<::lightspeed::response::GetDevicesResponse>(Arena*);
 template<> ::lightspeed::response::GetPropertiesResponse* Arena::CreateMaybeMessage<::lightspeed::response::GetPropertiesResponse>(Arena*);
@@ -554,6 +558,159 @@ class GetDevicesResponse final :
   union { Impl_ _impl_; };
   friend struct ::TableStruct_protocol_2fmain_2fresponse_2eproto;
 };
+// -------------------------------------------------------------------
+
+class EfwCalibrationResponse final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:lightspeed.response.EfwCalibrationResponse) */ {
+ public:
+  inline EfwCalibrationResponse() : EfwCalibrationResponse(nullptr) {}
+  ~EfwCalibrationResponse() override;
+  explicit PROTOBUF_CONSTEXPR EfwCalibrationResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  EfwCalibrationResponse(const EfwCalibrationResponse& from);
+  EfwCalibrationResponse(EfwCalibrationResponse&& from) noexcept
+    : EfwCalibrationResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline EfwCalibrationResponse& operator=(const EfwCalibrationResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline EfwCalibrationResponse& operator=(EfwCalibrationResponse&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const EfwCalibrationResponse& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const EfwCalibrationResponse* internal_default_instance() {
+    return reinterpret_cast<const EfwCalibrationResponse*>(
+               &_EfwCalibrationResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(EfwCalibrationResponse& a, EfwCalibrationResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(EfwCalibrationResponse* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(EfwCalibrationResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  EfwCalibrationResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<EfwCalibrationResponse>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const EfwCalibrationResponse& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const EfwCalibrationResponse& from) {
+    EfwCalibrationResponse::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(EfwCalibrationResponse* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "lightspeed.response.EfwCalibrationResponse";
+  }
+  protected:
+  explicit EfwCalibrationResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kStatusFieldNumber = 1,
+  };
+  // string status = 1;
+  void clear_status();
+  const std::string& status() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_status(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_status();
+  PROTOBUF_NODISCARD std::string* release_status();
+  void set_allocated_status(std::string* status);
+  private:
+  const std::string& _internal_status() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_status(const std::string& value);
+  std::string* _internal_mutable_status();
+  public:
+
+  // @@protoc_insertion_point(class_scope:lightspeed.response.EfwCalibrationResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr status_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_protocol_2fmain_2fresponse_2eproto;
+};
 // ===================================================================
 
 
@@ -782,9 +939,65 @@ GetDevicesResponse::devices() const {
   return _impl_.devices_;
 }
 
+// -------------------------------------------------------------------
+
+// EfwCalibrationResponse
+
+// string status = 1;
+inline void EfwCalibrationResponse::clear_status() {
+  _impl_.status_.ClearToEmpty();
+}
+inline const std::string& EfwCalibrationResponse::status() const {
+  // @@protoc_insertion_point(field_get:lightspeed.response.EfwCalibrationResponse.status)
+  return _internal_status();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void EfwCalibrationResponse::set_status(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.status_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:lightspeed.response.EfwCalibrationResponse.status)
+}
+inline std::string* EfwCalibrationResponse::mutable_status() {
+  std::string* _s = _internal_mutable_status();
+  // @@protoc_insertion_point(field_mutable:lightspeed.response.EfwCalibrationResponse.status)
+  return _s;
+}
+inline const std::string& EfwCalibrationResponse::_internal_status() const {
+  return _impl_.status_.Get();
+}
+inline void EfwCalibrationResponse::_internal_set_status(const std::string& value) {
+  
+  _impl_.status_.Set(value, GetArenaForAllocation());
+}
+inline std::string* EfwCalibrationResponse::_internal_mutable_status() {
+  
+  return _impl_.status_.Mutable(GetArenaForAllocation());
+}
+inline std::string* EfwCalibrationResponse::release_status() {
+  // @@protoc_insertion_point(field_release:lightspeed.response.EfwCalibrationResponse.status)
+  return _impl_.status_.Release();
+}
+inline void EfwCalibrationResponse::set_allocated_status(std::string* status) {
+  if (status != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.status_.SetAllocated(status, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.status_.IsDefault()) {
+    _impl_.status_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:lightspeed.response.EfwCalibrationResponse.status)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

@@ -43,7 +43,7 @@ from protocol.main.request_pb2 import *
 from protocol.main.response_pb2 import *
 from protocol.properties.props_pb2 import *
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x15protocol/server.proto\x12\x11lightspeed.server\x1a\x1bprotocol/main/request.proto\x1a\x1cprotocol/main/response.proto\x1a\x1fprotocol/properties/props.proto2\xa3\x02\n\x0c\x41stroService\x12\\\n\nGetDevices\x12%.lightspeed.request.GetDevicesRequest\x1a\'.lightspeed.response.GetDevicesResponse\x12Z\n\x0bSetProperty\x12$.lightspeed.props.SetPropertyRequest\x1a%.lightspeed.props.SetPropertyResponse\x12Y\n\x06\x65xpose\x12&.lightspeed.request.CcdExposureRequest\x1a\'.lightspeed.request.CcdExposureResponseP\x00P\x01P\x02\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x15protocol/server.proto\x12\x11lightspeed.server\x1a\x1bprotocol/main/request.proto\x1a\x1cprotocol/main/response.proto\x1a\x1fprotocol/properties/props.proto2\xa3\x02\n\x0c\x41stroService\x12\\\n\nGetDevices\x12%.lightspeed.request.GetDevicesRequest\x1a\'.lightspeed.response.GetDevicesResponse\x12Z\n\x0bSetProperty\x12$.lightspeed.props.SetPropertyRequest\x1a%.lightspeed.props.SetPropertyResponse\x12Y\n\x06\x65xpose\x12&.lightspeed.request.CcdExposureRequest\x1a\'.lightspeed.request.CcdExposureResponse2\xb0\x02\n\x0f\x41stroEfwService\x12\\\n\nGetDevices\x12%.lightspeed.request.GetDevicesRequest\x1a\'.lightspeed.response.GetDevicesResponse\x12Z\n\x0bSetProperty\x12$.lightspeed.props.SetPropertyRequest\x1a%.lightspeed.props.SetPropertyResponse\x12\x63\n\tCalibrate\x12).lightspeed.request.EfwCalibrationRequest\x1a+.lightspeed.response.EfwCalibrationResponseP\x00P\x01P\x02\x62\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'protocol.server_pb2', globals())
@@ -52,4 +52,6 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._options = None
   _ASTROSERVICE._serialized_start=137
   _ASTROSERVICE._serialized_end=428
+  _ASTROEFWSERVICE._serialized_start=431
+  _ASTROEFWSERVICE._serialized_end=735
 # @@protoc_insertion_point(module_scope)
