@@ -47,3 +47,7 @@ message CcdAbortExposureRequest {
 message CcdAbortExposureResponse {
   string status = 1;
 }
+
+message EfwCalibrationRequest {
+  string id = 1;
+}

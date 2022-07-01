@@ -17,3 +17,7 @@ message GetDeviceResponse {
 message GetDevicesResponse {
   repeated lightspeed.devices.ProtoDevice devices = 1;
 }
+
+message EfwCalibrationResponse {
+  string status = 1;
+}
