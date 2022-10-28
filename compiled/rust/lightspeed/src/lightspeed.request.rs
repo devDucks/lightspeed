@@ -9,19 +9,19 @@ pub struct GetDeviceRequest {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetPropertiesRequest {
     #[prost(string, tag="1")]
-    pub device_name: ::prost::alloc::string::String,
+    pub device_id: ::prost::alloc::string::String,
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetPropertyRequest {
     #[prost(string, tag="1")]
-    pub device_name: ::prost::alloc::string::String,
+    pub device_id: ::prost::alloc::string::String,
     #[prost(string, tag="2")]
     pub property_name: ::prost::alloc::string::String,
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SetPropertyRequest {
     #[prost(string, tag="1")]
-    pub device_name: ::prost::alloc::string::String,
+    pub device_id: ::prost::alloc::string::String,
     #[prost(string, tag="2")]
     pub property_name: ::prost::alloc::string::String,
     #[prost(string, tag="3")]

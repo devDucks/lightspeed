@@ -1,11 +1,13 @@
 [package]
 name = "lightspeed-astro"
-version = "1.0.3"
+version = "1.0.4"
 edition = "2021"
 license = "MIT"
 repository = "https://github.com/devDucks/lightspeed/"
 readme = "README.md"
 description = "The new protocol for astronomical devices communication"
+categories = ["astrophotography", "astronomy"]
+keywords = ["astrophotography", "indi", "ascom", "alpaca"]
 
 [lib]
 name = "lightspeed_astro"
