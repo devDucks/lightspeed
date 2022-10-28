@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package lightspeed.request.ccd;
+
+
+message CcdExposureRequest {
+  string id = 1;
+  float lenght = 2;
+}
+
+message CcdExposureResponse {
+  bytes data = 1;
+}
+
+message CcdAbortExposureRequest {
+  string id = 1;
+}
+
+message CcdAbortExposureResponse {
+  string status = 1;
+}

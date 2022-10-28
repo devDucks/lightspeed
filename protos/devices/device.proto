@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import public "properties/props.proto";
+
+package lightspeed.devices;
+
+
+enum Family {
+  CCD = 0;
+  MOUNT = 1;
+  FOCUSER = 2;
+  FILTER_WHEEL = 3;
+  POWER_BOX = 4;
+}
+
+message AstroSerialDevice {
+  string id = 1;
+  string name = 2;
+  repeated lightspeed.props.Property properties = 3;
+  string address = 4;
+  int32 baud = 5;
+  Family family = 6;
+}
+
+message AstroDevice {
+  string id = 1;
+  string name = 2;
+  repeated lightspeed.props.Property properties = 3;
+  Family family = 4;
+}

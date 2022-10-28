@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package lightspeed.service;
+
+import public "requests/request.proto";
+import public "responses/response.proto";
+import public "properties/props.proto";
+
+
+service AstroGenericService {
+  rpc GetDevices(lightspeed.request.GetDevicesRequest) returns (lightspeed.response.GetDevicesResponse);
+  rpc SetProperty(lightspeed.request.SetPropertyRequest) returns (lightspeed.response.SetPropertyResponse);
+}
+
+service AstroCcdService {
+  rpc GetDevices(lightspeed.request.GetDevicesRequest) returns (lightspeed.response.GetDevicesResponse);
+  rpc SetProperty(lightspeed.request.SetPropertyRequest) returns (lightspeed.response.SetPropertyResponse);
+  rpc Expose(lightspeed.request.CcdExposureRequest) returns (lightspeed.request.CcdExposureResponse);
+}
+
+service AstroEfwService {
+  rpc GetDevices(lightspeed.request.GetDevicesRequest) returns (lightspeed.response.GetDevicesResponse);
+  rpc SetProperty(lightspeed.request.SetPropertyRequest) returns (lightspeed.response.SetPropertyResponse);
+  rpc Calibrate(lightspeed.request.EfwCalibrationRequest) returns (lightspeed.response.EfwCalibrationResponse);
+}

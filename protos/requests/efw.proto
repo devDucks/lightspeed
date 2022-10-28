@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+package lightspeed.request.efw;
+
+message EfwCalibrationRequest {
+  string id = 1;
+}

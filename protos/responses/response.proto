@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+import public "properties/props.proto";
+import public "devices/device.proto";
+import public "devices/actions.proto";
+
+package lightspeed.response;
+
+message GetPropertiesResponse {
+  string device_name = 1;
+  repeated lightspeed.props.Property properties = 2;
+}
+
+message GetDeviceResponse {
+  lightspeed.devices.AstroDevice device = 1;
+}
+
+message GetDevicesResponse {
+  repeated lightspeed.devices.AstroDevice devices = 1;
+}
+
+message GetSerialDeviceResponse {
+  lightspeed.devices.AstroSerialDevice device = 1;
+}
+
+message GetSerialDevicesResponse {
+  repeated lightspeed.devices.AstroSerialDevice devices = 1;
+}
+
+message EfwCalibrationResponse {
+  string status = 1;
+}
+
+message SetPropertyResponse {
+  lightspeed.devices.actions.DeviceActions status = 1;
+}

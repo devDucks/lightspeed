@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package lightspeed.devices.actions;
+
+enum DeviceActions {
+  Ok = 0;
+  CannotConnect = 1;
+  ComError = 2;
+  Timeout = 3;
+  CannotUpdateReadOnlyProperty = 4;
+  UnknownProperty = 5;
+  InvalidValue = 6;
+}

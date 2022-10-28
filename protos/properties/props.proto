@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package lightspeed.props;
+
+
+enum Permission {
+  ReadOnly = 0;
+  ReadWrite = 1;
+  WriteOnly = 2;
+}
+
+message Property {
+  string name = 1;
+  string value = 2;
+  string kind = 3;
+  Permission permission = 4;
+}
