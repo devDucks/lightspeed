@@ -42,3 +42,30 @@ pub mod property_request {
         Properties(super::GetPropertiesRequest),
     }
 }
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CcdExposureRequest {
+    #[prost(string, tag="1")]
+    pub id: ::prost::alloc::string::String,
+    #[prost(float, tag="2")]
+    pub lenght: f32,
+}
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CcdExposureResponse {
+    #[prost(bytes="vec", tag="1")]
+    pub data: ::prost::alloc::vec::Vec<u8>,
+}
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CcdAbortExposureRequest {
+    #[prost(string, tag="1")]
+    pub id: ::prost::alloc::string::String,
+}
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CcdAbortExposureResponse {
+    #[prost(string, tag="1")]
+    pub status: ::prost::alloc::string::String,
+}
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct EfwCalibrationRequest {
+    #[prost(string, tag="1")]
+    pub id: ::prost::alloc::string::String,
+}

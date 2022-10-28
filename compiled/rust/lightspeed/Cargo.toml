@@ -1,14 +1,11 @@
 [package]
 name = "lightspeed-astro"
-version = "0.6.1"
+version = "1.0.0"
 edition = "2021"
 license = "MIT"
 repository = "https://github.com/devDucks/lightspeed/"
 readme = "README.md"
 description = "The new protocol for astronomical devices communication"
-
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [lib]
 name = "lightspeed_astro"

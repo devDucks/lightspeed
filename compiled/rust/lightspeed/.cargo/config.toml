@@ -1,2 +1,2 @@
 [env]
-PROTO_ROOT = { value = "../../../", relative = true }
+PROTO_ROOT = { value = "../../../protos", relative = true }

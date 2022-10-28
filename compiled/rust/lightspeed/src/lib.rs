@@ -17,8 +17,8 @@ pub mod response {
     include!("lightspeed.response.rs");
 }
 
-pub mod server {
-    include!("lightspeed.server.rs");
+pub mod service {
+    include!("lightspeed.service.rs");
 }
 
 pub mod proto {

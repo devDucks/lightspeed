@@ -11,9 +11,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .file_descriptor_set_path("src/lightspeed.bin")
         .compile(
             &[
-                format!("{}/protocol/server.proto", proto_include_path.display()),
+                format!("{}/services/service.proto", proto_include_path.display()),
                 format!(
-                    "{}/protocol/devices/device.proto",
+                    "{}/devices/device.proto",
                     proto_include_path.display()
                 ),
             ],
