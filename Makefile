@@ -20,4 +20,7 @@ generate-python:
 .PHONY = generate-rust
 
 generate-rust:
+	@if [ ! -L "$(shell pwd)/compiled/rust/lightspeed/src/protos" ]; then\
+		ln -s $(shell pwd)/protos $(shell pwd)/compiled/rust/lightspeed/src/;\
+	fi
 	@cd compiled/rust/lightspeed && cargo build --release && cd -
