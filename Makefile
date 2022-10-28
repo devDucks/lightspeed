@@ -1,18 +1,23 @@
-.PHONY = generate-java
+.PHONY = generate-all
 
-generate-java:
-	@protoc --java_out compiled/java protocol/*/*.proto protocol/*.proto
+generate-all: generate-python generate-cpp generate-dart generate-rust
 
 .PHONY = generate-cpp
 
 generate-cpp:
-	@protoc --cpp_out compiled/cpp/lightspeed protocol/*/*.proto protocol/*.proto
+	@cd protos/ && protoc --cpp_out=../compiled/cpp/lightspeed */*.proto && cd -
+
+.PHONY = generate-dart
+
+generate-dart:
+	@cd protos && protoc --dart_out=grpc:../compiled/dart/lightspeed/lib */*.proto && cd -
 
 .PHONY = generate-python
 
 generate-python:
-	@protoc --python_out compiled/python/lightspeed protocol/*/*.proto protocol/*.proto
+	@cd protos && protoc --python_out=../compiled/python/lightspeed */*.proto && cd -
 
-.PHONY = generate-all
+.PHONY = generate-rust
 
-generate-all: generate-java generate-python generate-cpp
+generate-rust:
+	@cd compiled/rust/lightspeed && cargo build --release && cd -
