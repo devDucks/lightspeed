@@ -1,0 +1,15 @@
+name: lightspeed
+description: Lightspeed proto generated clients to interact with lightspeed drivers
+version: 0.1.0
+homepage: https://github.com/devDucks/lightspeed
+
+environment:
+  sdk: '>=2.18.2 <3.0.0'
+
+dependencies:
+  grpc: ^3.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
