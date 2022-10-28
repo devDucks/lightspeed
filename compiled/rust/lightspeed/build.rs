@@ -1,23 +1,18 @@
 use std::env;
-use std::fs;
+
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let proto_include_path = fs::canonicalize(env::var("PROTO_ROOT").unwrap()).unwrap();
-    println!("PROTO_ROOT: {}", proto_include_path.display());
+    let out_dir = env::var("OUT_DIR").unwrap();
 
     tonic_build::configure()
-        .out_dir("src/")
         .build_client(false)
-        .file_descriptor_set_path("src/lightspeed.bin")
+        .file_descriptor_set_path(format!("{}/lightspeed.bin", out_dir))
         .compile(
             &[
-                format!("{}/services/service.proto", proto_include_path.display()),
-                format!(
-                    "{}/devices/device.proto",
-                    proto_include_path.display()
-                ),
+                "src/protos/services/service.proto",
+                "src/protos/devices/device.proto",
             ],
-            &[proto_include_path],
+            &["src/protos/"],
         )?;
     Ok(())
 }
