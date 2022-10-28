@@ -10,16 +10,16 @@ message GetDeviceRequest {
 }
 
 message GetPropertiesRequest {
-  string device_name = 1;
+  string device_id = 1;
 }
 
 message GetPropertyRequest {
-  string device_name = 1;
+  string device_id = 1;
   string property_name = 2;
 }
 
 message SetPropertyRequest {
-  string device_name = 1;
+  string device_id = 1;
   string property_name = 2;
   string property_value = 3;
 }

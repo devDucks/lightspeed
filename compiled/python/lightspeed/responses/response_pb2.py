@@ -23,7 +23,7 @@ from properties.props_pb2 import *
 from devices.device_pb2 import *
 from devices.actions_pb2 import *
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x18responses/response.proto\x12\x13lightspeed.response\x1a\x16properties/props.proto\x1a\x14\x64\x65vices/device.proto\x1a\x15\x64\x65vices/actions.proto\"\\\n\x15GetPropertiesResponse\x12\x13\n\x0b\x64\x65vice_name\x18\x01 \x01(\t\x12.\n\nproperties\x18\x02 \x03(\x0b\x32\x1a.lightspeed.props.Property\"D\n\x11GetDeviceResponse\x12/\n\x06\x64\x65vice\x18\x01 \x01(\x0b\x32\x1f.lightspeed.devices.AstroDevice\"F\n\x12GetDevicesResponse\x12\x30\n\x07\x64\x65vices\x18\x01 \x03(\x0b\x32\x1f.lightspeed.devices.AstroDevice\"P\n\x17GetSerialDeviceResponse\x12\x35\n\x06\x64\x65vice\x18\x01 \x01(\x0b\x32%.lightspeed.devices.AstroSerialDevice\"R\n\x18GetSerialDevicesResponse\x12\x36\n\x07\x64\x65vices\x18\x01 \x03(\x0b\x32%.lightspeed.devices.AstroSerialDevice\"(\n\x16\x45\x66wCalibrationResponse\x12\x0e\n\x06status\x18\x01 \x01(\t\"P\n\x13SetPropertyResponse\x12\x39\n\x06status\x18\x01 \x01(\x0e\x32).lightspeed.devices.actions.DeviceActionsP\x00P\x01P\x02\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x18responses/response.proto\x12\x13lightspeed.response\x1a\x16properties/props.proto\x1a\x14\x64\x65vices/device.proto\x1a\x15\x64\x65vices/actions.proto\"Z\n\x15GetPropertiesResponse\x12\x11\n\tdevice_id\x18\x01 \x01(\t\x12.\n\nproperties\x18\x02 \x03(\x0b\x32\x1a.lightspeed.props.Property\"D\n\x11GetDeviceResponse\x12/\n\x06\x64\x65vice\x18\x01 \x01(\x0b\x32\x1f.lightspeed.devices.AstroDevice\"F\n\x12GetDevicesResponse\x12\x30\n\x07\x64\x65vices\x18\x01 \x03(\x0b\x32\x1f.lightspeed.devices.AstroDevice\"P\n\x17GetSerialDeviceResponse\x12\x35\n\x06\x64\x65vice\x18\x01 \x01(\x0b\x32%.lightspeed.devices.AstroSerialDevice\"R\n\x18GetSerialDevicesResponse\x12\x36\n\x07\x64\x65vices\x18\x01 \x03(\x0b\x32%.lightspeed.devices.AstroSerialDevice\"(\n\x16\x45\x66wCalibrationResponse\x12\x0e\n\x06status\x18\x01 \x01(\t\"P\n\x13SetPropertyResponse\x12\x39\n\x06status\x18\x01 \x01(\x0e\x32).lightspeed.devices.actions.DeviceActionsP\x00P\x01P\x02\x62\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'responses.response_pb2', globals())
@@ -31,17 +31,17 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   _GETPROPERTIESRESPONSE._serialized_start=118
-  _GETPROPERTIESRESPONSE._serialized_end=210
-  _GETDEVICERESPONSE._serialized_start=212
-  _GETDEVICERESPONSE._serialized_end=280
-  _GETDEVICESRESPONSE._serialized_start=282
-  _GETDEVICESRESPONSE._serialized_end=352
-  _GETSERIALDEVICERESPONSE._serialized_start=354
-  _GETSERIALDEVICERESPONSE._serialized_end=434
-  _GETSERIALDEVICESRESPONSE._serialized_start=436
-  _GETSERIALDEVICESRESPONSE._serialized_end=518
-  _EFWCALIBRATIONRESPONSE._serialized_start=520
-  _EFWCALIBRATIONRESPONSE._serialized_end=560
-  _SETPROPERTYRESPONSE._serialized_start=562
-  _SETPROPERTYRESPONSE._serialized_end=642
+  _GETPROPERTIESRESPONSE._serialized_end=208
+  _GETDEVICERESPONSE._serialized_start=210
+  _GETDEVICERESPONSE._serialized_end=278
+  _GETDEVICESRESPONSE._serialized_start=280
+  _GETDEVICESRESPONSE._serialized_end=350
+  _GETSERIALDEVICERESPONSE._serialized_start=352
+  _GETSERIALDEVICERESPONSE._serialized_end=432
+  _GETSERIALDEVICESRESPONSE._serialized_start=434
+  _GETSERIALDEVICESRESPONSE._serialized_end=516
+  _EFWCALIBRATIONRESPONSE._serialized_start=518
+  _EFWCALIBRATIONRESPONSE._serialized_end=558
+  _SETPROPERTYRESPONSE._serialized_start=560
+  _SETPROPERTYRESPONSE._serialized_end=640
 # @@protoc_insertion_point(module_scope)

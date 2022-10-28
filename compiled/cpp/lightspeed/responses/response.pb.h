@@ -208,7 +208,7 @@ class GetPropertiesResponse final :
 
   enum : int {
     kPropertiesFieldNumber = 2,
-    kDeviceNameFieldNumber = 1,
+    kDeviceIdFieldNumber = 1,
   };
   // repeated .lightspeed.props.Property properties = 2;
   int properties_size() const;
@@ -228,18 +228,18 @@ class GetPropertiesResponse final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::lightspeed::props::Property >&
       properties() const;
 
-  // string device_name = 1;
-  void clear_device_name();
-  const std::string& device_name() const;
+  // string device_id = 1;
+  void clear_device_id();
+  const std::string& device_id() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_device_name(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_device_name();
-  PROTOBUF_NODISCARD std::string* release_device_name();
-  void set_allocated_device_name(std::string* device_name);
+  void set_device_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_device_id();
+  PROTOBUF_NODISCARD std::string* release_device_id();
+  void set_allocated_device_id(std::string* device_id);
   private:
-  const std::string& _internal_device_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_device_name(const std::string& value);
-  std::string* _internal_mutable_device_name();
+  const std::string& _internal_device_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_device_id(const std::string& value);
+  std::string* _internal_mutable_device_id();
   public:
 
   // @@protoc_insertion_point(class_scope:lightspeed.response.GetPropertiesResponse)
@@ -251,7 +251,7 @@ class GetPropertiesResponse final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::lightspeed::props::Property > properties_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr device_name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr device_id_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -1197,54 +1197,54 @@ class SetPropertyResponse final :
 #endif  // __GNUC__
 // GetPropertiesResponse
 
-// string device_name = 1;
-inline void GetPropertiesResponse::clear_device_name() {
-  _impl_.device_name_.ClearToEmpty();
+// string device_id = 1;
+inline void GetPropertiesResponse::clear_device_id() {
+  _impl_.device_id_.ClearToEmpty();
 }
-inline const std::string& GetPropertiesResponse::device_name() const {
-  // @@protoc_insertion_point(field_get:lightspeed.response.GetPropertiesResponse.device_name)
-  return _internal_device_name();
+inline const std::string& GetPropertiesResponse::device_id() const {
+  // @@protoc_insertion_point(field_get:lightspeed.response.GetPropertiesResponse.device_id)
+  return _internal_device_id();
 }
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
-void GetPropertiesResponse::set_device_name(ArgT0&& arg0, ArgT... args) {
+void GetPropertiesResponse::set_device_id(ArgT0&& arg0, ArgT... args) {
  
- _impl_.device_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:lightspeed.response.GetPropertiesResponse.device_name)
+ _impl_.device_id_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:lightspeed.response.GetPropertiesResponse.device_id)
 }
-inline std::string* GetPropertiesResponse::mutable_device_name() {
-  std::string* _s = _internal_mutable_device_name();
-  // @@protoc_insertion_point(field_mutable:lightspeed.response.GetPropertiesResponse.device_name)
+inline std::string* GetPropertiesResponse::mutable_device_id() {
+  std::string* _s = _internal_mutable_device_id();
+  // @@protoc_insertion_point(field_mutable:lightspeed.response.GetPropertiesResponse.device_id)
   return _s;
 }
-inline const std::string& GetPropertiesResponse::_internal_device_name() const {
-  return _impl_.device_name_.Get();
+inline const std::string& GetPropertiesResponse::_internal_device_id() const {
+  return _impl_.device_id_.Get();
 }
-inline void GetPropertiesResponse::_internal_set_device_name(const std::string& value) {
+inline void GetPropertiesResponse::_internal_set_device_id(const std::string& value) {
   
-  _impl_.device_name_.Set(value, GetArenaForAllocation());
+  _impl_.device_id_.Set(value, GetArenaForAllocation());
 }
-inline std::string* GetPropertiesResponse::_internal_mutable_device_name() {
+inline std::string* GetPropertiesResponse::_internal_mutable_device_id() {
   
-  return _impl_.device_name_.Mutable(GetArenaForAllocation());
+  return _impl_.device_id_.Mutable(GetArenaForAllocation());
 }
-inline std::string* GetPropertiesResponse::release_device_name() {
-  // @@protoc_insertion_point(field_release:lightspeed.response.GetPropertiesResponse.device_name)
-  return _impl_.device_name_.Release();
+inline std::string* GetPropertiesResponse::release_device_id() {
+  // @@protoc_insertion_point(field_release:lightspeed.response.GetPropertiesResponse.device_id)
+  return _impl_.device_id_.Release();
 }
-inline void GetPropertiesResponse::set_allocated_device_name(std::string* device_name) {
-  if (device_name != nullptr) {
+inline void GetPropertiesResponse::set_allocated_device_id(std::string* device_id) {
+  if (device_id != nullptr) {
     
   } else {
     
   }
-  _impl_.device_name_.SetAllocated(device_name, GetArenaForAllocation());
+  _impl_.device_id_.SetAllocated(device_id, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.device_name_.IsDefault()) {
-    _impl_.device_name_.Set("", GetArenaForAllocation());
+  if (_impl_.device_id_.IsDefault()) {
+    _impl_.device_id_.Set("", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:lightspeed.response.GetPropertiesResponse.device_name)
+  // @@protoc_insertion_point(field_set_allocated:lightspeed.response.GetPropertiesResponse.device_id)
 }
 
 // repeated .lightspeed.props.Property properties = 2;

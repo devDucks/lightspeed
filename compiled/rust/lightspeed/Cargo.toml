@@ -1,6 +1,6 @@
 [package]
 name = "lightspeed-astro"
-version = "1.0.2"
+version = "1.0.3"
 edition = "2021"
 license = "MIT"
 repository = "https://github.com/devDucks/lightspeed/"

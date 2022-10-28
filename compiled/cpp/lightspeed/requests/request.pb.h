@@ -492,20 +492,20 @@ class GetPropertiesRequest final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kDeviceNameFieldNumber = 1,
+    kDeviceIdFieldNumber = 1,
   };
-  // string device_name = 1;
-  void clear_device_name();
-  const std::string& device_name() const;
+  // string device_id = 1;
+  void clear_device_id();
+  const std::string& device_id() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_device_name(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_device_name();
-  PROTOBUF_NODISCARD std::string* release_device_name();
-  void set_allocated_device_name(std::string* device_name);
+  void set_device_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_device_id();
+  PROTOBUF_NODISCARD std::string* release_device_id();
+  void set_allocated_device_id(std::string* device_id);
   private:
-  const std::string& _internal_device_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_device_name(const std::string& value);
-  std::string* _internal_mutable_device_name();
+  const std::string& _internal_device_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_device_id(const std::string& value);
+  std::string* _internal_mutable_device_id();
   public:
 
   // @@protoc_insertion_point(class_scope:lightspeed.request.GetPropertiesRequest)
@@ -516,7 +516,7 @@ class GetPropertiesRequest final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr device_name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr device_id_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -645,21 +645,21 @@ class GetPropertyRequest final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kDeviceNameFieldNumber = 1,
+    kDeviceIdFieldNumber = 1,
     kPropertyNameFieldNumber = 2,
   };
-  // string device_name = 1;
-  void clear_device_name();
-  const std::string& device_name() const;
+  // string device_id = 1;
+  void clear_device_id();
+  const std::string& device_id() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_device_name(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_device_name();
-  PROTOBUF_NODISCARD std::string* release_device_name();
-  void set_allocated_device_name(std::string* device_name);
+  void set_device_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_device_id();
+  PROTOBUF_NODISCARD std::string* release_device_id();
+  void set_allocated_device_id(std::string* device_id);
   private:
-  const std::string& _internal_device_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_device_name(const std::string& value);
-  std::string* _internal_mutable_device_name();
+  const std::string& _internal_device_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_device_id(const std::string& value);
+  std::string* _internal_mutable_device_id();
   public:
 
   // string property_name = 2;
@@ -684,7 +684,7 @@ class GetPropertyRequest final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr device_name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr device_id_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr property_name_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -814,22 +814,22 @@ class SetPropertyRequest final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kDeviceNameFieldNumber = 1,
+    kDeviceIdFieldNumber = 1,
     kPropertyNameFieldNumber = 2,
     kPropertyValueFieldNumber = 3,
   };
-  // string device_name = 1;
-  void clear_device_name();
-  const std::string& device_name() const;
+  // string device_id = 1;
+  void clear_device_id();
+  const std::string& device_id() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_device_name(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_device_name();
-  PROTOBUF_NODISCARD std::string* release_device_name();
-  void set_allocated_device_name(std::string* device_name);
+  void set_device_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_device_id();
+  PROTOBUF_NODISCARD std::string* release_device_id();
+  void set_allocated_device_id(std::string* device_id);
   private:
-  const std::string& _internal_device_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_device_name(const std::string& value);
-  std::string* _internal_mutable_device_name();
+  const std::string& _internal_device_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_device_id(const std::string& value);
+  std::string* _internal_mutable_device_id();
   public:
 
   // string property_name = 2;
@@ -868,7 +868,7 @@ class SetPropertyRequest final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr device_name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr device_id_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr property_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr property_value_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -1917,108 +1917,108 @@ inline void GetDeviceRequest::set_allocated_device_id(std::string* device_id) {
 
 // GetPropertiesRequest
 
-// string device_name = 1;
-inline void GetPropertiesRequest::clear_device_name() {
-  _impl_.device_name_.ClearToEmpty();
+// string device_id = 1;
+inline void GetPropertiesRequest::clear_device_id() {
+  _impl_.device_id_.ClearToEmpty();
 }
-inline const std::string& GetPropertiesRequest::device_name() const {
-  // @@protoc_insertion_point(field_get:lightspeed.request.GetPropertiesRequest.device_name)
-  return _internal_device_name();
+inline const std::string& GetPropertiesRequest::device_id() const {
+  // @@protoc_insertion_point(field_get:lightspeed.request.GetPropertiesRequest.device_id)
+  return _internal_device_id();
 }
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
-void GetPropertiesRequest::set_device_name(ArgT0&& arg0, ArgT... args) {
+void GetPropertiesRequest::set_device_id(ArgT0&& arg0, ArgT... args) {
  
- _impl_.device_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:lightspeed.request.GetPropertiesRequest.device_name)
+ _impl_.device_id_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:lightspeed.request.GetPropertiesRequest.device_id)
 }
-inline std::string* GetPropertiesRequest::mutable_device_name() {
-  std::string* _s = _internal_mutable_device_name();
-  // @@protoc_insertion_point(field_mutable:lightspeed.request.GetPropertiesRequest.device_name)
+inline std::string* GetPropertiesRequest::mutable_device_id() {
+  std::string* _s = _internal_mutable_device_id();
+  // @@protoc_insertion_point(field_mutable:lightspeed.request.GetPropertiesRequest.device_id)
   return _s;
 }
-inline const std::string& GetPropertiesRequest::_internal_device_name() const {
-  return _impl_.device_name_.Get();
+inline const std::string& GetPropertiesRequest::_internal_device_id() const {
+  return _impl_.device_id_.Get();
 }
-inline void GetPropertiesRequest::_internal_set_device_name(const std::string& value) {
+inline void GetPropertiesRequest::_internal_set_device_id(const std::string& value) {
   
-  _impl_.device_name_.Set(value, GetArenaForAllocation());
+  _impl_.device_id_.Set(value, GetArenaForAllocation());
 }
-inline std::string* GetPropertiesRequest::_internal_mutable_device_name() {
+inline std::string* GetPropertiesRequest::_internal_mutable_device_id() {
   
-  return _impl_.device_name_.Mutable(GetArenaForAllocation());
+  return _impl_.device_id_.Mutable(GetArenaForAllocation());
 }
-inline std::string* GetPropertiesRequest::release_device_name() {
-  // @@protoc_insertion_point(field_release:lightspeed.request.GetPropertiesRequest.device_name)
-  return _impl_.device_name_.Release();
+inline std::string* GetPropertiesRequest::release_device_id() {
+  // @@protoc_insertion_point(field_release:lightspeed.request.GetPropertiesRequest.device_id)
+  return _impl_.device_id_.Release();
 }
-inline void GetPropertiesRequest::set_allocated_device_name(std::string* device_name) {
-  if (device_name != nullptr) {
+inline void GetPropertiesRequest::set_allocated_device_id(std::string* device_id) {
+  if (device_id != nullptr) {
     
   } else {
     
   }
-  _impl_.device_name_.SetAllocated(device_name, GetArenaForAllocation());
+  _impl_.device_id_.SetAllocated(device_id, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.device_name_.IsDefault()) {
-    _impl_.device_name_.Set("", GetArenaForAllocation());
+  if (_impl_.device_id_.IsDefault()) {
+    _impl_.device_id_.Set("", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:lightspeed.request.GetPropertiesRequest.device_name)
+  // @@protoc_insertion_point(field_set_allocated:lightspeed.request.GetPropertiesRequest.device_id)
 }
 
 // -------------------------------------------------------------------
 
 // GetPropertyRequest
 
-// string device_name = 1;
-inline void GetPropertyRequest::clear_device_name() {
-  _impl_.device_name_.ClearToEmpty();
+// string device_id = 1;
+inline void GetPropertyRequest::clear_device_id() {
+  _impl_.device_id_.ClearToEmpty();
 }
-inline const std::string& GetPropertyRequest::device_name() const {
-  // @@protoc_insertion_point(field_get:lightspeed.request.GetPropertyRequest.device_name)
-  return _internal_device_name();
+inline const std::string& GetPropertyRequest::device_id() const {
+  // @@protoc_insertion_point(field_get:lightspeed.request.GetPropertyRequest.device_id)
+  return _internal_device_id();
 }
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
-void GetPropertyRequest::set_device_name(ArgT0&& arg0, ArgT... args) {
+void GetPropertyRequest::set_device_id(ArgT0&& arg0, ArgT... args) {
  
- _impl_.device_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:lightspeed.request.GetPropertyRequest.device_name)
+ _impl_.device_id_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:lightspeed.request.GetPropertyRequest.device_id)
 }
-inline std::string* GetPropertyRequest::mutable_device_name() {
-  std::string* _s = _internal_mutable_device_name();
-  // @@protoc_insertion_point(field_mutable:lightspeed.request.GetPropertyRequest.device_name)
+inline std::string* GetPropertyRequest::mutable_device_id() {
+  std::string* _s = _internal_mutable_device_id();
+  // @@protoc_insertion_point(field_mutable:lightspeed.request.GetPropertyRequest.device_id)
   return _s;
 }
-inline const std::string& GetPropertyRequest::_internal_device_name() const {
-  return _impl_.device_name_.Get();
+inline const std::string& GetPropertyRequest::_internal_device_id() const {
+  return _impl_.device_id_.Get();
 }
-inline void GetPropertyRequest::_internal_set_device_name(const std::string& value) {
+inline void GetPropertyRequest::_internal_set_device_id(const std::string& value) {
   
-  _impl_.device_name_.Set(value, GetArenaForAllocation());
+  _impl_.device_id_.Set(value, GetArenaForAllocation());
 }
-inline std::string* GetPropertyRequest::_internal_mutable_device_name() {
+inline std::string* GetPropertyRequest::_internal_mutable_device_id() {
   
-  return _impl_.device_name_.Mutable(GetArenaForAllocation());
+  return _impl_.device_id_.Mutable(GetArenaForAllocation());
 }
-inline std::string* GetPropertyRequest::release_device_name() {
-  // @@protoc_insertion_point(field_release:lightspeed.request.GetPropertyRequest.device_name)
-  return _impl_.device_name_.Release();
+inline std::string* GetPropertyRequest::release_device_id() {
+  // @@protoc_insertion_point(field_release:lightspeed.request.GetPropertyRequest.device_id)
+  return _impl_.device_id_.Release();
 }
-inline void GetPropertyRequest::set_allocated_device_name(std::string* device_name) {
-  if (device_name != nullptr) {
+inline void GetPropertyRequest::set_allocated_device_id(std::string* device_id) {
+  if (device_id != nullptr) {
     
   } else {
     
   }
-  _impl_.device_name_.SetAllocated(device_name, GetArenaForAllocation());
+  _impl_.device_id_.SetAllocated(device_id, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.device_name_.IsDefault()) {
-    _impl_.device_name_.Set("", GetArenaForAllocation());
+  if (_impl_.device_id_.IsDefault()) {
+    _impl_.device_id_.Set("", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:lightspeed.request.GetPropertyRequest.device_name)
+  // @@protoc_insertion_point(field_set_allocated:lightspeed.request.GetPropertyRequest.device_id)
 }
 
 // string property_name = 2;
@@ -2075,54 +2075,54 @@ inline void GetPropertyRequest::set_allocated_property_name(std::string* propert
 
 // SetPropertyRequest
 
-// string device_name = 1;
-inline void SetPropertyRequest::clear_device_name() {
-  _impl_.device_name_.ClearToEmpty();
+// string device_id = 1;
+inline void SetPropertyRequest::clear_device_id() {
+  _impl_.device_id_.ClearToEmpty();
 }
-inline const std::string& SetPropertyRequest::device_name() const {
-  // @@protoc_insertion_point(field_get:lightspeed.request.SetPropertyRequest.device_name)
-  return _internal_device_name();
+inline const std::string& SetPropertyRequest::device_id() const {
+  // @@protoc_insertion_point(field_get:lightspeed.request.SetPropertyRequest.device_id)
+  return _internal_device_id();
 }
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
-void SetPropertyRequest::set_device_name(ArgT0&& arg0, ArgT... args) {
+void SetPropertyRequest::set_device_id(ArgT0&& arg0, ArgT... args) {
  
- _impl_.device_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:lightspeed.request.SetPropertyRequest.device_name)
+ _impl_.device_id_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:lightspeed.request.SetPropertyRequest.device_id)
 }
-inline std::string* SetPropertyRequest::mutable_device_name() {
-  std::string* _s = _internal_mutable_device_name();
-  // @@protoc_insertion_point(field_mutable:lightspeed.request.SetPropertyRequest.device_name)
+inline std::string* SetPropertyRequest::mutable_device_id() {
+  std::string* _s = _internal_mutable_device_id();
+  // @@protoc_insertion_point(field_mutable:lightspeed.request.SetPropertyRequest.device_id)
   return _s;
 }
-inline const std::string& SetPropertyRequest::_internal_device_name() const {
-  return _impl_.device_name_.Get();
+inline const std::string& SetPropertyRequest::_internal_device_id() const {
+  return _impl_.device_id_.Get();
 }
-inline void SetPropertyRequest::_internal_set_device_name(const std::string& value) {
+inline void SetPropertyRequest::_internal_set_device_id(const std::string& value) {
   
-  _impl_.device_name_.Set(value, GetArenaForAllocation());
+  _impl_.device_id_.Set(value, GetArenaForAllocation());
 }
-inline std::string* SetPropertyRequest::_internal_mutable_device_name() {
+inline std::string* SetPropertyRequest::_internal_mutable_device_id() {
   
-  return _impl_.device_name_.Mutable(GetArenaForAllocation());
+  return _impl_.device_id_.Mutable(GetArenaForAllocation());
 }
-inline std::string* SetPropertyRequest::release_device_name() {
-  // @@protoc_insertion_point(field_release:lightspeed.request.SetPropertyRequest.device_name)
-  return _impl_.device_name_.Release();
+inline std::string* SetPropertyRequest::release_device_id() {
+  // @@protoc_insertion_point(field_release:lightspeed.request.SetPropertyRequest.device_id)
+  return _impl_.device_id_.Release();
 }
-inline void SetPropertyRequest::set_allocated_device_name(std::string* device_name) {
-  if (device_name != nullptr) {
+inline void SetPropertyRequest::set_allocated_device_id(std::string* device_id) {
+  if (device_id != nullptr) {
     
   } else {
     
   }
-  _impl_.device_name_.SetAllocated(device_name, GetArenaForAllocation());
+  _impl_.device_id_.SetAllocated(device_id, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.device_name_.IsDefault()) {
-    _impl_.device_name_.Set("", GetArenaForAllocation());
+  if (_impl_.device_id_.IsDefault()) {
+    _impl_.device_id_.Set("", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:lightspeed.request.SetPropertyRequest.device_name)
+  // @@protoc_insertion_point(field_set_allocated:lightspeed.request.SetPropertyRequest.device_id)
 }
 
 // string property_name = 2;

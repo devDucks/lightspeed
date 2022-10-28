@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x16requests/request.proto\x12\x12lightspeed.request\"\x13\n\x11GetDevicesRequest\"%\n\x10GetDeviceRequest\x12\x11\n\tdevice_id\x18\x01 \x01(\t\"+\n\x14GetPropertiesRequest\x12\x13\n\x0b\x64\x65vice_name\x18\x01 \x01(\t\"@\n\x12GetPropertyRequest\x12\x13\n\x0b\x64\x65vice_name\x18\x01 \x01(\t\x12\x15\n\rproperty_name\x18\x02 \x01(\t\"X\n\x12SetPropertyRequest\x12\x13\n\x0b\x64\x65vice_name\x18\x01 \x01(\t\x12\x15\n\rproperty_name\x18\x02 \x01(\t\x12\x16\n\x0eproperty_value\x18\x03 \x01(\t\"\x94\x01\n\x0fPropertyRequest\x12:\n\x08property\x18\x01 \x01(\x0b\x32&.lightspeed.request.GetPropertyRequestH\x00\x12>\n\nproperties\x18\x02 \x01(\x0b\x32(.lightspeed.request.GetPropertiesRequestH\x00\x42\x05\n\x03\x61sk\"0\n\x12\x43\x63\x64\x45xposureRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0e\n\x06lenght\x18\x02 \x01(\x02\"#\n\x13\x43\x63\x64\x45xposureResponse\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\x0c\"%\n\x17\x43\x63\x64\x41\x62ortExposureRequest\x12\n\n\x02id\x18\x01 \x01(\t\"*\n\x18\x43\x63\x64\x41\x62ortExposureResponse\x12\x0e\n\x06status\x18\x01 \x01(\t\"#\n\x15\x45\x66wCalibrationRequest\x12\n\n\x02id\x18\x01 \x01(\tb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x16requests/request.proto\x12\x12lightspeed.request\"\x13\n\x11GetDevicesRequest\"%\n\x10GetDeviceRequest\x12\x11\n\tdevice_id\x18\x01 \x01(\t\")\n\x14GetPropertiesRequest\x12\x11\n\tdevice_id\x18\x01 \x01(\t\">\n\x12GetPropertyRequest\x12\x11\n\tdevice_id\x18\x01 \x01(\t\x12\x15\n\rproperty_name\x18\x02 \x01(\t\"V\n\x12SetPropertyRequest\x12\x11\n\tdevice_id\x18\x01 \x01(\t\x12\x15\n\rproperty_name\x18\x02 \x01(\t\x12\x16\n\x0eproperty_value\x18\x03 \x01(\t\"\x94\x01\n\x0fPropertyRequest\x12:\n\x08property\x18\x01 \x01(\x0b\x32&.lightspeed.request.GetPropertyRequestH\x00\x12>\n\nproperties\x18\x02 \x01(\x0b\x32(.lightspeed.request.GetPropertiesRequestH\x00\x42\x05\n\x03\x61sk\"0\n\x12\x43\x63\x64\x45xposureRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0e\n\x06lenght\x18\x02 \x01(\x02\"#\n\x13\x43\x63\x64\x45xposureResponse\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\x0c\"%\n\x17\x43\x63\x64\x41\x62ortExposureRequest\x12\n\n\x02id\x18\x01 \x01(\t\"*\n\x18\x43\x63\x64\x41\x62ortExposureResponse\x12\x0e\n\x06status\x18\x01 \x01(\t\"#\n\x15\x45\x66wCalibrationRequest\x12\n\n\x02id\x18\x01 \x01(\tb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'requests.request_pb2', globals())
@@ -25,21 +25,21 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _GETDEVICEREQUEST._serialized_start=67
   _GETDEVICEREQUEST._serialized_end=104
   _GETPROPERTIESREQUEST._serialized_start=106
-  _GETPROPERTIESREQUEST._serialized_end=149
-  _GETPROPERTYREQUEST._serialized_start=151
-  _GETPROPERTYREQUEST._serialized_end=215
-  _SETPROPERTYREQUEST._serialized_start=217
-  _SETPROPERTYREQUEST._serialized_end=305
-  _PROPERTYREQUEST._serialized_start=308
-  _PROPERTYREQUEST._serialized_end=456
-  _CCDEXPOSUREREQUEST._serialized_start=458
-  _CCDEXPOSUREREQUEST._serialized_end=506
-  _CCDEXPOSURERESPONSE._serialized_start=508
-  _CCDEXPOSURERESPONSE._serialized_end=543
-  _CCDABORTEXPOSUREREQUEST._serialized_start=545
-  _CCDABORTEXPOSUREREQUEST._serialized_end=582
-  _CCDABORTEXPOSURERESPONSE._serialized_start=584
-  _CCDABORTEXPOSURERESPONSE._serialized_end=626
-  _EFWCALIBRATIONREQUEST._serialized_start=628
-  _EFWCALIBRATIONREQUEST._serialized_end=663
+  _GETPROPERTIESREQUEST._serialized_end=147
+  _GETPROPERTYREQUEST._serialized_start=149
+  _GETPROPERTYREQUEST._serialized_end=211
+  _SETPROPERTYREQUEST._serialized_start=213
+  _SETPROPERTYREQUEST._serialized_end=299
+  _PROPERTYREQUEST._serialized_start=302
+  _PROPERTYREQUEST._serialized_end=450
+  _CCDEXPOSUREREQUEST._serialized_start=452
+  _CCDEXPOSUREREQUEST._serialized_end=500
+  _CCDEXPOSURERESPONSE._serialized_start=502
+  _CCDEXPOSURERESPONSE._serialized_end=537
+  _CCDABORTEXPOSUREREQUEST._serialized_start=539
+  _CCDABORTEXPOSUREREQUEST._serialized_end=576
+  _CCDABORTEXPOSURERESPONSE._serialized_start=578
+  _CCDABORTEXPOSURERESPONSE._serialized_end=620
+  _EFWCALIBRATIONREQUEST._serialized_start=622
+  _EFWCALIBRATIONREQUEST._serialized_end=657
 # @@protoc_insertion_point(module_scope)

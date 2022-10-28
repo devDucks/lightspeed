@@ -48,7 +48,7 @@ struct GetDeviceRequestDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GetDeviceRequestDefaultTypeInternal _GetDeviceRequest_default_instance_;
 PROTOBUF_CONSTEXPR GetPropertiesRequest::GetPropertiesRequest(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.device_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+    /*decltype(_impl_.device_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct GetPropertiesRequestDefaultTypeInternal {
   PROTOBUF_CONSTEXPR GetPropertiesRequestDefaultTypeInternal()
@@ -61,7 +61,7 @@ struct GetPropertiesRequestDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GetPropertiesRequestDefaultTypeInternal _GetPropertiesRequest_default_instance_;
 PROTOBUF_CONSTEXPR GetPropertyRequest::GetPropertyRequest(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.device_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+    /*decltype(_impl_.device_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.property_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct GetPropertyRequestDefaultTypeInternal {
@@ -75,7 +75,7 @@ struct GetPropertyRequestDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GetPropertyRequestDefaultTypeInternal _GetPropertyRequest_default_instance_;
 PROTOBUF_CONSTEXPR SetPropertyRequest::SetPropertyRequest(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.device_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+    /*decltype(_impl_.device_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.property_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.property_value_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_._cached_size_)*/{}} {}
@@ -194,14 +194,14 @@ const uint32_t TableStruct_requests_2frequest_2eproto::offsets[] PROTOBUF_SECTIO
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::lightspeed::request::GetPropertiesRequest, _impl_.device_name_),
+  PROTOBUF_FIELD_OFFSET(::lightspeed::request::GetPropertiesRequest, _impl_.device_id_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::lightspeed::request::GetPropertyRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::lightspeed::request::GetPropertyRequest, _impl_.device_name_),
+  PROTOBUF_FIELD_OFFSET(::lightspeed::request::GetPropertyRequest, _impl_.device_id_),
   PROTOBUF_FIELD_OFFSET(::lightspeed::request::GetPropertyRequest, _impl_.property_name_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::lightspeed::request::SetPropertyRequest, _internal_metadata_),
@@ -209,7 +209,7 @@ const uint32_t TableStruct_requests_2frequest_2eproto::offsets[] PROTOBUF_SECTIO
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::lightspeed::request::SetPropertyRequest, _impl_.device_name_),
+  PROTOBUF_FIELD_OFFSET(::lightspeed::request::SetPropertyRequest, _impl_.device_id_),
   PROTOBUF_FIELD_OFFSET(::lightspeed::request::SetPropertyRequest, _impl_.property_name_),
   PROTOBUF_FIELD_OFFSET(::lightspeed::request::SetPropertyRequest, _impl_.property_value_),
   ~0u,  // no _has_bits_
@@ -289,25 +289,25 @@ static const ::_pb::Message* const file_default_instances[] = {
 const char descriptor_table_protodef_requests_2frequest_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\026requests/request.proto\022\022lightspeed.req"
   "uest\"\023\n\021GetDevicesRequest\"%\n\020GetDeviceRe"
-  "quest\022\021\n\tdevice_id\030\001 \001(\t\"+\n\024GetPropertie"
-  "sRequest\022\023\n\013device_name\030\001 \001(\t\"@\n\022GetProp"
-  "ertyRequest\022\023\n\013device_name\030\001 \001(\t\022\025\n\rprop"
-  "erty_name\030\002 \001(\t\"X\n\022SetPropertyRequest\022\023\n"
-  "\013device_name\030\001 \001(\t\022\025\n\rproperty_name\030\002 \001("
-  "\t\022\026\n\016property_value\030\003 \001(\t\"\224\001\n\017PropertyRe"
-  "quest\022:\n\010property\030\001 \001(\0132&.lightspeed.req"
-  "uest.GetPropertyRequestH\000\022>\n\nproperties\030"
-  "\002 \001(\0132(.lightspeed.request.GetProperties"
-  "RequestH\000B\005\n\003ask\"0\n\022CcdExposureRequest\022\n"
-  "\n\002id\030\001 \001(\t\022\016\n\006lenght\030\002 \001(\002\"#\n\023CcdExposur"
-  "eResponse\022\014\n\004data\030\001 \001(\014\"%\n\027CcdAbortExpos"
-  "ureRequest\022\n\n\002id\030\001 \001(\t\"*\n\030CcdAbortExposu"
-  "reResponse\022\016\n\006status\030\001 \001(\t\"#\n\025EfwCalibra"
-  "tionRequest\022\n\n\002id\030\001 \001(\tb\006proto3"
+  "quest\022\021\n\tdevice_id\030\001 \001(\t\")\n\024GetPropertie"
+  "sRequest\022\021\n\tdevice_id\030\001 \001(\t\">\n\022GetProper"
+  "tyRequest\022\021\n\tdevice_id\030\001 \001(\t\022\025\n\rproperty"
+  "_name\030\002 \001(\t\"V\n\022SetPropertyRequest\022\021\n\tdev"
+  "ice_id\030\001 \001(\t\022\025\n\rproperty_name\030\002 \001(\t\022\026\n\016p"
+  "roperty_value\030\003 \001(\t\"\224\001\n\017PropertyRequest\022"
+  ":\n\010property\030\001 \001(\0132&.lightspeed.request.G"
+  "etPropertyRequestH\000\022>\n\nproperties\030\002 \001(\0132"
+  "(.lightspeed.request.GetPropertiesReques"
+  "tH\000B\005\n\003ask\"0\n\022CcdExposureRequest\022\n\n\002id\030\001"
+  " \001(\t\022\016\n\006lenght\030\002 \001(\002\"#\n\023CcdExposureRespo"
+  "nse\022\014\n\004data\030\001 \001(\014\"%\n\027CcdAbortExposureReq"
+  "uest\022\n\n\002id\030\001 \001(\t\"*\n\030CcdAbortExposureResp"
+  "onse\022\016\n\006status\030\001 \001(\t\"#\n\025EfwCalibrationRe"
+  "quest\022\n\n\002id\030\001 \001(\tb\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_requests_2frequest_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_requests_2frequest_2eproto = {
-    false, false, 671, descriptor_table_protodef_requests_2frequest_2eproto,
+    false, false, 665, descriptor_table_protodef_requests_2frequest_2eproto,
     "requests/request.proto",
     &descriptor_table_requests_2frequest_2eproto_once, nullptr, 0, 11,
     schemas, file_default_instances, TableStruct_requests_2frequest_2eproto::offsets,
@@ -582,16 +582,16 @@ GetPropertiesRequest::GetPropertiesRequest(const GetPropertiesRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   GetPropertiesRequest* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.device_name_){}
+      decltype(_impl_.device_id_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  _impl_.device_name_.InitDefault();
+  _impl_.device_id_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.device_name_.Set("", GetArenaForAllocation());
+    _impl_.device_id_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_device_name().empty()) {
-    _this->_impl_.device_name_.Set(from._internal_device_name(), 
+  if (!from._internal_device_id().empty()) {
+    _this->_impl_.device_id_.Set(from._internal_device_id(), 
       _this->GetArenaForAllocation());
   }
   // @@protoc_insertion_point(copy_constructor:lightspeed.request.GetPropertiesRequest)
@@ -602,12 +602,12 @@ inline void GetPropertiesRequest::SharedCtor(
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.device_name_){}
+      decltype(_impl_.device_id_){}
     , /*decltype(_impl_._cached_size_)*/{}
   };
-  _impl_.device_name_.InitDefault();
+  _impl_.device_id_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.device_name_.Set("", GetArenaForAllocation());
+    _impl_.device_id_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
@@ -622,7 +622,7 @@ GetPropertiesRequest::~GetPropertiesRequest() {
 
 inline void GetPropertiesRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.device_name_.Destroy();
+  _impl_.device_id_.Destroy();
 }
 
 void GetPropertiesRequest::SetCachedSize(int size) const {
@@ -635,7 +635,7 @@ void GetPropertiesRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.device_name_.ClearToEmpty();
+  _impl_.device_id_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -645,13 +645,13 @@ const char* GetPropertiesRequest::_InternalParse(const char* ptr, ::_pbi::ParseC
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // string device_name = 1;
+      // string device_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          auto str = _internal_mutable_device_name();
+          auto str = _internal_mutable_device_id();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-          CHK_(::_pbi::VerifyUTF8(str, "lightspeed.request.GetPropertiesRequest.device_name"));
+          CHK_(::_pbi::VerifyUTF8(str, "lightspeed.request.GetPropertiesRequest.device_id"));
         } else
           goto handle_unusual;
         continue;
@@ -684,14 +684,14 @@ uint8_t* GetPropertiesRequest::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string device_name = 1;
-  if (!this->_internal_device_name().empty()) {
+  // string device_id = 1;
+  if (!this->_internal_device_id().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_device_name().data(), static_cast<int>(this->_internal_device_name().length()),
+      this->_internal_device_id().data(), static_cast<int>(this->_internal_device_id().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "lightspeed.request.GetPropertiesRequest.device_name");
+      "lightspeed.request.GetPropertiesRequest.device_id");
     target = stream->WriteStringMaybeAliased(
-        1, this->_internal_device_name(), target);
+        1, this->_internal_device_id(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -710,11 +710,11 @@ size_t GetPropertiesRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string device_name = 1;
-  if (!this->_internal_device_name().empty()) {
+  // string device_id = 1;
+  if (!this->_internal_device_id().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_device_name());
+        this->_internal_device_id());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
@@ -735,8 +735,8 @@ void GetPropertiesRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, c
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (!from._internal_device_name().empty()) {
-    _this->_internal_set_device_name(from._internal_device_name());
+  if (!from._internal_device_id().empty()) {
+    _this->_internal_set_device_id(from._internal_device_id());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -758,8 +758,8 @@ void GetPropertiesRequest::InternalSwap(GetPropertiesRequest* other) {
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &_impl_.device_name_, lhs_arena,
-      &other->_impl_.device_name_, rhs_arena
+      &_impl_.device_id_, lhs_arena,
+      &other->_impl_.device_id_, rhs_arena
   );
 }
 
@@ -785,17 +785,17 @@ GetPropertyRequest::GetPropertyRequest(const GetPropertyRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   GetPropertyRequest* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.device_name_){}
+      decltype(_impl_.device_id_){}
     , decltype(_impl_.property_name_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  _impl_.device_name_.InitDefault();
+  _impl_.device_id_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.device_name_.Set("", GetArenaForAllocation());
+    _impl_.device_id_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_device_name().empty()) {
-    _this->_impl_.device_name_.Set(from._internal_device_name(), 
+  if (!from._internal_device_id().empty()) {
+    _this->_impl_.device_id_.Set(from._internal_device_id(), 
       _this->GetArenaForAllocation());
   }
   _impl_.property_name_.InitDefault();
@@ -814,13 +814,13 @@ inline void GetPropertyRequest::SharedCtor(
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.device_name_){}
+      decltype(_impl_.device_id_){}
     , decltype(_impl_.property_name_){}
     , /*decltype(_impl_._cached_size_)*/{}
   };
-  _impl_.device_name_.InitDefault();
+  _impl_.device_id_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.device_name_.Set("", GetArenaForAllocation());
+    _impl_.device_id_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.property_name_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -839,7 +839,7 @@ GetPropertyRequest::~GetPropertyRequest() {
 
 inline void GetPropertyRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.device_name_.Destroy();
+  _impl_.device_id_.Destroy();
   _impl_.property_name_.Destroy();
 }
 
@@ -853,7 +853,7 @@ void GetPropertyRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.device_name_.ClearToEmpty();
+  _impl_.device_id_.ClearToEmpty();
   _impl_.property_name_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -864,13 +864,13 @@ const char* GetPropertyRequest::_InternalParse(const char* ptr, ::_pbi::ParseCon
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // string device_name = 1;
+      // string device_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          auto str = _internal_mutable_device_name();
+          auto str = _internal_mutable_device_id();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-          CHK_(::_pbi::VerifyUTF8(str, "lightspeed.request.GetPropertyRequest.device_name"));
+          CHK_(::_pbi::VerifyUTF8(str, "lightspeed.request.GetPropertyRequest.device_id"));
         } else
           goto handle_unusual;
         continue;
@@ -913,14 +913,14 @@ uint8_t* GetPropertyRequest::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string device_name = 1;
-  if (!this->_internal_device_name().empty()) {
+  // string device_id = 1;
+  if (!this->_internal_device_id().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_device_name().data(), static_cast<int>(this->_internal_device_name().length()),
+      this->_internal_device_id().data(), static_cast<int>(this->_internal_device_id().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "lightspeed.request.GetPropertyRequest.device_name");
+      "lightspeed.request.GetPropertyRequest.device_id");
     target = stream->WriteStringMaybeAliased(
-        1, this->_internal_device_name(), target);
+        1, this->_internal_device_id(), target);
   }
 
   // string property_name = 2;
@@ -949,11 +949,11 @@ size_t GetPropertyRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string device_name = 1;
-  if (!this->_internal_device_name().empty()) {
+  // string device_id = 1;
+  if (!this->_internal_device_id().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_device_name());
+        this->_internal_device_id());
   }
 
   // string property_name = 2;
@@ -981,8 +981,8 @@ void GetPropertyRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, con
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (!from._internal_device_name().empty()) {
-    _this->_internal_set_device_name(from._internal_device_name());
+  if (!from._internal_device_id().empty()) {
+    _this->_internal_set_device_id(from._internal_device_id());
   }
   if (!from._internal_property_name().empty()) {
     _this->_internal_set_property_name(from._internal_property_name());
@@ -1007,8 +1007,8 @@ void GetPropertyRequest::InternalSwap(GetPropertyRequest* other) {
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &_impl_.device_name_, lhs_arena,
-      &other->_impl_.device_name_, rhs_arena
+      &_impl_.device_id_, lhs_arena,
+      &other->_impl_.device_id_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.property_name_, lhs_arena,
@@ -1038,18 +1038,18 @@ SetPropertyRequest::SetPropertyRequest(const SetPropertyRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   SetPropertyRequest* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.device_name_){}
+      decltype(_impl_.device_id_){}
     , decltype(_impl_.property_name_){}
     , decltype(_impl_.property_value_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  _impl_.device_name_.InitDefault();
+  _impl_.device_id_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.device_name_.Set("", GetArenaForAllocation());
+    _impl_.device_id_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_device_name().empty()) {
-    _this->_impl_.device_name_.Set(from._internal_device_name(), 
+  if (!from._internal_device_id().empty()) {
+    _this->_impl_.device_id_.Set(from._internal_device_id(), 
       _this->GetArenaForAllocation());
   }
   _impl_.property_name_.InitDefault();
@@ -1076,14 +1076,14 @@ inline void SetPropertyRequest::SharedCtor(
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.device_name_){}
+      decltype(_impl_.device_id_){}
     , decltype(_impl_.property_name_){}
     , decltype(_impl_.property_value_){}
     , /*decltype(_impl_._cached_size_)*/{}
   };
-  _impl_.device_name_.InitDefault();
+  _impl_.device_id_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.device_name_.Set("", GetArenaForAllocation());
+    _impl_.device_id_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.property_name_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -1106,7 +1106,7 @@ SetPropertyRequest::~SetPropertyRequest() {
 
 inline void SetPropertyRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.device_name_.Destroy();
+  _impl_.device_id_.Destroy();
   _impl_.property_name_.Destroy();
   _impl_.property_value_.Destroy();
 }
@@ -1121,7 +1121,7 @@ void SetPropertyRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.device_name_.ClearToEmpty();
+  _impl_.device_id_.ClearToEmpty();
   _impl_.property_name_.ClearToEmpty();
   _impl_.property_value_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -1133,13 +1133,13 @@ const char* SetPropertyRequest::_InternalParse(const char* ptr, ::_pbi::ParseCon
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // string device_name = 1;
+      // string device_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          auto str = _internal_mutable_device_name();
+          auto str = _internal_mutable_device_id();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-          CHK_(::_pbi::VerifyUTF8(str, "lightspeed.request.SetPropertyRequest.device_name"));
+          CHK_(::_pbi::VerifyUTF8(str, "lightspeed.request.SetPropertyRequest.device_id"));
         } else
           goto handle_unusual;
         continue;
@@ -1192,14 +1192,14 @@ uint8_t* SetPropertyRequest::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string device_name = 1;
-  if (!this->_internal_device_name().empty()) {
+  // string device_id = 1;
+  if (!this->_internal_device_id().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_device_name().data(), static_cast<int>(this->_internal_device_name().length()),
+      this->_internal_device_id().data(), static_cast<int>(this->_internal_device_id().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "lightspeed.request.SetPropertyRequest.device_name");
+      "lightspeed.request.SetPropertyRequest.device_id");
     target = stream->WriteStringMaybeAliased(
-        1, this->_internal_device_name(), target);
+        1, this->_internal_device_id(), target);
   }
 
   // string property_name = 2;
@@ -1238,11 +1238,11 @@ size_t SetPropertyRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string device_name = 1;
-  if (!this->_internal_device_name().empty()) {
+  // string device_id = 1;
+  if (!this->_internal_device_id().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_device_name());
+        this->_internal_device_id());
   }
 
   // string property_name = 2;
@@ -1277,8 +1277,8 @@ void SetPropertyRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, con
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (!from._internal_device_name().empty()) {
-    _this->_internal_set_device_name(from._internal_device_name());
+  if (!from._internal_device_id().empty()) {
+    _this->_internal_set_device_id(from._internal_device_id());
   }
   if (!from._internal_property_name().empty()) {
     _this->_internal_set_property_name(from._internal_property_name());
@@ -1306,8 +1306,8 @@ void SetPropertyRequest::InternalSwap(SetPropertyRequest* other) {
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &_impl_.device_name_, lhs_arena,
-      &other->_impl_.device_name_, rhs_arena
+      &_impl_.device_id_, lhs_arena,
+      &other->_impl_.device_id_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.property_name_, lhs_arena,
