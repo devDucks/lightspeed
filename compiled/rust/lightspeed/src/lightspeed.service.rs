@@ -2,20 +2,20 @@
 pub mod astro_generic_service_server {
     #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
     use tonic::codegen::*;
-    ///Generated trait containing gRPC methods that should be implemented for use with AstroGenericServiceServer.
+    /// Generated trait containing gRPC methods that should be implemented for use with AstroGenericServiceServer.
     #[async_trait]
     pub trait AstroGenericService: Send + Sync + 'static {
         async fn get_devices(
             &self,
             request: tonic::Request<super::super::request::GetDevicesRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::response::GetDevicesResponse>,
             tonic::Status,
         >;
         async fn set_property(
             &self,
             request: tonic::Request<super::super::request::SetPropertyRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::response::SetPropertyResponse>,
             tonic::Status,
         >;
@@ -23,8 +23,10 @@ pub mod astro_generic_service_server {
     #[derive(Debug)]
     pub struct AstroGenericServiceServer<T: AstroGenericService> {
         inner: _Inner<T>,
-        accept_compression_encodings: (),
-        send_compression_encodings: (),
+        accept_compression_encodings: EnabledCompressionEncodings,
+        send_compression_encodings: EnabledCompressionEncodings,
+        max_decoding_message_size: Option<usize>,
+        max_encoding_message_size: Option<usize>,
     }
     struct _Inner<T>(Arc<T>);
     impl<T: AstroGenericService> AstroGenericServiceServer<T> {
@@ -37,6 +39,8 @@ pub mod astro_generic_service_server {
                 inner,
                 accept_compression_encodings: Default::default(),
                 send_compression_encodings: Default::default(),
+                max_decoding_message_size: None,
+                max_encoding_message_size: None,
             }
         }
         pub fn with_interceptor<F>(
@@ -47,6 +51,34 @@ pub mod astro_generic_service_server {
             F: tonic::service::Interceptor,
         {
             InterceptedService::new(Self::new(inner), interceptor)
+        }
+        /// Enable decompressing requests with the given encoding.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.accept_compression_encodings.enable(encoding);
+            self
+        }
+        /// Compress responses with the given encoding, if the client supports it.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.send_compression_encodings.enable(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.max_decoding_message_size = Some(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.max_encoding_message_size = Some(limit);
+            self
         }
     }
     impl<T, B> tonic::codegen::Service<http::Request<B>> for AstroGenericServiceServer<T>
@@ -61,7 +93,7 @@ pub mod astro_generic_service_server {
         fn poll_ready(
             &mut self,
             _cx: &mut Context<'_>,
-        ) -> Poll<Result<(), Self::Error>> {
+        ) -> Poll<std::result::Result<(), Self::Error>> {
             Poll::Ready(Ok(()))
         }
         fn call(&mut self, req: http::Request<B>) -> Self::Future {
@@ -86,13 +118,15 @@ pub mod astro_generic_service_server {
                                 super::super::request::GetDevicesRequest,
                             >,
                         ) -> Self::Future {
-                            let inner = self.0.clone();
+                            let inner = Arc::clone(&self.0);
                             let fut = async move { (*inner).get_devices(request).await };
                             Box::pin(fut)
                         }
                     }
                     let accept_compression_encodings = self.accept_compression_encodings;
                     let send_compression_encodings = self.send_compression_encodings;
+                    let max_decoding_message_size = self.max_decoding_message_size;
+                    let max_encoding_message_size = self.max_encoding_message_size;
                     let inner = self.inner.clone();
                     let fut = async move {
                         let inner = inner.0;
@@ -102,6 +136,10 @@ pub mod astro_generic_service_server {
                             .apply_compression_config(
                                 accept_compression_encodings,
                                 send_compression_encodings,
+                            )
+                            .apply_max_message_size_config(
+                                max_decoding_message_size,
+                                max_encoding_message_size,
                             );
                         let res = grpc.unary(method, req).await;
                         Ok(res)
@@ -127,7 +165,7 @@ pub mod astro_generic_service_server {
                                 super::super::request::SetPropertyRequest,
                             >,
                         ) -> Self::Future {
-                            let inner = self.0.clone();
+                            let inner = Arc::clone(&self.0);
                             let fut = async move {
                                 (*inner).set_property(request).await
                             };
@@ -136,6 +174,8 @@ pub mod astro_generic_service_server {
                     }
                     let accept_compression_encodings = self.accept_compression_encodings;
                     let send_compression_encodings = self.send_compression_encodings;
+                    let max_decoding_message_size = self.max_decoding_message_size;
+                    let max_encoding_message_size = self.max_encoding_message_size;
                     let inner = self.inner.clone();
                     let fut = async move {
                         let inner = inner.0;
@@ -145,6 +185,10 @@ pub mod astro_generic_service_server {
                             .apply_compression_config(
                                 accept_compression_encodings,
                                 send_compression_encodings,
+                            )
+                            .apply_max_message_size_config(
+                                max_decoding_message_size,
+                                max_encoding_message_size,
                             );
                         let res = grpc.unary(method, req).await;
                         Ok(res)
@@ -173,12 +217,14 @@ pub mod astro_generic_service_server {
                 inner,
                 accept_compression_encodings: self.accept_compression_encodings,
                 send_compression_encodings: self.send_compression_encodings,
+                max_decoding_message_size: self.max_decoding_message_size,
+                max_encoding_message_size: self.max_encoding_message_size,
             }
         }
     }
     impl<T: AstroGenericService> Clone for _Inner<T> {
         fn clone(&self) -> Self {
-            Self(self.0.clone())
+            Self(Arc::clone(&self.0))
         }
     }
     impl<T: std::fmt::Debug> std::fmt::Debug for _Inner<T> {
@@ -186,7 +232,7 @@ pub mod astro_generic_service_server {
             write!(f, "{:?}", self.0)
         }
     }
-    impl<T: AstroGenericService> tonic::transport::NamedService
+    impl<T: AstroGenericService> tonic::server::NamedService
     for AstroGenericServiceServer<T> {
         const NAME: &'static str = "lightspeed.service.AstroGenericService";
     }
@@ -195,27 +241,27 @@ pub mod astro_generic_service_server {
 pub mod astro_ccd_service_server {
     #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
     use tonic::codegen::*;
-    ///Generated trait containing gRPC methods that should be implemented for use with AstroCcdServiceServer.
+    /// Generated trait containing gRPC methods that should be implemented for use with AstroCcdServiceServer.
     #[async_trait]
     pub trait AstroCcdService: Send + Sync + 'static {
         async fn get_devices(
             &self,
             request: tonic::Request<super::super::request::GetDevicesRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::response::GetDevicesResponse>,
             tonic::Status,
         >;
         async fn set_property(
             &self,
             request: tonic::Request<super::super::request::SetPropertyRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::response::SetPropertyResponse>,
             tonic::Status,
         >;
         async fn expose(
             &self,
             request: tonic::Request<super::super::request::CcdExposureRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::request::CcdExposureResponse>,
             tonic::Status,
         >;
@@ -223,8 +269,10 @@ pub mod astro_ccd_service_server {
     #[derive(Debug)]
     pub struct AstroCcdServiceServer<T: AstroCcdService> {
         inner: _Inner<T>,
-        accept_compression_encodings: (),
-        send_compression_encodings: (),
+        accept_compression_encodings: EnabledCompressionEncodings,
+        send_compression_encodings: EnabledCompressionEncodings,
+        max_decoding_message_size: Option<usize>,
+        max_encoding_message_size: Option<usize>,
     }
     struct _Inner<T>(Arc<T>);
     impl<T: AstroCcdService> AstroCcdServiceServer<T> {
@@ -237,6 +285,8 @@ pub mod astro_ccd_service_server {
                 inner,
                 accept_compression_encodings: Default::default(),
                 send_compression_encodings: Default::default(),
+                max_decoding_message_size: None,
+                max_encoding_message_size: None,
             }
         }
         pub fn with_interceptor<F>(
@@ -247,6 +297,34 @@ pub mod astro_ccd_service_server {
             F: tonic::service::Interceptor,
         {
             InterceptedService::new(Self::new(inner), interceptor)
+        }
+        /// Enable decompressing requests with the given encoding.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.accept_compression_encodings.enable(encoding);
+            self
+        }
+        /// Compress responses with the given encoding, if the client supports it.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.send_compression_encodings.enable(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.max_decoding_message_size = Some(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.max_encoding_message_size = Some(limit);
+            self
         }
     }
     impl<T, B> tonic::codegen::Service<http::Request<B>> for AstroCcdServiceServer<T>
@@ -261,7 +339,7 @@ pub mod astro_ccd_service_server {
         fn poll_ready(
             &mut self,
             _cx: &mut Context<'_>,
-        ) -> Poll<Result<(), Self::Error>> {
+        ) -> Poll<std::result::Result<(), Self::Error>> {
             Poll::Ready(Ok(()))
         }
         fn call(&mut self, req: http::Request<B>) -> Self::Future {
@@ -286,13 +364,15 @@ pub mod astro_ccd_service_server {
                                 super::super::request::GetDevicesRequest,
                             >,
                         ) -> Self::Future {
-                            let inner = self.0.clone();
+                            let inner = Arc::clone(&self.0);
                             let fut = async move { (*inner).get_devices(request).await };
                             Box::pin(fut)
                         }
                     }
                     let accept_compression_encodings = self.accept_compression_encodings;
                     let send_compression_encodings = self.send_compression_encodings;
+                    let max_decoding_message_size = self.max_decoding_message_size;
+                    let max_encoding_message_size = self.max_encoding_message_size;
                     let inner = self.inner.clone();
                     let fut = async move {
                         let inner = inner.0;
@@ -302,6 +382,10 @@ pub mod astro_ccd_service_server {
                             .apply_compression_config(
                                 accept_compression_encodings,
                                 send_compression_encodings,
+                            )
+                            .apply_max_message_size_config(
+                                max_decoding_message_size,
+                                max_encoding_message_size,
                             );
                         let res = grpc.unary(method, req).await;
                         Ok(res)
@@ -327,7 +411,7 @@ pub mod astro_ccd_service_server {
                                 super::super::request::SetPropertyRequest,
                             >,
                         ) -> Self::Future {
-                            let inner = self.0.clone();
+                            let inner = Arc::clone(&self.0);
                             let fut = async move {
                                 (*inner).set_property(request).await
                             };
@@ -336,6 +420,8 @@ pub mod astro_ccd_service_server {
                     }
                     let accept_compression_encodings = self.accept_compression_encodings;
                     let send_compression_encodings = self.send_compression_encodings;
+                    let max_decoding_message_size = self.max_decoding_message_size;
+                    let max_encoding_message_size = self.max_encoding_message_size;
                     let inner = self.inner.clone();
                     let fut = async move {
                         let inner = inner.0;
@@ -345,6 +431,10 @@ pub mod astro_ccd_service_server {
                             .apply_compression_config(
                                 accept_compression_encodings,
                                 send_compression_encodings,
+                            )
+                            .apply_max_message_size_config(
+                                max_decoding_message_size,
+                                max_encoding_message_size,
                             );
                         let res = grpc.unary(method, req).await;
                         Ok(res)
@@ -370,13 +460,15 @@ pub mod astro_ccd_service_server {
                                 super::super::request::CcdExposureRequest,
                             >,
                         ) -> Self::Future {
-                            let inner = self.0.clone();
+                            let inner = Arc::clone(&self.0);
                             let fut = async move { (*inner).expose(request).await };
                             Box::pin(fut)
                         }
                     }
                     let accept_compression_encodings = self.accept_compression_encodings;
                     let send_compression_encodings = self.send_compression_encodings;
+                    let max_decoding_message_size = self.max_decoding_message_size;
+                    let max_encoding_message_size = self.max_encoding_message_size;
                     let inner = self.inner.clone();
                     let fut = async move {
                         let inner = inner.0;
@@ -386,6 +478,10 @@ pub mod astro_ccd_service_server {
                             .apply_compression_config(
                                 accept_compression_encodings,
                                 send_compression_encodings,
+                            )
+                            .apply_max_message_size_config(
+                                max_decoding_message_size,
+                                max_encoding_message_size,
                             );
                         let res = grpc.unary(method, req).await;
                         Ok(res)
@@ -414,12 +510,14 @@ pub mod astro_ccd_service_server {
                 inner,
                 accept_compression_encodings: self.accept_compression_encodings,
                 send_compression_encodings: self.send_compression_encodings,
+                max_decoding_message_size: self.max_decoding_message_size,
+                max_encoding_message_size: self.max_encoding_message_size,
             }
         }
     }
     impl<T: AstroCcdService> Clone for _Inner<T> {
         fn clone(&self) -> Self {
-            Self(self.0.clone())
+            Self(Arc::clone(&self.0))
         }
     }
     impl<T: std::fmt::Debug> std::fmt::Debug for _Inner<T> {
@@ -427,8 +525,7 @@ pub mod astro_ccd_service_server {
             write!(f, "{:?}", self.0)
         }
     }
-    impl<T: AstroCcdService> tonic::transport::NamedService
-    for AstroCcdServiceServer<T> {
+    impl<T: AstroCcdService> tonic::server::NamedService for AstroCcdServiceServer<T> {
         const NAME: &'static str = "lightspeed.service.AstroCcdService";
     }
 }
@@ -436,27 +533,27 @@ pub mod astro_ccd_service_server {
 pub mod astro_efw_service_server {
     #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
     use tonic::codegen::*;
-    ///Generated trait containing gRPC methods that should be implemented for use with AstroEfwServiceServer.
+    /// Generated trait containing gRPC methods that should be implemented for use with AstroEfwServiceServer.
     #[async_trait]
     pub trait AstroEfwService: Send + Sync + 'static {
         async fn get_devices(
             &self,
             request: tonic::Request<super::super::request::GetDevicesRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::response::GetDevicesResponse>,
             tonic::Status,
         >;
         async fn set_property(
             &self,
             request: tonic::Request<super::super::request::SetPropertyRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::response::SetPropertyResponse>,
             tonic::Status,
         >;
         async fn calibrate(
             &self,
             request: tonic::Request<super::super::request::EfwCalibrationRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::response::EfwCalibrationResponse>,
             tonic::Status,
         >;
@@ -464,8 +561,10 @@ pub mod astro_efw_service_server {
     #[derive(Debug)]
     pub struct AstroEfwServiceServer<T: AstroEfwService> {
         inner: _Inner<T>,
-        accept_compression_encodings: (),
-        send_compression_encodings: (),
+        accept_compression_encodings: EnabledCompressionEncodings,
+        send_compression_encodings: EnabledCompressionEncodings,
+        max_decoding_message_size: Option<usize>,
+        max_encoding_message_size: Option<usize>,
     }
     struct _Inner<T>(Arc<T>);
     impl<T: AstroEfwService> AstroEfwServiceServer<T> {
@@ -478,6 +577,8 @@ pub mod astro_efw_service_server {
                 inner,
                 accept_compression_encodings: Default::default(),
                 send_compression_encodings: Default::default(),
+                max_decoding_message_size: None,
+                max_encoding_message_size: None,
             }
         }
         pub fn with_interceptor<F>(
@@ -488,6 +589,34 @@ pub mod astro_efw_service_server {
             F: tonic::service::Interceptor,
         {
             InterceptedService::new(Self::new(inner), interceptor)
+        }
+        /// Enable decompressing requests with the given encoding.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.accept_compression_encodings.enable(encoding);
+            self
+        }
+        /// Compress responses with the given encoding, if the client supports it.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.send_compression_encodings.enable(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.max_decoding_message_size = Some(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.max_encoding_message_size = Some(limit);
+            self
         }
     }
     impl<T, B> tonic::codegen::Service<http::Request<B>> for AstroEfwServiceServer<T>
@@ -502,7 +631,7 @@ pub mod astro_efw_service_server {
         fn poll_ready(
             &mut self,
             _cx: &mut Context<'_>,
-        ) -> Poll<Result<(), Self::Error>> {
+        ) -> Poll<std::result::Result<(), Self::Error>> {
             Poll::Ready(Ok(()))
         }
         fn call(&mut self, req: http::Request<B>) -> Self::Future {
@@ -527,13 +656,15 @@ pub mod astro_efw_service_server {
                                 super::super::request::GetDevicesRequest,
                             >,
                         ) -> Self::Future {
-                            let inner = self.0.clone();
+                            let inner = Arc::clone(&self.0);
                             let fut = async move { (*inner).get_devices(request).await };
                             Box::pin(fut)
                         }
                     }
                     let accept_compression_encodings = self.accept_compression_encodings;
                     let send_compression_encodings = self.send_compression_encodings;
+                    let max_decoding_message_size = self.max_decoding_message_size;
+                    let max_encoding_message_size = self.max_encoding_message_size;
                     let inner = self.inner.clone();
                     let fut = async move {
                         let inner = inner.0;
@@ -543,6 +674,10 @@ pub mod astro_efw_service_server {
                             .apply_compression_config(
                                 accept_compression_encodings,
                                 send_compression_encodings,
+                            )
+                            .apply_max_message_size_config(
+                                max_decoding_message_size,
+                                max_encoding_message_size,
                             );
                         let res = grpc.unary(method, req).await;
                         Ok(res)
@@ -568,7 +703,7 @@ pub mod astro_efw_service_server {
                                 super::super::request::SetPropertyRequest,
                             >,
                         ) -> Self::Future {
-                            let inner = self.0.clone();
+                            let inner = Arc::clone(&self.0);
                             let fut = async move {
                                 (*inner).set_property(request).await
                             };
@@ -577,6 +712,8 @@ pub mod astro_efw_service_server {
                     }
                     let accept_compression_encodings = self.accept_compression_encodings;
                     let send_compression_encodings = self.send_compression_encodings;
+                    let max_decoding_message_size = self.max_decoding_message_size;
+                    let max_encoding_message_size = self.max_encoding_message_size;
                     let inner = self.inner.clone();
                     let fut = async move {
                         let inner = inner.0;
@@ -586,6 +723,10 @@ pub mod astro_efw_service_server {
                             .apply_compression_config(
                                 accept_compression_encodings,
                                 send_compression_encodings,
+                            )
+                            .apply_max_message_size_config(
+                                max_decoding_message_size,
+                                max_encoding_message_size,
                             );
                         let res = grpc.unary(method, req).await;
                         Ok(res)
@@ -611,13 +752,15 @@ pub mod astro_efw_service_server {
                                 super::super::request::EfwCalibrationRequest,
                             >,
                         ) -> Self::Future {
-                            let inner = self.0.clone();
+                            let inner = Arc::clone(&self.0);
                             let fut = async move { (*inner).calibrate(request).await };
                             Box::pin(fut)
                         }
                     }
                     let accept_compression_encodings = self.accept_compression_encodings;
                     let send_compression_encodings = self.send_compression_encodings;
+                    let max_decoding_message_size = self.max_decoding_message_size;
+                    let max_encoding_message_size = self.max_encoding_message_size;
                     let inner = self.inner.clone();
                     let fut = async move {
                         let inner = inner.0;
@@ -627,6 +770,10 @@ pub mod astro_efw_service_server {
                             .apply_compression_config(
                                 accept_compression_encodings,
                                 send_compression_encodings,
+                            )
+                            .apply_max_message_size_config(
+                                max_decoding_message_size,
+                                max_encoding_message_size,
                             );
                         let res = grpc.unary(method, req).await;
                         Ok(res)
@@ -655,12 +802,14 @@ pub mod astro_efw_service_server {
                 inner,
                 accept_compression_encodings: self.accept_compression_encodings,
                 send_compression_encodings: self.send_compression_encodings,
+                max_decoding_message_size: self.max_decoding_message_size,
+                max_encoding_message_size: self.max_encoding_message_size,
             }
         }
     }
     impl<T: AstroEfwService> Clone for _Inner<T> {
         fn clone(&self) -> Self {
-            Self(self.0.clone())
+            Self(Arc::clone(&self.0))
         }
     }
     impl<T: std::fmt::Debug> std::fmt::Debug for _Inner<T> {
@@ -668,8 +817,7 @@ pub mod astro_efw_service_server {
             write!(f, "{:?}", self.0)
         }
     }
-    impl<T: AstroEfwService> tonic::transport::NamedService
-    for AstroEfwServiceServer<T> {
+    impl<T: AstroEfwService> tonic::server::NamedService for AstroEfwServiceServer<T> {
         const NAME: &'static str = "lightspeed.service.AstroEfwService";
     }
 }
