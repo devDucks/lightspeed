@@ -39,7 +39,7 @@ pub mod properties {
     }
 
     #[derive(Clone, Copy, Debug, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
-    struct Range<T> {
+    pub struct Range<T> {
         min: T,
         max: T,
     }
