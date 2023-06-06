@@ -45,15 +45,15 @@ pub mod properties {
     }
 
     impl<T> Range<T> {
-        fn new(min: T, max: T) -> Self {
+        pub fn new(min: T, max: T) -> Self {
             Self { min, max }
         }
 
-        fn max(&self) -> &T {
+        pub fn max(&self) -> &T {
             &self.max
         }
 
-        fn min(&self) -> &T {
+        pub fn min(&self) -> &T {
             &self.min
         }
     }
@@ -132,6 +132,7 @@ pub mod properties {
     #[cfg(test)]
     mod unit_tests {
         use super::{BoolProperty, Permission, Property};
+        use std::borrow::Cow;
 
         #[test]
         fn test_bool_prop_initialization() {
@@ -187,6 +188,42 @@ pub mod properties {
             match p.update(55) {
                 Ok(()) => {
                     assert_eq!(p.value(), &55_u64);
+                    Ok(())
+                }
+                Err(_) => Err(String::from(
+                    "It MUST be possible to update a WriteOnly property",
+                )),
+            }
+        }
+
+        #[test]
+        fn test_cow_borrow_prop_readwrite_can_be_written() -> Result<(), String> {
+            let mut p = Property::<Cow<'static, str>>::new(
+                Cow::Borrowed("test"),
+                Permission::ReadWrite,
+                None,
+            );
+            match p.update(Cow::Borrowed("done")) {
+                Ok(()) => {
+                    assert_eq!(p.value(), "done");
+                    Ok(())
+                }
+                Err(_) => Err(String::from(
+                    "It MUST be possible to update a WriteOnly property",
+                )),
+            }
+        }
+
+        #[test]
+        fn test_cow_owned_prop_readwrite_can_be_written() -> Result<(), String> {
+            let mut p = Property::<Cow<'static, str>>::new(
+                Cow::Owned(String::from("test")),
+                Permission::ReadWrite,
+                None,
+            );
+            match p.update(Cow::Owned(String::from("done"))) {
+                Ok(()) => {
+                    assert_eq!(p.value(), "done");
                     Ok(())
                 }
                 Err(_) => Err(String::from(
