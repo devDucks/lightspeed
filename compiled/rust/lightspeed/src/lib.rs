@@ -28,6 +28,7 @@ pub mod proto {
 pub mod properties {
     use serde::{Deserialize, Serialize};
 
+    #[derive(Debug)]
     pub enum PermissionError {
         CannotUpdateReadOnlyProp,
     }
@@ -39,21 +40,21 @@ pub mod properties {
     }
 
     #[derive(Clone, Copy, Debug, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
-    pub struct Range<T> {
+    struct Range<T> {
         min: T,
         max: T,
     }
 
     impl<T> Range<T> {
-        pub fn new(min: T, max: T) -> Self {
+        fn new(min: T, max: T) -> Self {
             Self { min, max }
         }
 
-        pub fn max(&self) -> &T {
+        fn max(&self) -> &T {
             &self.max
         }
 
-        pub fn min(&self) -> &T {
+        fn min(&self) -> &T {
             &self.min
         }
     }
