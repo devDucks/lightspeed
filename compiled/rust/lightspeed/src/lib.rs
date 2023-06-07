@@ -97,10 +97,18 @@ pub mod properties {
             }
         }
 
+        /// This method should be called when the client requests to update the value
+        /// so it must go through permissions checks.
         pub fn update(&mut self, value: T) -> Result<(), PermissionError> {
             self.update_allowed()?;
             self.val = value;
             Ok(())
+        }
+
+        /// This method should be called when the driver wants to update its internal state periodically.
+        /// This way no matter if a prop is read only or not, the driver can proced.
+        pub fn set_val(&mut self, value: T) {
+            self.val = value;
         }
     }
 
