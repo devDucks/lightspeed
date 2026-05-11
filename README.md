@@ -10,18 +10,23 @@ If I had to guess, today there are mainly two protocols to talk to astronomical 
 Let's look at pros/cons of these solutions.
 
 ## ASCOM
-TODO
+[ASCOM](https://ascom-standards.org/) is the long-standing standard for astronomical device drivers on Windows, built on COM.
 ### Pros
-TODO
+- Well-established ecosystem with a large number of existing drivers
+- Works well within the Windows ecosystem
 ### Cons
-TODO
+- Fundamentally platform-locked to Windows (built on COM)
+- Polling-oriented design — clients must query device state rather than receiving pushed updates
 
 ## ASCOM/Alpaca
-TODO
+[ASCOM Alpaca](https://www.ascom-standards.org/Developer/Alpaca.htm) is ASCOM's answer to cross-platform interoperability: it wraps the same ASCOM device interface in a REST/JSON HTTP API, making devices reachable over a network from any OS.
 ### Pros
-TODO
+- Cross-platform: reachable from any OS over HTTP
+- Reuses the existing ASCOM device interface, so existing ASCOM drivers can be wrapped with relatively little effort
+- JSON over HTTP is easy to consume from any language
 ### Cons
-TODO
+- Inherits ASCOM's polling-oriented design — clients must query device state rather than receiving pushed updates
+- REST over HTTP carries more overhead than a lightweight binary or message-broker-based protocol
 
 ## INDI
 The indi protocol is well documented and you can find the official spec [here](http://docs.indilib.org/protocol/).
@@ -34,12 +39,10 @@ The protocol is stateless and it uses XML to encode data between client and serv
 - well architected - there is enough room to move pieces around, one for example may want to run INDI server on a machine and the client on another one, and raw socket communication keeps the overall complexity low
 - works on UNIX
 ### Cons
-- XML - not going to lie here, XML is a protocol from the past that should find no room in the modern world, it is heavier (you need more bytes to store the same amount of data) and is definitely more complex to parse because of its tree-like nature
-- UNIX pipes - don't misunderestand me, personally I am huge fan of UNIX pipes, those are extremely fast and a joy to work with, this unfortunately has 2 downsides:
-  - work only on UNIX based OS
-  - processes talking to them must be on the same machine
-- client/server communication - this, from my experience is the biggest pain when working with INDI, the server process streams whatever messagge to all connected clients, leaving to the client the ability to filter out some messages. This makes hard to implement new clients (not based on the basic one provided by INDI itself) and do some read-only work for external statistics, data analysis and similar things.
-- UNIX - doesn't run on Windows
+- XML transport — XML itself is not without merit: it is human-readable, self-describing, and widely supported. However, INDI's use of it over raw sockets introduces real practical problems. There is no EOF marker or message framing: messages are a continuous stream of XML fragments, which means partial messages can arrive mid-read and parsers must buffer and reassemble them manually. This makes writing a robust, from-scratch INDI client significantly harder than it should be. XML is also more verbose than modern alternatives (JSON, MessagePack, etc.), which matters on low-bandwidth or embedded setups.
+- UNIX pipes — fast and elegant on UNIX, but they constrain the architecture: drivers must run on the same machine as the server, and the approach does not carry over to Windows.
+- Broadcast client/server communication — the server streams all messages to every connected client, leaving filtering entirely to the client side. This makes it difficult to write lightweight read-only consumers (e.g. for monitoring or data analysis) and complicates implementing new clients outside of the reference implementation.
+- UNIX-only — does not run on Windows.
 
 
 # A perfect world
@@ -62,11 +65,27 @@ Wouldn't be wonderful to have 1 driver that can be used in the same way on all p
 
 YES
 
-Welcome to protobuf, lightspeed compliant drivers will talk protocol buffers, if you don't know what are protobufs have a look [here](https://developers.google.com/protocol-buffers/) and this is why I opted for them:
-- declarative - you declare with an easy syntax the messaged that will be passed on the wire
-- portability - with protoc you define the messages and you will end up with **real code** in one of the supported language that can be immediately used to talk to whoever implements the same protocol
-- language agnostic - again, you can compile actually to a lot of languages, C#, Java, Python or even **Rust**
-- small format - the format is very small and it takes less space that other protocols like XML/JSON
-- fast - usually marshalling to/from messages is very very performant
+Lightspeed compliant drivers share a common communication spec, allowing either the server or the client to talk directly to devices in a language-agnostic way. Communication drivers may be implemented over any transport: UDS (Unix Domain Sockets), TCP sockets, MQTT, or even (PLEASE DON'T DO IT) HTTP API.
 
-Thanks to protobuf either the server or the client can talk directly to devices (even in different languages), the spec will be mantained and communication drivers may be implemented in every possible way, UDS (Unix Domain Sockets), pipes, TCP sockets or even (PLEASE DON'T DO IT) HTTP API
+# Device API
+
+Each device in the lightspeed ecosystem exposes a well-defined API. While the underlying transport may vary, all devices share a common set of conventions so that clients can interact with any device in a uniform way.
+
+## Common MQTT Topic API
+
+All lightspeed-compliant devices share the following MQTT topic structure:
+
+- `devices/{id}` — the device publishes its current state here. Clients subscribe to this topic to receive real-time updates whenever the device state changes. The payload is a JSON object reflecting the full or partial device state.
+- `devices/{id}/set` — clients publish to this topic to modify a device property. The payload is a JSON object containing the property name(s) and desired value(s).
+
+This push-based model means clients never need to poll; they simply subscribe and react to state changes as they arrive.
+
+## Device-specific APIs
+
+Each device type extends the common topic API with its own set of readable properties and writable commands. The sections below document the API for each supported device.
+
+### TODO: Camera
+### TODO: Mount
+### TODO: Focuser
+### TODO: Filter Wheel
+### TODO: Rotator
